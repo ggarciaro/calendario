@@ -1,19 +1,17 @@
-@import 'reset';
+@import './shared/reset.scss';
+@import 'navbar.scss';
 
+html {
+    font-size: 62.5%;
+    font-family: $regular-font;
+}
 
-// * {
-//     transform: translate(10px, 20px);
-// }
+p {
+  font-size: 1.2rem;
+}
 
-// ::placeholder {
-//   color: gray;
-// }
-
-// .image {
-//   background-image: url('https://camo.githubusercontent.com/f265315f74ed08b94e473cd7f6f04c291e59a8e2/687474703a2f2f706f73746373732e6769746875622e696f2f6175746f70726566697865722f6c6f676f2e737667');
-// }
-// @media (min-resolution: 2dppx) {
-//   .image {
-//     background-image: url('https://camo.githubusercontent.com/f265315f74ed08b94e473cd7f6f04c291e59a8e2/687474703a2f2f706f73746373732e6769746875622e696f2f6175746f70726566697865722f6c6f676f2e737667');
-//   }
-// }
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+} 

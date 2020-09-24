@@ -1,0 +1,17 @@
+
+$main-color: #004254;
+$secondary-color: #03657c;
+$selected-color: #fbbb21;
+$white-color: #ffffff;
+
+@font-face{
+    font-family: 'NeoSansStd-Medium';
+    src: url('./../public/assets/fonts/NeoSans-Medium.otf');
+}
+@font-face{
+    font-family: 'NeoSansStd-Regular';
+    src: url('./../public/assets/fonts/NeoSans-Light.otf');
+}
+
+$medium-font: 'NeoSansStd-Medium';
+$regular-font: 'NeoSansStd-Regular';

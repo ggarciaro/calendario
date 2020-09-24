@@ -9,7 +9,6 @@ module.exports = {
     // configuracion general
     // ================================================================================================
     mode: 'development', // development | production -> especifica si se realizan o no optimizaciones
-    devtool: 'source-map', // genera sourcemaps para facilitar el debugging
     entry: "./src/js/index.js", // determina el punto de entrada a partir del cual va deshilando los imports
     output: {
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
@@ -48,15 +47,17 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader',
-                ],
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/img/[name].[ext]'
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                  'file-loader',
-                ],
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/fonts/[name].[ext]'
+                }
             },
         ]
     },
@@ -66,7 +67,7 @@ module.exports = {
             inject: 'body'
         }),
         new MiniCssExtractPlugin({
-            filename: 'build.css',
+            filename: 'styles.css',
         }),
     ]
 }
