@@ -1,3 +1,3 @@
 import { main } from './main';
-import { navbar } from './navbar';
+import  './settings';
 import '../styles/main.scss';

@@ -139,6 +139,7 @@
         .holiday{
             &__header{
                 .title{
+                    padding: 0.5rem 4rem 0.5rem 0;
                     &__copy-tag{
                         display: flex;
                     }
@@ -153,8 +154,38 @@
     }
 }
 
+.notification-area{
+    position: fixed;
+    top: 68px;
+    right: 0;
+    width: calc(100% - 4.8rem);
+    max-width: 400px;
+    margin: 0 2.4rem;
+    
+    .notification{
+        display: flex;
+        align-items: center;
+        padding: 2.4rem 1.2rem;
+        margin-bottom: 1rem;
+        border-bottom: 3px solid $selected-color;
+        background-color: $gray-color;
+        font-family: $medium-font;
+        box-sizing: border-box;
+
+        &__close{
+            margin-left: auto;
+            cursor: pointer;
+        }
+    }
+
+}
+
 @media only screen and (max-width: 768px) {
     .title{
         padding: 1.25rem 0;
+    }
+
+    .notification{
+        top: 128px;
     }
 }
