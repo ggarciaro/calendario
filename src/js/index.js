@@ -1,7 +1,3 @@
-//import "@babel/polyfill"
-
-import { main } from './main'
-import '../styles/main.scss'
-
-main()
-
+import { main } from './main';
+import { navbar } from './navbar';
+import '../styles/main.scss';

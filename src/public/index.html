@@ -10,7 +10,7 @@
             <div class="navbar__main">
                 <img class="app-icon" src="./assets/img/navbar/app.svg" alt="app">
                 <p class="section">Calendarios laborales</p>
-                <p class="section--aux">Configuración</p>
+                <p class="section section--aux">Configuración</p>
             </div>
             <div class="navbar__secondary">
                 <img src="./assets/img/navbar/buscar.svg" alt="buscar">
@@ -22,12 +22,19 @@
                     <img src="./assets/img/navbar/logout.svg" alt="Salir">
                     <p class="logout__text">Salir</p>
                 </div>
+                <div class="logo">
+                    indra
+                </div>
             </div>
         </nav>
         <nav class="side-bar">
-            <img class="side-bar__icon" src="./assets/img/navbar/dashboard.svg" alt="dashboard">
-            <img class="side-bar__icon side-bar__icon--selected" src="./assets/img/navbar/setting.svg" alt="configuracion">
-            <img class="side-bar__icon" src="./assets/img/navbar/carousel-arrow-right.svg" alt="carousel">
+            <a class="side-bar__link" href="">
+                <img class="side-bar__icon" src="./assets/img/navbar/dashboard.svg" alt="dashboard" id="dashboard">
+            </a>
+            <a class="side-bar__link" href="">
+                <img class="side-bar__icon" src="./assets/img/navbar/setting.svg" alt="configuracion" id="settings">
+            </a>
+            <img class="side-bar__carousel" src="./assets/img/navbar/carousel-arrow-right.svg" alt="carousel" id="carousel">
         </nav>
     </body>
 </html>
