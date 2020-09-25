@@ -1,11 +1,5 @@
 @import './shared/theme.scss';
 
-.settings{
-    width: calc(100vw - 60px);
-    max-height: calc(100vh - 60px);
-    overflow: auto;
-}
-
 .holiday-selector{
     display: flex;
     width: 100%;
@@ -58,10 +52,3 @@
         background-color: $turquoise-color;
     }
 }
-
-@media only screen and (max-width: 768px){
-    .settings{
-        width: 100%;
-        max-height: none;
-    }
-  }

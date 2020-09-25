@@ -64,6 +64,10 @@
     }
 }
 
+.content{
+    display: flex;
+}
+
 .side-bar{
     display: flex;
     flex-direction: column;
@@ -97,8 +101,19 @@
     }
 }
 
+.wrapper{
+    width: calc(100vw - 60px);
+    max-height: calc(100vh - 60px);
+    overflow: auto;
+}
+
 
 @media only screen and (max-width: 768px) {
+
+    .content{
+        flex-direction: column;
+    }
+
     .side-bar{
         flex-direction: row;
         align-items: flex-end;
@@ -122,6 +137,11 @@
                 border-bottom-color: $selected-color;
             }
         }
+    }
+
+    .wrapper{
+        width: 100%;
+        max-height: none;
     }
 
     .section, .logo, .logout__text, .side-bar__carousel{
