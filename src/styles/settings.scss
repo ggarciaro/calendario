@@ -1,0 +1,67 @@
+@import './shared/theme.scss';
+
+.settings{
+    width: calc(100vw - 60px);
+    max-height: calc(100vh - 60px);
+    overflow: auto;
+}
+
+.holiday-selector{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid $gray-color;
+
+    &__option{
+        font-size: 1.4rem;
+        padding: 2.2rem 0 1.8rem 0;
+        margin: 0 2.2rem;
+        cursor: pointer;
+
+        &--selected{
+            color: $secondary-color;
+            border-bottom: 0.4rem solid $selected-color;
+        }
+    }
+}
+
+.card{
+    margin: 2.2rem;
+    max-width: 1032px;
+    box-sizing: border-box;
+}
+
+.filters{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: $gray-color;
+
+    &__results{
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        color: $main-color;
+    }
+
+    &__toggle{
+        cursor: pointer;
+    }
+}
+
+.holiday{
+    display: flex;
+    border: 1px solid $gray-color;
+
+    &__decorator{
+        margin: 0.5rem;
+        width: 0.8rem;
+        height: 100%;
+        background-color: $turquoise-color;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .settings{
+        width: 100%;
+        max-height: none;
+    }
+  }

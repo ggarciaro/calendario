@@ -26,6 +26,7 @@
         .section{
             font-size: 1.6rem;
             font-family: $medium-font;
+            color: $white-color;
     
             &--aux{
                 border-left: 1px solid $white-color;
@@ -53,6 +54,7 @@
             align-items: center;
             &__text{
                 margin: 0.2rem 0 0 0.5rem;
+                color: $white-color;
             }
         }
         .logo{

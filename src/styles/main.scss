@@ -1,5 +1,6 @@
 @import './shared/reset.scss';
 @import 'navbar.scss';
+@import 'settings.scss';
 
 html {
     font-size: 62.5%;
@@ -8,9 +9,20 @@ html {
 
 p {
   font-size: 1.2rem;
+  color: $main-color;
 }
 
-@media (max-width: 450px) {
+.content{
+  display: flex;
+}
+
+@media only screen and (max-width: 768px){
+  .content{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 450px) {
   html {
     font-size: 50%;
   }
