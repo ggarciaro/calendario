@@ -38,9 +38,14 @@
     }
 
     &__results{
+        display: flex;
+        align-items: center;
         font-weight: bold;
         font-family: Arial, Helvetica, sans-serif;
         color: $main-color;
+        span{
+            margin-right: 0.5rem;
+        }
     }
 
     &__toggle{
@@ -210,13 +215,17 @@
 
 }
 
-.modal{
+.date-picker .modal{
     &__body{
+        border-bottom: 1px solid $gray-color;
+
         .filters{
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: flex-start;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $gray-color;
 
             .combo{
                 display: flex;
@@ -248,6 +257,109 @@
                         font-family: Arial, Helvetica, sans-serif;
                         color: $main-color;
                     }
+                }
+            }
+        }
+    }
+}
+
+.calendar{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    padding-top: 2rem;
+}
+
+.month{
+    margin: 0 1rem 3rem 0;
+    &__name{
+        font-family: $medium-font;
+        font-size: 1.4rem;
+        color: $main-color;
+        margin-bottom: 1rem;
+    }
+    &__row{
+        display: flex;
+
+        &:first-of-type .month__item{
+            background-color: transparent !important;
+        }
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        color: $main-color;
+        border-radius: 100%;
+        margin: 0.25rem;
+        cursor: pointer;
+        box-sizing: border-box;
+
+        &:hover {
+            border: 2px solid $gray-color;
+        }
+
+        &:nth-child(6), &:nth-child(7){
+            background-color: rgba(232, 232, 232, 0.3);
+        }
+
+        &--light{
+            color: rgba(3, 101, 124, 0.4);
+            cursor: auto;
+            &:hover{
+                border: none !important;
+            }
+        }
+
+        &--holiday{
+            background-color: $turquoise-color !important;
+            color: $white-color;
+        }
+
+        &--today{
+            background-color: $selected-color !important;
+            color: $white-color;
+        }
+    }
+}
+
+.name-form .modal{
+    &__body{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 2rem;
+
+        .field{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            max-width: 400px;
+            min-width: 300px;
+            width: 40%;
+
+            &__name{
+                font-family: Arial, Helvetica, sans-serif;
+                margin-bottom: 1rem;
+            }
+            &__input{
+                width: calc(100% - 4rem);
+                font-size: 1.2rem;
+                font-family: Arial, Helvetica, sans-serif;
+                color: $main-color;
+                border: 2px solid $gray-color;
+                height: 3.2rem;
+                padding: 0 1rem;
+
+                &:focus{
+                    border-color: $main-color;
+                    box-shadow: none;
+                    outline: 0;
                 }
             }
         }

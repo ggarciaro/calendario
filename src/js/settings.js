@@ -34,7 +34,29 @@ const toggleFilter = () => {
     }
 }
 
+const saveCalendar = () => {
+    const calendarModal = document.getElementsByClassName('modal')[0];
+    const changeNameModal = document.getElementsByClassName('modal')[1];
+    calendarModal.style.display = 'none';
+    changeNameModal.style.display = 'block';
+}
+
+const returnCalendar = () => {
+    const calendarModal = document.getElementsByClassName('modal')[0];
+    const changeNameModal = document.getElementsByClassName('modal')[1];
+    calendarModal.style.display = 'block';
+    changeNameModal.style.display = 'none';
+}
+
+const finishCalendarEdition = () => {
+    closeDialog(document.getElementById('popUp'));
+    showDialog('editar');
+}
+
 window.closeDialog = closeDialog;
 window.showDialog = showDialog;
 window.toggleHoliday = toggleHoliday;
 window.toggleFilter = toggleFilter;
+window.saveCalendar = saveCalendar;
+window.returnCalendar = returnCalendar;
+window.finishCalendarEdition = finishCalendarEdition;

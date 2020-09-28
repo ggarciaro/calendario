@@ -134,7 +134,7 @@
                                         <img class="action__img" src="./assets/img/settings/plus.svg" alt="Duplicar">
                                         <p class="action__text">Duplicar</p>
                                     </div>
-                                    <div class="action">
+                                <div class="action" onclick="document.getElementById('popUp').style.display = 'flex'">
                                         <img class="action__img" src="./assets/img/settings/pencil.svg" alt="Editar">
                                         <p class="action__text">Editar</p>
                                     </div>
@@ -192,15 +192,20 @@
                 </div>
                 <!-- Empieza area notificacion -->
                 <div class="notification-area" id="notifications">
-                    
+                    <div class="notification">
+                        <img class="notification__ok-icon" src="./assets/img/settings/ok.svg" alt="Operacion correcta">
+                        <p class="notification__text">Card duplicada correctamente</p>
+                        <img class="notification__close" src="./assets/img/settings/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
+                    </div>
                 </div>
                 <!-- Termina area notificacion -->
             <!-- Termina aquí el módulo de configuracion -->
             </div>
         </div>
-        <div class="modal-container"  id="popUp">
+        <!-- Empieza modal -->
+        <div class="modal-container"  id="popUp" style="display: none;">
             <div class="modal-container__content">
-                <div class="modal">
+                <div class="modal date-picker">
                     <div class="modal__header">
                         <h3>Editar fiestas autonómicas</h3>
                         <img class="close-icon" src="./assets/img/settings/close-white.svg" alt="Cerrar" onclick="closeDialog(document.getElementById('popUp'))">
@@ -233,16 +238,841 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="calendar">
+                            <div class="month">
+                                <h3 class="month__name">Enero</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Febrero</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Marzo</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Abril</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Mayo</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Junio</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Julio</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Agosto</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Septiembre</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Octubre</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Noviembre</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item month__item--today">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <h3 class="month__name">Diciembre</h3>
+                                <div class="month__row">
+                                    <div class="month__item">L</div>
+                                    <div class="month__item">M</div>
+                                    <div class="month__item">X</div>
+                                    <div class="month__item">J</div>
+                                    <div class="month__item">V</div>
+                                    <div class="month__item">S</div>
+                                    <div class="month__item">D</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item month__item--light">26</div>
+                                    <div class="month__item month__item--light">27</div>
+                                    <div class="month__item month__item--light">28</div>
+                                    <div class="month__item month__item--light">29</div>
+                                    <div class="month__item month__item--light">30</div>
+                                    <div class="month__item month__item--light">31</div>
+                                    <div class="month__item month__item--holiday">1</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">2</div>
+                                    <div class="month__item">3</div>
+                                    <div class="month__item">4</div>
+                                    <div class="month__item">5</div>
+                                    <div class="month__item">6</div>
+                                    <div class="month__item">7</div>
+                                    <div class="month__item">8</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">9</div>
+                                    <div class="month__item">10</div>
+                                    <div class="month__item">11</div>
+                                    <div class="month__item">12</div>
+                                    <div class="month__item">13</div>
+                                    <div class="month__item">14</div>
+                                    <div class="month__item">15</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">16</div>
+                                    <div class="month__item ">17</div>
+                                    <div class="month__item">18</div>
+                                    <div class="month__item">19</div>
+                                    <div class="month__item">20</div>
+                                    <div class="month__item">21</div>
+                                    <div class="month__item">22</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">23</div>
+                                    <div class="month__item">24</div>
+                                    <div class="month__item">25</div>
+                                    <div class="month__item">26</div>
+                                    <div class="month__item">27</div>
+                                    <div class="month__item">28</div>
+                                    <div class="month__item">29</div>
+                                </div>
+                                <div class="month__row">
+                                    <div class="month__item">30</div>
+                                    <div class="month__item month__item--light">1</div>
+                                    <div class="month__item month__item--light">2</div>
+                                    <div class="month__item month__item--light">3</div>
+                                    <div class="month__item month__item--light">4</div>
+                                    <div class="month__item month__item--light">5</div>
+                                    <div class="month__item month__item--light">6</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal__footer">
                         <p class="total">Días seleccionados <span>5</span></p>
                         <div class="btn-container">
-                            <div class="modal-btn modal-btn--secondary">Cancelar</div>
-                            <div class="modal-btn">Guardar</div>
+                            <div class="modal-btn modal-btn--secondary" onclick="closeDialog(document.getElementById('popUp'))">Cancelar</div>
+                            <div class="modal-btn" onclick="saveCalendar()">Guardar</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal name-form" style="display: none;">
+                    <div class="modal__header">
+                        <h3>Editar nombres de fiestas seleccionadas</h3>
+                        <img class="close-icon" src="./assets/img/settings/close-white.svg" alt="Cerrar" onclick="closeDialog(document.getElementById('popUp'))">
+                    </div>
+                    <div class="modal__body">
+                        <div class="field">
+                            <p class="field__name">01/01/2020</p>
+                            <input type="text" class="field__input">
+                        </div>
+                        <div class="field">
+                            <p class="field__name">01/01/2020</p>
+                            <input type="text" class="field__input">
+                        </div>
+                        <div class="field">
+                            <p class="field__name">01/01/2020</p>
+                            <input type="text" class="field__input">
+                        </div>
+                        <div class="field">
+                            <p class="field__name">01/01/2020</p>
+                            <input type="text" class="field__input">
+                        </div>
+                    </div>
+                    <div class="modal__footer">
+                        <div class="btn-container">
+                            <div class="modal-btn modal-btn--secondary" onclick="returnCalendar()">Cancelar</div>
+                            <div class="modal-btn" onclick="finishCalendarEdition()">Guardar</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Termina modal -->
     </body>
 </html>
