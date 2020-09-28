@@ -9,11 +9,13 @@ $turquoise-color: #3df2e0;
 
 @font-face{
     font-family: 'NeoSansStd-Medium';
-    src: url('./../public/assets/fonts/AM263_.ttf');
+    src: url('./../public/assets/fonts/AM265_.ttf'),
+         url('./../public/assets/fonts/NeoSans-Medium.otf');
 }
 @font-face{
     font-family: 'NeoSansStd-Regular';
-    src: url('./../public/assets/fonts/AM261_.ttf');
+    src: url('./../public/assets/fonts/AM263_.ttf'),
+         url('./../public/assets/fonts/NeoSans-Light.otf');
 }
 
 $medium-font: 'NeoSansStd-Medium';

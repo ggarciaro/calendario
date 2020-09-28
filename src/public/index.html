@@ -48,6 +48,7 @@
                         <!-- El span indica el número de resultados -->
                         <p class="filters__results"><span>6</span> registros</p>
                         <div class="filters__toggle" onclick="toggleFilter()">
+                            <img src="./assets/img/settings/filters.svg" alt="Filtros">
                             <p><span id="filterToggleTxt">Mostrar</span> filtros</p>
                         </div>
                     </div>
@@ -64,7 +65,6 @@
                                     <option value="all">Todos</option>
                                     <option value="all">Todos</option>
                                 </select>
-                                <span class="focus"></span>
                             </div>
                         </div>
                         <div class="combo">
@@ -73,7 +73,6 @@
                                 <select name="ccaa" id="ccaa">
                                     <option value="all">Todos</option>
                                 </select>
-                                <span class="focus"></span>
                             </div>
                         </div>
                     </div>
@@ -197,6 +196,52 @@
                 </div>
                 <!-- Termina area notificacion -->
             <!-- Termina aquí el módulo de configuracion -->
+            </div>
+        </div>
+        <div class="modal-container"  id="popUp">
+            <div class="modal-container__content">
+                <div class="modal">
+                    <div class="modal__header">
+                        <h3>Editar fiestas autonómicas</h3>
+                        <img class="close-icon" src="./assets/img/settings/close-white.svg" alt="Cerrar" onclick="closeDialog(document.getElementById('popUp'))">
+                    </div>
+                    <div class="modal__body">
+                        <div class="filters">
+                            <div class="combo">
+                                <p class="combo__tag">Año</p>
+                                <div class="combo__options">
+                                    <select name="year">
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="combo">
+                                <p class="combo__tag">Comunidad</p>
+                                <div class="combo__options">
+                                    <select name="ccaa">
+                                        <option value="2020">Comunidad de Madrid</option>
+                                        <option value="2019">Comunidad de Castilla y León</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="legend">
+                                <div class="color">
+                                    <div class="color__sample"></div>
+                                    <div class="color__tag">Hoy</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__footer">
+                        <p class="total">Días seleccionados <span>5</span></p>
+                        <div class="btn-container">
+                            <div class="modal-btn modal-btn--secondary">Cancelar</div>
+                            <div class="modal-btn">Guardar</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
