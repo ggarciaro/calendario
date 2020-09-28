@@ -23,7 +23,7 @@
                     <p class="logout__text">Salir</p>
                 </div>
                 <div class="logo">
-                    indra
+                    <img src="./assets/img/navbar/logo.svg" alt="Logo Indra">
                 </div>
             </div>
         </nav>
@@ -40,14 +40,42 @@
             <div class="wrapper">
             <!-- Empieza aqui el modulo de configuracion -->
                 <header class="holiday-selector">
-                    <p class="holiday-selector__option holiday-selector__option--selected">Fiestas autonómicas</p>
-                    <p class="holiday-selector__option">Fiestas nacionales</p>
+                    <p class="holiday-selector__option holiday-selector__option--selected" onclick="toggleHoliday(this)">Fiestas autonómicas</p>
+                    <p class="holiday-selector__option" onclick="toggleHoliday(this)">Fiestas nacionales</p>
                 </header>
                 <div class="card filters">
-                    <!-- El span indica el número de resultados -->
-                    <p class="filters__results"><span>6</span> registros</p>
-                    <div class="filters__toggle">
-                        <p>Mostrar filtros</p>
+                    <div class="filters__main">
+                        <!-- El span indica el número de resultados -->
+                        <p class="filters__results"><span>6</span> registros</p>
+                        <div class="filters__toggle" onclick="toggleFilter()">
+                            <p><span id="filterToggleTxt">Mostrar</span> filtros</p>
+                        </div>
+                    </div>
+                    <div class="filters__options filters__options--hide">
+                        <div class="combo">
+                            <p class="combo__tag">Año</p>
+                            <div class="combo__options">
+                                <select name="year" id="year">
+                                    <option value="all">Todos</option>
+                                    <option value="all">Todos</option>
+                                    <option value="all">Todos</option>
+                                    <option value="all">Todos</option>
+                                    <option value="all">Todos</option>
+                                    <option value="all">Todos</option>
+                                    <option value="all">Todos</option>
+                                </select>
+                                <span class="focus"></span>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <p class="combo__tag">Comunidad Autónoma</p>
+                            <div class="combo__options">
+                                <select name="ccaa" id="ccaa">
+                                    <option value="all">Todos</option>
+                                </select>
+                                <span class="focus"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Comienza tarjeta de festividad -->
@@ -103,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="holiday__actions">
-                                    <div class="action">
+                                    <div class="action" onclick="showDialog('duplicada')">
                                         <img class="action__img" src="./assets/img/settings/plus.svg" alt="Duplicar">
                                         <p class="action__text">Duplicar</p>
                                     </div>
@@ -163,18 +191,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- Empieza notificacion -->
+                <!-- Empieza area notificacion -->
                 <div class="notification-area" id="notifications">
-                    <div class="notification">
-                        <p class="notification__text">Card duplicada correctamente</p>
-                        <img class="notification__close" src="./assets/img/settings/close.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
-                    </div>
-                    <div class="notification">
-                        <p class="notification__text">Card duplicada correctamente</p>
-                        <img class="notification__close" src="./assets/img/settings/close.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
-                    </div>
+                    
                 </div>
-                <!-- Termina notificacion -->
+                <!-- Termina area notificacion -->
             <!-- Termina aquí el módulo de configuracion -->
             </div>
         </div>

@@ -1,4 +1,3 @@
-
 const closeDialog = (dialog) => dialog.remove();
 
 const showDialog = (type) => {
@@ -23,6 +22,18 @@ const toggleHoliday = (holiday) => {
     }
 };
 
+const toggleFilter = () => {
+    const filtersOptions = document.getElementsByClassName('filters__options')[0];
+    if (filtersOptions.classList.contains('filters__options--hide')) {
+        filtersOptions.classList.remove('filters__options--hide');
+        document.getElementById('filterToggleTxt').innerText = 'Ocultar';
+    } else {
+        filtersOptions.classList.add('filters__options--hide');
+        document.getElementById('filterToggleTxt').innerText = 'Mostrar';
+    }
+}
+
 window.closeDialog = closeDialog;
 window.showDialog = showDialog;
 window.toggleHoliday = toggleHoliday;
+window.toggleFilter = toggleFilter;
