@@ -50,7 +50,7 @@ const returnCalendar = () => {
 
 const finishCalendarEdition = () => {
     closeDialog(document.getElementById('popUp'));
-    showDialog('editar');
+    showDialog('editada');
 }
 
 window.closeDialog = closeDialog;
