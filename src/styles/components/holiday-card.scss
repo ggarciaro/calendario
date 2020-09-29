@@ -7,7 +7,8 @@
     &__decorator{
         width: 100%;
         margin: 0.5rem;
-        border-left: 0.8rem solid $turquoise-color;
+        border-left-width: 0.8rem;
+        border-left-style: solid;
     }
 
     &__info{
@@ -83,32 +84,80 @@
     &__dates{
         display: flex;
         flex-wrap: wrap;
-        padding: 1.5rem 2rem 1rem 2rem;
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
         
         .date{
+            display: flex;
+            align-items: center;
             font-size: 1.1rem;
             font-family: $medium-font;
             margin: 0 0.8rem 0.8rem 0;
             padding: 1rem 1.7rem 0.8rem 1.7rem;
             background-color: $gray-color;
-            color: $dark-gray-color;
+
+            &__text{
+                color: $dark-gray-color;
+            }
+
+            &__close{
+                margin-left: 1rem;
+            }
         }
     }
-    &--copy{
-        .holiday{
-            &__header{
-                .title{
-                    padding: 0.5rem 4rem 0.5rem 0;
-                    &__copy-tag{
-                        display: flex;
-                    }
+
+    &--copy &{
+        &__header{
+            .title{
+                padding: 0.5rem 4rem 0.5rem 0;
+                &__copy-tag{
+                    display: flex;
                 }
             }
-            &__actions{
-                .action:first-child{
+        }
+        &__actions{
+            .action:first-child{
+                display: none;
+            }
+        }
+    }
+
+    &--autonom &{
+        &__decorator{
+            border-left-color: $turquoise-color;
+        }
+        &__dates{
+            .date{
+                &__close{
                     display: none;
                 }
             }
+        }
+    }
+    &--local &{
+        &__decorator{
+            border-left-color: $rose-color;
+        }
+    }
+    &--national &{
+        &__decorator{
+            border-left-color: $purple-color;
+        }
+        &__dates{
+            .date{
+                &__close{
+                    display: none;
+                }
+            }
+        }
+    }
+    &--off &{
+        &__decorator{
+            border-left-color: $green-color;
+        }
+    }
+    &--no-actions &{
+        &__actions{
+            display: none;
         }
     }
 }

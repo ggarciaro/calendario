@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <!-- Comienza tarjeta de festividad -->
-                <div class="card holiday holiday--copy">
+                <div class="card holiday holiday--copy holiday--autonom">
                     <div class="holiday__decorator">
                         <div class="holiday__info">
                             <div class="holiday__header">
@@ -88,35 +88,47 @@
                                     </h3>
                                     <div class="title__copy-tag">
                                         <p>COPIA</p>
-                                        <img src="./assets/img/settings/copy.svg" alt="Copia">
+                                        <img src="./assets/img/common/copy.svg" alt="Copia">
                                     </div>
                                 </div>
                                 <div class="holiday__actions">
                                     <div class="action">
-                                        <img class="action__img" src="./assets/img/settings/plus.svg" alt="Duplicar">
+                                        <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                         <p class="action__text">Duplicar</p>
                                     </div>
-                                    <div class="action">
-                                        <img class="action__img" src="./assets/img/settings/pencil.svg" alt="Editar">
+                                    <div class="action" onclick="document.getElementById('popUp').style.display = 'flex'">
+                                        <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                         <p class="action__text">Editar</p>
                                     </div>
                                     <div class="action">
-                                        <img class="action__img" src="./assets/img/settings/delete.svg" alt="Eliminar">
+                                        <img class="action__img" src="./assets/img/common/delete.svg" alt="Eliminar">
                                         <p class="action__text">Eliminar</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="holiday__dates">
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Termina tarjeta de festividad -->
-                <div class="card holiday">
+                <div class="card holiday holiday--autonom">
                     <div class="holiday__decorator">
                         <div class="holiday__info">
                             <div class="holiday__header">
@@ -126,34 +138,46 @@
                                     </h3>
                                     <div class="title__copy-tag">
                                         <p>COPIA</p>
-                                        <img src="./assets/img/settings/copy.svg" alt="Copia">
+                                        <img src="./assets/img/common/copy.svg" alt="Copia">
                                     </div>
                                 </div>
                                 <div class="holiday__actions">
-                                    <div class="action" onclick="showDialog('duplicada')">
-                                        <img class="action__img" src="./assets/img/settings/plus.svg" alt="Duplicar">
+                                    <div class="action" onclick="showNotification('Card duplicada correctamente')">
+                                        <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                         <p class="action__text">Duplicar</p>
                                     </div>
                                 <div class="action" onclick="document.getElementById('popUp').style.display = 'flex'">
-                                        <img class="action__img" src="./assets/img/settings/pencil.svg" alt="Editar">
+                                        <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                         <p class="action__text">Editar</p>
                                     </div>
                                     <div class="action">
-                                        <img class="action__img" src="./assets/img/settings/delete.svg" alt="Eliminar">
+                                        <img class="action__img" src="./assets/img/common/delete.svg" alt="Eliminar">
                                         <p class="action__text">Eliminar</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="holiday__dates">
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card holiday">
+                <div class="card holiday holiday--autonom">
                     <div class="holiday__decorator">
                         <div class="holiday__info">
                             <div class="holiday__header">
@@ -163,29 +187,41 @@
                                     </h3>
                                     <div class="title__copy-tag">
                                         <p>COPIA</p>
-                                        <img src="./assets/img/settings/copy.svg" alt="Copia">
+                                        <img src="./assets/img/common/copy.svg" alt="Copia">
                                     </div>
                                 </div>
                                 <div class="holiday__actions">
-                                    <div class="action">
-                                        <img class="action__img" src="./assets/img/settings/plus.svg" alt="Duplicar">
+                                    <div class="action" onclick="showNotification('Card duplicada correctamente')">
+                                        <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                         <p class="action__text">Duplicar</p>
                                     </div>
-                                    <div class="action">
-                                        <img class="action__img" src="./assets/img/settings/pencil.svg" alt="Editar">
+                                <div class="action" onclick="document.getElementById('popUp').style.display = 'flex'">
+                                        <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                         <p class="action__text">Editar</p>
                                     </div>
                                     <div class="action">
-                                        <img class="action__img" src="./assets/img/settings/delete.svg" alt="Eliminar">
+                                        <img class="action__img" src="./assets/img/common/delete.svg" alt="Eliminar">
                                         <p class="action__text">Eliminar</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="holiday__dates">
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
-                                <p class="date">03/01/2020</p>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
+                                <div class="date">
+                                    <p class="date__text">03/01/2020</p>
+                                    <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -193,9 +229,9 @@
                 <!-- Empieza area notificacion -->
                 <div class="notification-area" id="notifications">
                     <div class="notification">
-                        <img class="notification__ok-icon" src="./assets/img/settings/ok.svg" alt="Operacion correcta">
+                        <img class="notification__ok-icon" src="./assets/img/common/ok.svg" alt="Operacion correcta">
                         <p class="notification__text">Card duplicada correctamente</p>
-                        <img class="notification__close" src="./assets/img/settings/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
+                        <img class="notification__close" src="./assets/img/common/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
                     </div>
                 </div>
                 <!-- Termina area notificacion -->
@@ -208,7 +244,7 @@
                 <div class="modal date-picker">
                     <div class="modal__header">
                         <h3>Editar fiestas autonómicas</h3>
-                        <img class="close-icon" src="./assets/img/settings/close-white.svg" alt="Cerrar" onclick="closeDialog(document.getElementById('popUp'))">
+                        <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeDialog(document.getElementById('popUp'))">
                     </div>
                     <div class="modal__body">
                         <div class="filters">
@@ -1044,7 +1080,7 @@
                 <div class="modal name-form" style="display: none;">
                     <div class="modal__header">
                         <h3>Editar nombres de fiestas seleccionadas</h3>
-                        <img class="close-icon" src="./assets/img/settings/close-white.svg" alt="Cerrar" onclick="closeDialog(document.getElementById('popUp'))">
+                        <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeDialog(document.getElementById('popUp'))">
                     </div>
                     <div class="modal__body">
                         <div class="field">
