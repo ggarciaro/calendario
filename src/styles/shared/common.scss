@@ -45,6 +45,17 @@
     }
 }
 
+.btn {
+    color: $main-color;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: 2px solid $selected-color;
+    cursor: pointer;
+
+    &--secondary{
+        border: none;
+    }
+}
 
 
 @media only screen and (max-width: 500px) {

@@ -63,8 +63,12 @@ module.exports = {
     },
     plugins: [ 
         new HtmlWebpackPlugin({
-            template: __dirname + "/src/public/index.html",
-            inject: 'body'
+            filename: 'index.html',
+            template: 'src/public/index.html',
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'settings.html',
+            template: 'src/public/settings.html',
         }),
         new MiniCssExtractPlugin({
             filename: 'styles.css',

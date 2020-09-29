@@ -1,0 +1,86 @@
+@import './shared/theme.scss';
+
+.filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid $gray-color;
+
+    &__year{
+        display: flex;
+        align-items: center;
+
+        &>*{
+            margin-right: 0.5rem;
+        }
+
+        .combo{
+            display: flex;
+            align-items: center;
+            min-width: 130px;
+
+            &__tag{
+                font-family: $medium-font;
+                font-size: 1.6rem;
+                margin: 0 1rem 0 0;
+            }
+
+            &__options{
+                width: 100%;
+            }
+        }
+        .increaser{
+            padding: 0.5rem;
+            background-color: $gray-color;
+            cursor: pointer;
+        }
+    }
+
+    &__searcher{
+        display: flex;
+        align-items: center;
+        &>*{
+            margin-right: 1.5rem;
+        }
+        .field{
+            min-width: 10rem;
+            max-width: 15rem;
+            flex-grow: 1;
+            box-sizing: border-box;
+            height: 3rem;
+            border-width: 0 0 1px 0;
+            border-color: $main-color;
+            border-style: solid;
+            font-size: 1.4rem;
+            padding: 0.6rem 0 1rem 0;
+            color: $main-color;
+
+            &::placeholder{
+                color: $main-color;
+            }
+
+            &:focus{
+                outline: 0;
+            }
+        }
+
+        .search-btn{
+            padding: 0.5rem;
+            background-color: $gray-color;
+            cursor: pointer;
+        }
+    }
+
+    &__actions{
+        display: flex;
+
+        .btn {
+            padding: 1rem 1.5rem;
+
+            &:first-child{
+                margin-right: 1rem;
+            }
+        }
+    }
+}
