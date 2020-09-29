@@ -1,0 +1,121 @@
+@import './../shared/theme.scss';
+
+.holiday{
+    display: flex;
+    border: 1px solid $gray-color;
+
+    &__decorator{
+        width: 100%;
+        margin: 0.5rem;
+        border-left: 0.8rem solid $turquoise-color;
+    }
+
+    &__info{
+        flex-grow: 1;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 2rem;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid $gray-color;
+
+        .title{
+            display: flex;
+            align-items: center;
+            padding: 1.25rem 4rem 1.25rem 0;
+
+            &__text {
+                font-size: 1.8rem;
+                font-family: $medium-font;
+                color: $main-color;
+            }
+
+            &__copy-tag{
+                display: none;
+                align-items: center;
+                width: auto;
+                background-color: $gray-color;
+                border-radius: 4px;
+                padding: 0 1rem;
+                margin-left: 2rem;
+                
+                p{
+                    font-size: 1.1rem;
+                    font-family: $medium-font;
+                    color: $dark-gray-color;
+                }
+
+                img {
+                    width: 2rem;
+                    margin: 0.6rem 0 0.6rem 1rem;
+                }
+            }
+
+        }
+
+    }
+    
+    
+    &__actions{
+        display: flex;
+        
+        .action{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-right: 4rem;
+            
+            &__text{
+                margin-left: 1rem;
+            }
+            &__img{
+                width: 2rem;
+            }
+            &:last-child{
+                margin-right: 1rem;
+            }
+        }
+    }
+    
+    &__dates{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1.5rem 2rem 1rem 2rem;
+        
+        .date{
+            font-size: 1.1rem;
+            font-family: $medium-font;
+            margin: 0 0.8rem 0.8rem 0;
+            padding: 1rem 1.7rem 0.8rem 1.7rem;
+            background-color: $gray-color;
+            color: $dark-gray-color;
+        }
+    }
+    &--copy{
+        .holiday{
+            &__header{
+                .title{
+                    padding: 0.5rem 4rem 0.5rem 0;
+                    &__copy-tag{
+                        display: flex;
+                    }
+                }
+            }
+            &__actions{
+                .action:first-child{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .title{
+        padding: 1.25rem 0;
+    }
+}

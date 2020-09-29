@@ -1,5 +1,9 @@
 @import './shared/reset.scss';
 @import './shared/common.scss';
+@import './components/modal.scss';
+@import './components/calendar.scss';
+@import './components/holiday-card.scss';
+@import './components/notification.scss';
 @import 'navbar.scss';
 @import 'settings.scss';
 
@@ -17,4 +21,4 @@ p {
   html {
     font-size: 50%;
   }
-} 
+}
