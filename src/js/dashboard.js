@@ -1,9 +1,9 @@
 const toggleControllers = () => {
-    const checkedInputs = document.getElementsByClassName('table__body')[0].querySelector('input:checked');
+    const hasCheckedInputs = document.getElementsByClassName('table__body')[0].querySelectorAll('input:checked').length > 0;
     const controllers = document.getElementById('tableControllers');
     const dashboardContainer = document.getElementById('dashboardContainer');
 
-    if (checkedInputs) {
+    if (hasCheckedInputs) {
         controllers.style.display = 'flex';
         dashboardContainer.style.padding = '1rem 2rem 7rem 2rem';
     } else {
@@ -15,12 +15,23 @@ const toggleControllers = () => {
 const toggleCheckAll = (isChecked) => {
     const inputs = document.getElementsByClassName('table__body')[0].querySelectorAll('.custom-checkbox__input');
     if (inputs) {
-        for (input of inputs) {
-            input.checked = isChecked;
+        for (let i = 0 ; i < inputs.length; i++) {
+            inputs[i].checked = isChecked;
         }
     }
     toggleControllers();
 };
 
-window.toggleControllers = toggleControllers;
+const checkInput = (isChecked) => {
+    const hasUnchecked = document.getElementsByClassName('table__body')[0].querySelectorAll('input:not(:checked)').length > 0;
+    const globalCheckbox = document.getElementById('globalCheckbox');
+    if (isChecked && !hasUnchecked) {
+        globalCheckbox.checked = true;
+    } else {
+        globalCheckbox.checked = false;
+    }
+    toggleControllers();
+}
+
 window.toggleCheckAll = toggleCheckAll;
+window.checkInput = checkInput;
