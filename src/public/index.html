@@ -40,6 +40,7 @@
         </nav>
         <div class="wrapper">
             <!-- Empieza el contenido de la pagina -->
+            <!-- Empiza la cabecera con los filtros -->
             <header class="filter">
                 <div class="filter__year">
                     <div class="combo">
@@ -66,7 +67,9 @@
                     <div class="btn">Nuevo calendario</div>
                 </div>
             </header>
-            <div class="dashboard">
+            <!-- Termina la cabecera con los filtros -->
+            <!-- Empieza el dashboard -->
+            <div class="dashboard" id="dashboardContainer">
                 <div class="dashboard__resume">
                     <span>3.456</span> registros
                 </div>
@@ -124,7 +127,7 @@
                             <div class="row">
                                 <div class="col-s">
                                     <label class="custom-checkbox">
-                                        <input class="custom-checkbox__input" type="checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="toggleControllers()">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
@@ -148,7 +151,7 @@
                             <div class="row">
                                 <div class="col-s">
                                     <label class="custom-checkbox">
-                                        <input class="custom-checkbox__input" type="checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="toggleControllers()">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
@@ -171,7 +174,7 @@
                             <div class="row">
                                 <div class="col-s">
                                     <label class="custom-checkbox">
-                                        <input class="custom-checkbox__input" type="checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="toggleControllers()">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
@@ -194,7 +197,7 @@
                             <div class="row">
                                 <div class="col-s">
                                     <label class="custom-checkbox">
-                                        <input class="custom-checkbox__input" type="checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="toggleControllers()">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
@@ -217,7 +220,7 @@
                             <div class="row">
                                 <div class="col-s">
                                     <label class="custom-checkbox">
-                                        <input class="custom-checkbox__input" type="checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="toggleControllers()">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
@@ -240,7 +243,7 @@
                             <div class="row">
                                 <div class="col-s">
                                     <label class="custom-checkbox">
-                                        <input class="custom-checkbox__input" type="checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="toggleControllers()">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
@@ -263,7 +266,7 @@
                             <div class="row">
                                 <div class="col-s">
                                     <label class="custom-checkbox">
-                                        <input class="custom-checkbox__input" type="checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="toggleControllers()">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
@@ -284,7 +287,7 @@
                                 <div class="col-s"><img src="./assets/img/dashboard/arrow-right.svg" alt="Ir al detalle"></div>
                             </div>
                         </div>
-                        <!-- Acaba el cuerpo de la tabla -->
+                        <!-- Termina el cuerpo de la tabla -->
                         <!-- Empieza el pie de la tabla -->
                         <div class="table__footer">
                             <p>Mostrando <span>50</span> de <span>36000</span> resultados</p>
@@ -305,19 +308,40 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Acaba el pie de la tabla -->
+                        <!-- Termina el pie de la tabla -->
                     </div>
                 </div>
             </div>
+            <!-- Termina el dashboard -->
+            <!-- Empiezan los controles de la tabla -->
+            <div class="table-controller" id="tableControllers">
+                <p class="table-controller__resume"><span>5</span> elementos seleccionados</p>
+                <div class="table-controller__actions">
+                    <div class="action">
+                        <img class="action__icon" src="./assets/img/dashboard/copy-blue.svg" alt="Copiar para el mismo año">
+                        <p class="action__text">Copiar para el mismo año</p>
+                    </div>
+                    <div class="action">
+                        <img class="action__icon" src="./assets/img/dashboard/calendar-change-blue.svg" alt="Copiar para el otro año">
+                        <p class="action__text">Copiar para el otro año</p>
+                    </div>
+                    <div class="action">
+                        <img class="action__icon" src="./assets/img/dashboard/upload-blue.svg" alt="Exportar">
+                        <p class="action__text">Exportar</p>
+                    </div>
+                    <div class="action">
+                        <img class="action__icon" src="./assets/img/dashboard/delete-blue.svg" alt="Eliminar">
+                        <p class="action__text">Eliminar</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Termina los controles de la tabla -->
             <!-- Termina el contenido de la pagina -->
             <!-- Empieza area notificacion -->
-            <div class="notification-area" id="notifications">
-                
-            </div>
+            <div class="notification-area" id="notifications"></div>
             <!-- Termina el area de notificacion -->
         </div>
         <!-- Aqui se incluiria el modal -->
     </div>
-    
 </body>
 </html>
