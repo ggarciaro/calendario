@@ -57,8 +57,7 @@
 
         }
 
-    }
-    
+    }  
     
     &__actions{
         display: flex;
@@ -105,7 +104,12 @@
         }
     }
 
+    &--copy{
+        border: 1px solid $main-color;
+    }
+
     &--copy &{
+
         &__header{
             .title{
                 padding: 0.5rem 4rem 0.5rem 0;
