@@ -9,10 +9,14 @@ module.exports = {
     // configuracion general
     // ================================================================================================
     mode: 'development', // development | production -> especifica si se realizan o no optimizaciones
-    entry: "./src/js/index.js", // determina el punto de entrada a partir del cual va deshilando los imports
+    entry: {
+        common: './src/js/common.js',
+        settings: './src/js/settings.js',
+        dashboard: './src/js/dashboard.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
-        filename: 'build.js', // nombre del fichero empaquetado
+        filename: '[name].js', // nombre del fichero empaquetado
     },
 
     // configuracion modulos (loaders, parsers, etc.)
@@ -29,8 +33,8 @@ module.exports = {
                 test: /\.(js|jsx)$/, // los ficheros .js y .jsx activan esta regla
                 exclude: /node_modules/, // excepto los ficheros en node_modules
                 use: {
-                    loader: "babel-loader" // los ficheros seran procesados por babel
-                }
+                    loader: "babel-loader", // los ficheros seran procesados por babel
+                },
             },
             {
                 test: /\.(scss|css)$/, // los ficheros .scss y .css activan esta regla
@@ -49,29 +53,31 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'assets/img/[name].[ext]'
+                    name: 'css/images/[name].[ext]'
                 }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'assets/fonts/[name].[ext]'
+                    name: '/fonts/[name].[ext]'
                 }
             },
         ]
     },
     plugins: [ 
         new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'src/public/index.html',
-        }),
-        new HtmlWebpackPlugin({
             filename: 'settings.html',
             template: 'src/public/settings.html',
+            chunks: ['common', 'settings']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'src/public/dashboard.html',
+            chunks: ['common', 'dashboard']
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles.css',
+            filename: 'css/[name].css',
         }),
     ]
 }

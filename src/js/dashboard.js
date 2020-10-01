@@ -1,3 +1,5 @@
+import '../styles/dashboard.scss';
+
 const toggleControllers = () => {
     const hasCheckedInputs = document.getElementsByClassName('table__body')[0].querySelectorAll('input:checked').length > 0;
     const controllers = document.getElementById('tableControllers');
@@ -32,6 +34,8 @@ const checkInput = (isChecked) => {
     }
     toggleControllers();
 }
+
+
 
 window.toggleCheckAll = toggleCheckAll;
 window.checkInput = checkInput;

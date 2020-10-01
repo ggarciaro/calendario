@@ -5,9 +5,9 @@ const showNotification = (message) => {
     // Different img paths than html
     const newNotification = `
         <div class="notification">
-            <img class="notification__ok-icon" src="./assets/img/ok.svg" alt="Operacion correcta">
+            <img class="notification__ok-icon" src="./css/images/ok.svg" alt="Operacion correcta">
             <p class="notification__text">${message}</p>
-            <img class="notification__close" src="./assets/img/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
+            <img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
         </div>
     `;
     notifications.insertAdjacentHTML('beforeend', newNotification);
@@ -15,5 +15,18 @@ const showNotification = (message) => {
     setTimeout( () => closeDialog(createdNotification), 5000); 
 }
 
+const closeModal = (modal, isCalendarCancel = false) => {
+    const modalContainer = document.getElementById('popUp');
+    modalContainer.style.display = 'none';
+
+    if (!isCalendarCancel) {
+        modal.style.display = 'none';
+    } else {
+        const canlendarModal = document.getElementById('calendarModal');
+        canlendarModal.style.display = 'none';
+    }
+}
+
 window.closeDialog = closeDialog;
 window.showNotification = showNotification;
+window.closeModal = closeModal;

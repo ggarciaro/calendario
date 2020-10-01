@@ -1,10 +1,25 @@
-import './utils';
+import '../styles/settings.scss';
+ 
 
-const toggleHoliday = (holiday) => {
-    if (!holiday.classList.contains('holiday-selector__option--selected')) {
-        const previousSelected = document.getElementsByClassName('holiday-selector__option--selected')[0];
-        previousSelected.classList.remove('holiday-selector__option--selected');
-        holiday.classList.add('holiday-selector__option--selected');
+const toggleHoliday = (selected) => {
+    const autonomicTab = document.getElementById('autonomicTab');
+    const autonomicSection = document.getElementById('autonomicSection');
+    const nationalTab = document.getElementById('nationalTab');
+    const nationalSection = document.getElementById('nationalSection');
+    const ccaaSelector = document.getElementById('ccaaSelector');
+
+    if (selected === 'nationalTab') {
+        nationalTab.classList.add('holiday-selector__option--selected');
+        autonomicTab.classList.remove('holiday-selector__option--selected');
+        autonomicSection.style.display = 'none';
+        nationalSection.style.display = 'block';
+        ccaaSelector.style.display = 'none';
+    } else {
+        nationalTab.classList.remove('holiday-selector__option--selected');
+        autonomicTab.classList.add('holiday-selector__option--selected');
+        autonomicSection.style.display = 'block';
+        nationalSection.style.display = 'none';
+        ccaaSelector.style.display = 'flex';
     }
 };
 
@@ -38,8 +53,17 @@ const finishCalendarEdition = () => {
     showNotification('Card editada correctamente');
 }
 
+const editCalendar = () => {
+    document.getElementById('popUp').style.display = 'flex';
+    document.getElementById('calendarModal').style.display = 'block';
+}
+
+const autonomicCardsNum = document.getElementById('autonomicSection').querySelectorAll('.holiday').length;
+document.getElementById('autonomicCards').innerText = autonomicCardsNum.toString();
+
 window.toggleHoliday = toggleHoliday;
 window.toggleFilter = toggleFilter;
 window.saveCalendar = saveCalendar;
 window.returnCalendar = returnCalendar;
+window.editCalendar = editCalendar;
 window.finishCalendarEdition = finishCalendarEdition;
