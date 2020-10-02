@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
-        filename: '[name].js', // nombre del fichero empaquetado
+        filename: 'js/[name].js', // nombre del fichero empaquetado
     },
 
     // configuracion modulos (loaders, parsers, etc.)
