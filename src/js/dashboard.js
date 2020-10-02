@@ -58,7 +58,7 @@ const generatePagination = (pages, currentPage) => {
     pagination.innerHTML = ''
     const beforeBtn = `
         <div ${currentPage !== 1 ? 'class="pagination__btn" onclick="navigate(`before`)"' : 'class="pagination__btn pagination__btn--disabled"'}">
-            <img src="/css/images/left.svg" alt="Anterior">
+            <img src="./css/images/left.svg" alt="Anterior">
             <p>Anterior</p>
         </div>
     `;
@@ -71,7 +71,7 @@ const generatePagination = (pages, currentPage) => {
     const nextBtn = `
         <div ${currentPage !== pages ? 'class="pagination__btn" onclick="navigate(`next`)"' : 'class="pagination__btn pagination__btn--disabled"'}">
             <p>Siguiente</p>
-            <img src="/css/images/right.svg" alt="Anterior">
+            <img src="./css/images/right.svg" alt="Anterior">
         </div>
     `;
     pagination.insertAdjacentHTML("afterbegin", beforeBtn + pagesLinks + nextBtn)
