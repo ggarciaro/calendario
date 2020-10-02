@@ -1,3 +1,8 @@
+import '../public/assets/img/common/ok.svg';
+import '../public/assets/img/common/close-gray.svg';
+import '../public/assets/img/common/dropdown.svg';
+
+
 const closeDialog = (dialog) => dialog.parentNode.removeChild(dialog);
 
 const showNotification = (message) => {

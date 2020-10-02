@@ -52,8 +52,16 @@
     border: 2px solid $selected-color;
     cursor: pointer;
 
+    &:hover{
+        background-color: $selected-color;
+    }
+
     &--secondary{
         border: none;
+
+        &:hover {
+            background-color: transparent;
+        }
     }
 }
 
