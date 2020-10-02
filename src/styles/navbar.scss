@@ -32,6 +32,10 @@
                 border-left: 1px solid $white-color;
                 font-size: 1.4rem;
                 font-family: $regular-font;
+
+                span {
+                    margin: auto 1rem;
+                }
             }
         }
     }

@@ -12,7 +12,8 @@ module.exports = {
     entry: {
         common: './src/js/common.js',
         settings: './src/js/settings.js',
-        dashboard: './src/js/dashboard.js'
+        dashboard: './src/js/dashboard.js',
+        detail: './src/js/detail.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
@@ -70,6 +71,11 @@ module.exports = {
             filename: 'settings.html',
             template: 'src/public/settings.html',
             chunks: ['common', 'settings']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'detail.html',
+            template: 'src/public/detail.html',
+            chunks: ['common', 'detail']
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
