@@ -7,6 +7,33 @@
     &__header{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        padding: 0 2.5rem;
+        height: 60px;
+        border-bottom: 1px solid $gray-color;
+
+        .header-text{
+            font-family: $medium-font;
+            font-size: 1.6rem;
+            color: $main-color;
+            margin-right: 2rem;
+        }
+
+        .header-controllers{
+            display: flex;
+            align-items: center;
+
+            &__btns{
+                display: flex;
+                .btn:first-child{
+                    margin-right: 1rem;
+                }
+            }
+
+            &__close{
+                margin-left: 2rem;
+            }
+        }
     }
 
     &__body{
@@ -14,7 +41,100 @@
     }
 
     &__aside {
-       width: 240px;
-       
+        display: flex;
+        flex-direction: column;
+        width: 240px;
+        border-right: 1px solid $gray-color;
+
+       .aside-section{
+           color: $main-color;
+           margin: 0 2rem 0 2.5rem;
+           padding: 2rem 0;
+           border-bottom: 1px solid $gray-color;
+
+           h2 {
+                font-size: 1.8rem;
+                font-family: $light-font;
+                &:first-of-type{
+                    margin-bottom: 2rem;
+                }
+           }
+
+           &__title{
+                font-family: $medium-font;
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            &__subtitle{
+                display: block;
+                font-size: 1.2rem;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-top: 0.7rem;
+           }
+
+           .block{
+               margin-bottom: 1.7rem;
+
+               &:last-child{
+                   margin-bottom: 0;
+               }
+               &__title{
+                   font-family: $medium-font;
+                   font-size: 1.2rem;
+                   margin-bottom: 1rem;
+               }
+               &__regist{
+                   display: flex;
+                   justify-content: space-between;
+                   font-family: Arial, Helvetica, sans-serif;
+                   margin-bottom: 0.8rem;
+                   .regis{
+                       &-value{
+                        font-weight: bold;
+                       }
+                   }
+               }
+           }
+
+       }
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .detail{
+        &__aside{
+            width: auto;
+            flex-direction: row;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .aside-section{
+                border: none;
+                min-width: 175px;
+                max-width: 350px;
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+
+                &--main{
+                    display: flex;
+                    align-items: center;
+                    max-width: none;
+                    width: 100vw;
+                    margin: 0 2rem 0 2.5rem;
+                    padding: 2rem 0;
+                    border-bottom: 1px solid $gray-color;
+
+                    h2:first-child{
+                        margin: 0 auto 0 0;
+                    }
+
+                    h3 {
+                        margin: 0 1rem 0 0;
+                    }
+                }
+            }
+        }
     }
 }
