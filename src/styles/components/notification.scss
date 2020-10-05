@@ -22,8 +22,19 @@
             margin-right: 1rem;
         }
 
+        &__error-icon{
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+        }
+
+        &__text{
+            line-height: 1.5;
+        }
+        
         &__close{
             margin-left: auto;
+            padding-left: 1rem;
             cursor: pointer;
         }
     }
