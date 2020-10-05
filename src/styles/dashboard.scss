@@ -227,39 +227,7 @@
                     color: $secondary-color;
                 }
 
-                .pagination {
-                    display: flex;
-                    align-items: center;
-
-                    &>*{
-                        cursor: pointer;
-                        margin: 0 0.5rem 0 0.5rem;
-                        &:last-child{
-                            margin-right: 0;
-                        }
-                    }
-
-                    &__btn{
-                        display: flex;
-                        align-items: center;
-
-                        &--disabled{
-                            opacity: 0.5;
-                            cursor: auto;
-                        }
-                    }
-
-                    &__page{
-                        &--selected{
-                            font-weight: bold;
-                            cursor: auto;
-                        }
-                    }
-
-                    &__others{
-                        cursor: auto;
-                    }
-                }
+                
             }
 
             .col{

@@ -1,3 +1,5 @@
+import { generatePagination } from './utils';
+
 import '../styles/settings.scss';
  
 
@@ -61,9 +63,52 @@ const editCalendar = () => {
 const autonomicCardsNum = document.getElementById('autonomicSection').querySelectorAll('.holiday').length;
 document.getElementById('autonomicCards').innerText = autonomicCardsNum.toString();
 
+// Pagination (only for national holidays)
+const nationalCards = document.getElementById('nationalSection').querySelectorAll('.holiday');
+const maxPerPage = 10;
+const numberPages = Math.ceil(nationalCards.length / maxPerPage);
+let currentPage = 1;
+
+const resetDisplayedHolidays = (cards) => {
+    for ( let i = 0; i < cards.length; i++) {
+        if (cards[i].classList.contains('holiday--show')) cards[i].classList.remove('holiday--show');
+    }
+}
+
+const showSelectedHolidays = (cards, max, currentPage) => {
+    resetDisplayedHolidays(cards);
+    for ( let j = (currentPage - 1) * max; j < currentPage * max; j++ ) {
+        cards[j].classList.add('holiday--show');
+        if (!cards[j + 1]) break;
+    }
+}
+
+const printHolidays = () => {
+    generatePagination(numberPages, currentPage);
+    showSelectedHolidays(nationalCards, maxPerPage, currentPage);
+}
+
+const navigate = (page) => {
+    switch (page) {
+        case 'before':
+            currentPage--;
+            break;
+        case 'next':
+            currentPage++;
+            break;
+        default:
+            currentPage = Number(page);
+            break;
+    }
+    printHolidays();
+}
+
+printHolidays();
+
 window.toggleHoliday = toggleHoliday;
 window.toggleFilter = toggleFilter;
 window.saveCalendar = saveCalendar;
 window.returnCalendar = returnCalendar;
 window.editCalendar = editCalendar;
 window.finishCalendarEdition = finishCalendarEdition;
+window.navigate = navigate;

@@ -142,6 +142,12 @@
             border-left-color: $rose-color;
         }
     }
+    &--national{
+        display: none;
+    }
+    &--show{
+        display: flex;
+    }
     &--national &{
         &__decorator{
             border-left-color: $purple-color;

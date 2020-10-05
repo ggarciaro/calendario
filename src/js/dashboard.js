@@ -1,3 +1,5 @@
+import {generatePagination} from './utils';
+
 import '../styles/dashboard.scss';
 import '../public/assets/img/dashboard/left.svg';
 import '../public/assets/img/dashboard/right.svg';
@@ -53,36 +55,12 @@ const showSelectedRows = (rows, max, currentPage) => {
     document.getElementById('displayedCalendars').innerText = displayedCalendars.length;
 }
 
-const generatePagination = (pages, currentPage) => {
-    const pagination = document.getElementById('pagination');
-    pagination.innerHTML = ''
-    const beforeBtn = `
-        <div ${currentPage !== 1 ? 'class="pagination__btn" onclick="navigate(`before`)"' : 'class="pagination__btn pagination__btn--disabled"'}">
-            <img src="./css/images/left.svg" alt="Anterior">
-            <p>Anterior</p>
-        </div>
-    `;
-    let pagesLinks = '';
-    for (let k = 1; k < pages + 1; k++) {
-        pagesLinks += currentPage !== k ? 
-                `<p class="pagination__page" onclick="navigate('${k}')">${k}</p>`:
-                `<p class="pagination__k pagination__page--selected">${k}</p>`;
-    }
-    const nextBtn = `
-        <div ${currentPage !== pages ? 'class="pagination__btn" onclick="navigate(`next`)"' : 'class="pagination__btn pagination__btn--disabled"'}">
-            <p>Siguiente</p>
-            <img src="./css/images/right.svg" alt="Anterior">
-        </div>
-    `;
-    pagination.insertAdjacentHTML("afterbegin", beforeBtn + pagesLinks + nextBtn)
-}
-
 // Pagination
 const totalCalendars = document.getElementById('tableData').querySelectorAll('.row');
 document.getElementById('totalCalendars').innerText = totalCalendars.length;
 document.getElementById('totalRegisters').innerText = totalCalendars.length;
 
-const maxPerPage = 20;
+const maxPerPage = 18;
 const numberPages = Math.ceil(totalCalendars.length / maxPerPage);
 let currentPage = 1;
 
