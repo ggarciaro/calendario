@@ -29,10 +29,10 @@
     </nav>
     <div class="content">
         <nav class="side-bar">
-            <a class="side-bar__link" href="">
-                <img class="side-bar__icon" src="./assets/img/navbar/dashboard.svg" alt="dashboard" id="dashboard">
+            <a class="side-bar__link" href="./dashboard.html">
+                <img class="side-bar__icon side-bar__icon--selected" src="./assets/img/navbar/dashboard.svg" alt="dashboard" id="dashboard">
             </a>
-            <a class="side-bar__link" href="">
+            <a class="side-bar__link" href="./settings.html">
                 <img class="side-bar__icon" src="./assets/img/navbar/setting.svg"
                     alt="configuracion" id="settings">
             </a>
@@ -52,6 +52,7 @@
                     </div>
                 </header>
                 <div class="detail__body">
+                    <!-- Empieza columna de info lateral -->
                     <aside class="detail__aside">
                         <div class="aside-section aside-section--main">
                            <h2>Resumen</h2>
@@ -137,7 +138,19 @@
                             </div>
                         </div>
                     </aside>
-                    <div class="detail__content"></div>
+                    <!-- Termina columna de info lateral -->
+                    <div class="detail__content">
+                        <div class="detail__tabs">
+                            <div class="tab tab--selected" id ="schedulesTab" onclick="selectTab(this.id)">Horarios</div>
+                            <div class="tab" id="holidayTab" onclick="selectTab(this.id)">Fiestas y días hábiles</div>
+                            <div class="tab" id="previewTab" onclick="selectTab(this.id)">Vista previa</div>
+                            <div class="tab" id="comentsTab" onclick="selectTab(this.id)">Comentarios</div>
+                        </div>
+                        <div class="detail__display detail__display--selected" id="schedulesDisplay">Contenidos de horarios</div>
+                        <div class="detail__display" id="holidayDisplay">Contenidos de Fiestas y días hábiles</div>
+                        <div class="detail__display" id="previewDisplay">Contenidos de vista previa</div>
+                        <div class="detail__display" id="comentsDisplay">Contenidos de comentarios</div>
+                    </div>
                 </div>
             </div>
             <!-- Termina el contenido de la pagina -->
