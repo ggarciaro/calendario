@@ -3,7 +3,7 @@ import { generatePagination } from './utils';
 import '../styles/settings.scss';
  
 
-const toggleHoliday = (selected) => {
+function toggleHoliday(selected){
     const autonomicTab = document.getElementById('autonomicTab');
     const autonomicSection = document.getElementById('autonomicSection');
     const nationalTab = document.getElementById('nationalTab');
@@ -25,7 +25,7 @@ const toggleHoliday = (selected) => {
     }
 };
 
-const toggleFilter = () => {
+function toggleFilter() {
     const filtersOptions = document.getElementsByClassName('filters__options')[0];
     if (filtersOptions.classList.contains('filters__options--hide')) {
         filtersOptions.classList.remove('filters__options--hide');
@@ -36,46 +36,44 @@ const toggleFilter = () => {
     }
 }
 
-const saveCalendar = () => {
+function saveCalendar() {
     const calendarModal = document.getElementsByClassName('modal')[0];
     const changeNameModal = document.getElementsByClassName('modal')[1];
     calendarModal.style.display = 'none';
     changeNameModal.style.display = 'block';
 }
 
-const returnCalendar = () => {
+function returnCalendar() {
     const calendarModal = document.getElementsByClassName('modal')[0];
     const changeNameModal = document.getElementsByClassName('modal')[1];
     calendarModal.style.display = 'block';
     changeNameModal.style.display = 'none';
 }
 
-const finishCalendarEdition = () => {
+function finishCalendarEdition() {
     closeDialog(document.getElementById('popUp'));
     showNotification('Card editada correctamente');
 }
 
-const editCalendar = () => {
+function editCalendar() {
     document.getElementById('popUp').style.display = 'flex';
     document.getElementById('calendarModal').style.display = 'block';
 }
 
-const autonomicCardsNum = document.getElementById('autonomicSection').querySelectorAll('.holiday').length;
-document.getElementById('autonomicCards').innerText = autonomicCardsNum.toString();
+// Async code
+// const autonomicCardsNum = document.getElementById('autonomicSection').querySelectorAll('.holiday').length;
+// document.getElementById('autonomicCards').innerText = autonomicCardsNum.toString();
 
 // Pagination (only for national holidays)
-const nationalCards = document.getElementById('nationalSection').querySelectorAll('.holiday');
-const maxPerPage = 10;
-const numberPages = Math.ceil(nationalCards.length / maxPerPage);
 let currentPage = 1;
 
-const resetDisplayedHolidays = (cards) => {
+function resetDisplayedHolidays(cards) {
     for ( let i = 0; i < cards.length; i++) {
         if (cards[i].classList.contains('holiday--show')) cards[i].classList.remove('holiday--show');
     }
 }
 
-const showSelectedHolidays = (cards, max, currentPage) => {
+function showSelectedHolidays(cards, max, currentPage){
     resetDisplayedHolidays(cards);
     for ( let j = (currentPage - 1) * max; j < currentPage * max; j++ ) {
         cards[j].classList.add('holiday--show');
@@ -83,12 +81,15 @@ const showSelectedHolidays = (cards, max, currentPage) => {
     }
 }
 
-const printHolidays = () => {
+function printHolidays() {
+    const nationalCards = document.getElementById('nationalSection').querySelectorAll('.holiday');
+    const maxPerPage = 10;
+    const numberPages = Math.ceil(nationalCards.length / maxPerPage);
     generatePagination(numberPages, currentPage);
     showSelectedHolidays(nationalCards, maxPerPage, currentPage);
 }
 
-const navigate = (page) => {
+function navigate(page) {
     switch (page) {
         case 'before':
             currentPage--;
@@ -102,7 +103,6 @@ const navigate = (page) => {
     }
     printHolidays();
 }
-
 printHolidays();
 
 window.toggleHoliday = toggleHoliday;
@@ -112,3 +112,4 @@ window.returnCalendar = returnCalendar;
 window.editCalendar = editCalendar;
 window.finishCalendarEdition = finishCalendarEdition;
 window.navigate = navigate;
+window.printHolidays = printHolidays;

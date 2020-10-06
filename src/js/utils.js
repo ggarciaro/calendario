@@ -4,9 +4,11 @@ import '../public/assets/img/common/close-gray.svg';
 import '../public/assets/img/common/dropdown.svg';
 
 
-const closeDialog = (dialog) => dialog.parentNode.removeChild(dialog);
+function closeDialog(dialog) {
+    return dialog.parentNode.removeChild(dialog);
+}
 
-const showNotification = (message) => {
+function showNotification (message){
     const notifications = document.getElementById('notifications');
     const newNotification = `
         <div class="notification">
@@ -19,7 +21,8 @@ const showNotification = (message) => {
     const createdNotification = document.getElementsByClassName('notification')[document.getElementsByClassName('notification').length - 1];
     setTimeout( () => closeDialog(createdNotification), 5000); 
 }
-const showError = (message) => {
+
+function showError (message) {
     const notifications = document.getElementById('notifications');
     const newError = `
         <div class="notification">
@@ -33,7 +36,7 @@ const showError = (message) => {
     setTimeout( () => closeDialog(createdNotification), 5000); 
 }
 
-const closeModal = (modal, isCalendarCancel = false) => {
+function closeModal (modal, isCalendarCancel = false){
     const modalContainer = document.getElementById('popUp');
     modalContainer.style.display = 'none';
 
@@ -45,28 +48,37 @@ const closeModal = (modal, isCalendarCancel = false) => {
     }
 }
 
-export const generatePagination = (pages, currentPage) => {
+export function generatePagination(pages, currentPage){
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
     if (pages > 1) {
-        const pagination = document.getElementById('pagination');
-        pagination.innerHTML = ''
-        const beforeBtn = `
-            <div ${currentPage !== 1 ? 'class="pagination__btn" onclick="navigate(`before`)"' : 'class="pagination__btn pagination__btn--disabled"'}">
-                <img src="./css/images/left.svg" alt="Anterior">
-                <p>Anterior</p>
-            </div>
-        `;
+        // Disable before for the first page
+        let beforeBtnFunctionality = '';
+        if (currentPage !== 1) {
+            beforeBtnFunctionality = 'class="pagination__btn" onclick="navigate("before")"';
+        } else {
+            beforeBtnFunctionality = 'class="pagination__btn pagination__btn--disabled"';
+        }
+        const beforeBtn = '<div ' + beforeBtnFunctionality + '><img src="./css/images/left.svg" alt="Anterior"><p>Anterior</p></div>';
+
+        // Generate pages
         let pagesLinks = '';
         for (let k = 1; k < pages + 1; k++) {
-            pagesLinks += currentPage !== k ? 
-                    `<p class="pagination__page" onclick="navigate('${k}')">${k}</p>`:
-                    `<p class="pagination__k pagination__page--selected">${k}</p>`;
+            if (currentPage !== k) {
+                pagesLinks += '<p class="pagination__page" onclick="navigate('+ k.toString() +')">'+ k +'</p>'
+            } else {
+                pagesLinks += '<p class="pagination__k pagination__page--selected">'+ k +'</p>'
+            }
         }
-        const nextBtn = `
-            <div ${currentPage !== pages ? 'class="pagination__btn" onclick="navigate(`next`)"' : 'class="pagination__btn pagination__btn--disabled"'}">
-                <p>Siguiente</p>
-                <img src="./css/images/right.svg" alt="Anterior">
-            </div>
-        `;
+        
+        // Disable next for the last page
+        let nextBtnFunctionality = '';
+        if (currentPage !== pages) {
+            nextBtnFunctionality = 'class="pagination__btn" onclick="navigate("next")"';
+        } else {
+            nextBtnFunctionality = 'class="pagination__btn pagination__btn--disabled"';
+        }
+        const nextBtn = '<div ' + nextBtnFunctionality +'><p>Siguiente</p><img src="./css/images/right.svg" alt="Anterior"></div>';
         pagination.insertAdjacentHTML("afterbegin", beforeBtn + pagesLinks + nextBtn)
     }
 }

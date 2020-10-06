@@ -1,6 +1,6 @@
 import '../styles/detail.scss';
 
-const selectTab = (id) => {
+function selectTab (id){
     const tab = id.split('Tab')[0];
 
     document.getElementsByClassName('tab--selected')[0].classList.remove('tab--selected');
