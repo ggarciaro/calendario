@@ -12,9 +12,9 @@ function showNotification (message){
     const notifications = document.getElementById('notifications');
     const newNotification = `
         <div class="notification">
-            <img class="notification__ok-icon" src="./css/images/ok.svg" alt="Operacion correcta">
+            <img class="notification__ok-icon" src="../css/images/ok.svg" alt="Operacion correcta">
             <p class="notification__text">${message}</p>
-            <img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
+            <img class="notification__close" src="../css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
         </div>
     `;
     notifications.insertAdjacentHTML('beforeend', newNotification);
@@ -26,9 +26,9 @@ function showError (message) {
     const notifications = document.getElementById('notifications');
     const newError = `
         <div class="notification">
-            <img class="notification__error-icon" src="./css/images/error.svg" alt="Operacion correcta">
+            <img class="notification__error-icon" src="../css/images/error.svg" alt="Operacion correcta">
             <p class="notification__text">${message}</p>
-            <img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
+            <img class="notification__close" src="../css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
         </div>
     `;
     notifications.insertAdjacentHTML('beforeend', newError);
@@ -55,11 +55,11 @@ export function generatePagination(pages, currentPage){
         // Disable before for the first page
         let beforeBtnFunctionality = '';
         if (currentPage !== 1) {
-            beforeBtnFunctionality = 'class="pagination__btn" onclick="navigate("before")"';
+            beforeBtnFunctionality = 'class="pagination__btn" onclick="navigate(`before`)"';
         } else {
             beforeBtnFunctionality = 'class="pagination__btn pagination__btn--disabled"';
         }
-        const beforeBtn = '<div ' + beforeBtnFunctionality + '><img src="./css/images/left.svg" alt="Anterior"><p>Anterior</p></div>';
+        const beforeBtn = '<div ' + beforeBtnFunctionality + '><img src="../css/images/left.svg" alt="Anterior"><p>Anterior</p></div>';
 
         // Generate pages
         let pagesLinks = '';
@@ -74,11 +74,11 @@ export function generatePagination(pages, currentPage){
         // Disable next for the last page
         let nextBtnFunctionality = '';
         if (currentPage !== pages) {
-            nextBtnFunctionality = 'class="pagination__btn" onclick="navigate("next")"';
+            nextBtnFunctionality = 'class="pagination__btn" onclick="navigate(`next`)"';
         } else {
             nextBtnFunctionality = 'class="pagination__btn pagination__btn--disabled"';
         }
-        const nextBtn = '<div ' + nextBtnFunctionality +'><p>Siguiente</p><img src="./css/images/right.svg" alt="Anterior"></div>';
+        const nextBtn = '<div ' + nextBtnFunctionality +'><p>Siguiente</p><img src="../css/images/right.svg" alt="Anterior"></div>';
         pagination.insertAdjacentHTML("afterbegin", beforeBtn + pagesLinks + nextBtn)
     }
 }

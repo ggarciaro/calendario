@@ -16,6 +16,7 @@ module.exports = {
         detail: './src/js/detail.js',
     },
     output: {
+        publicPath: '..',
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
         filename: 'js/[name].js', // nombre del fichero empaquetado
     },
@@ -54,6 +55,7 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/,
                 loader: 'file-loader',
                 options: {
+                    publicPath: '..',
                     name: 'css/images/[name].[ext]'
                 }
             },
@@ -61,26 +63,27 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 loader: 'file-loader',
                 options: {
-                    name: '/fonts/[name].[ext]'
+                    publicPath: '..',
+                    name: 'fonts/[name].[ext]'
                 }
             },
         ]
     },
     plugins: [ 
         new HtmlWebpackPlugin({
-            filename: 'settings.html',
+            filename: 'html/settings.html',
             template: 'src/public/settings.html',
-            chunks: ['common', 'settings']
+            chunks: ['common', 'settings'],
         }),
         new HtmlWebpackPlugin({
-            filename: 'detail.html',
+            filename: 'html/detail.html',
             template: 'src/public/detail.html',
-            chunks: ['common', 'detail']
+            chunks: ['common', 'detail'],
         }),
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: 'html/index.html',
             template: 'src/public/dashboard.html',
-            chunks: ['common', 'dashboard']
+            chunks: ['common', 'dashboard'],
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
