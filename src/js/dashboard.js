@@ -63,7 +63,7 @@ function printTable(){
     document.getElementById('totalCalendars').innerText = totalCalendars.length;
     document.getElementById('totalRegisters').innerText = totalCalendars.length;
     
-    const maxPerPage = 18;
+    const maxPerPage = 2;
     const numberPages = Math.ceil(totalCalendars.length / maxPerPage);
     generatePagination(numberPages, currentPage);
     showSelectedRows(totalCalendars, maxPerPage, currentPage);

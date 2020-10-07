@@ -16,7 +16,6 @@ module.exports = {
         detail: './src/js/detail.js',
     },
     output: {
-        publicPath: '..',
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
         filename: 'js/[name].js', // nombre del fichero empaquetado
     },
@@ -55,7 +54,7 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/,
                 loader: 'file-loader',
                 options: {
-                    publicPath: '..',
+                    publicPath: './',
                     name: 'css/images/[name].[ext]'
                 }
             },
@@ -63,7 +62,7 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 loader: 'file-loader',
                 options: {
-                    publicPath: '..',
+                    publicPath: '../',
                     name: 'fonts/[name].[ext]'
                 }
             },
@@ -71,17 +70,17 @@ module.exports = {
     },
     plugins: [ 
         new HtmlWebpackPlugin({
-            filename: 'html/settings.html',
+            filename: 'settings.html',
             template: 'src/public/settings.html',
             chunks: ['common', 'settings'],
         }),
         new HtmlWebpackPlugin({
-            filename: 'html/detail.html',
+            filename: 'detail.html',
             template: 'src/public/detail.html',
             chunks: ['common', 'detail'],
         }),
         new HtmlWebpackPlugin({
-            filename: 'html/index.html',
+            filename: 'index.html',
             template: 'src/public/dashboard.html',
             chunks: ['common', 'dashboard'],
         }),
