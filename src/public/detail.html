@@ -151,27 +151,31 @@
                             <div class="tab" id="commentsTab" onclick="selectTab(this.id)">Comentarios</div>
                         </div>
                         <div class="detail__display  detail__display--selected schedule" id="schedulesDisplay">
-                            <div class="schedule-card">
+                            <div class="schedule-card" id="contenedorDatosPrincipalesCalendario">
                                 <div class="schedule-card__title">
                                     <h3>Datos principales</h3>
                                 </div>
                                 <div class="schedule-card__form">
                                     <div class="field">
                                         <label>Año:</label>
-                                        <input id="" type="text">
+                                        <input id="calendariosVO_anualidad" type="text">
                                     </div>
                                     <div class="field">
                                         <label>Código:</label>
-                                        <input id="" type="text">
+                                        <input id="calendariosVO_codigo" type="text">
                                     </div>
                                     <div class="field">
                                         <label>Jornada convenio:</label>
+                                        <input id="calendariosVO_jornadaConvenio" type="text">
+                                    </div>
+                                    <div class="field field--extend">
+                                        <label>Denominación:</label>
                                         <input id="" type="text">
                                     </div>
                                     <div class="combo">
                                         <p class="combo__tag">CCAA:</p>
                                         <div class="combo__options">
-                                            <select id="">
+                                            <select name="calendariosVO_codCCAA" id="calendariosVO_codCCAA">
                                                 <option value="">CASTILLA LA MANCHA</option>
                                             </select>
                                         </div>
@@ -180,21 +184,47 @@
                                         <p class="combo__tag">Localidad:</p>
                                         <div class="combo__options">
                                             <select id="">
-                                                <option value="">CASTILLA LA MANCHA</option>
+                                                <option value="">TOLEDO</option>
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="btn-container">
+                                        <div class="add-template" id="seleccionarObservacionPlantilla">
+                                            <img src="./assets/img/common/plus.svg" alt="plantilla">
+                                            <p>Seleccionar plantilla</p>
+                                        </div>
+                                    </div>
+                                    <div class="field field--textarea">
+                                        <label>Observaciones:</label>
+                                        <textarea id="calendariosVO_observaciones"></textarea>
+                                    </div>
+                                    <div class="field field--textarea">
+                                        <label>Observaciones del administrador:</label>
+                                        <textarea id="calendariosVO_observacionesAdmin"></textarea>
+                                    </div>
                                     <div class="field field--calculated">
                                         <label>Jornada Teórica:</label>
-                                        <input id="calendariosVO_jornadaTeorica" type="text">
+                                        <input id="calendariosVO_jornadaTeorica" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Diferencia horas:</label>
-                                        <input id="calendariosVO_horasDifeJornada" type="text">
+                                        <input id="calendariosVO_horasDifeJornada" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Horas Ajuste:</label>
-                                        <input id="calendariosVO_horasAjustePresentacion" type="text">
+                                        <input id="calendariosVO_horasAjustePresentacion" type="text" readonly>
+                                    </div>
+                                    <div class="field field--calculated">
+                                        <label>Días de Libre Disposición:</label>
+                                        <input id="calendariosVO_horasAjustePresentacion" type="text" readonly>
+                                    </div>
+                                    <div class="field field--calculated">
+                                        <label>Horas de Libre Disposición:</label>
+                                        <input id="calendariosVO_horasAjustePresentacion" type="text" readonly>
+                                    </div>
+                                    <div class="field field--calculated">
+                                        <label>Días de vacaciones:</label>
+                                        <input id="calendariosVO_horasAjustePresentacion" type="text" readonly>
                                     </div>
                                 </div>
                             </div>

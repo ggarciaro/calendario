@@ -162,31 +162,104 @@
                 display: flex;
                 align-items: center;
                 margin: 0.5rem 0;
-                width: 200px;
+                width: 250px;
                 label{
                     text-align: right;
-                    width: 100px;
+                    width: calc(100px - 1rem);
                     margin-right: 1rem;
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 1.2rem;
                     color: $main-color;
+                    box-sizing: border-box;
                 }
                 input{
-                    width: 100px;
+                    width: 150px;
                     border: 2px solid $gray-color;
                     outline: none;
                     padding: 0.6rem;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 1.2rem;
+                    color: $main-color;
+                    box-sizing: border-box;
+                }
+
+                &--calculated{
+                    input{
+                        background-color: rgb(245, 245, 245);
+                        color: $dark-gray-color;
+                        pointer-events: none;
+                    }
+                }
+
+                &--textarea{
+                    margin-top: 0.5rem;
+                    align-items: flex-start;
+                    width: 100%;
+                    margin: 0.5rem 0;
+
+                    label{
+                        padding-top: 0.5rem;
+                    }
+
+                    textarea{
+                        flex-grow: 1;
+                        border: 2px solid $gray-color;
+                        outline: none;
+                        box-sizing: border-box;
+                        resize: none;
+                        height: 6rem;
+                        padding: 0.6rem;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 1.2rem;
+                        color: $main-color;
+                        margin: 0;
+                    }
+                }
+
+                &--extend{
+                    width: 100%;
+                    label{
+                        width: calc(100px - 1rem);
+                        flex-grow: 0;
+                    }
+                    input{
+                        width: auto;
+                        flex-grow: 1;
+                    }
                 }
             }
             .combo{
                 display: flex;
                 align-items: center;
                 flex-grow: 0;
-                width: 250px;
+                min-width: 350px;
+                padding: 0;
+                margin: 0.5rem 0;
                 &__tag{
-                    flex-grow: 1;
                     text-align: right;
                     margin: 0 1rem 0 0;
+                    width: calc(100px - 1rem);
+                }
+                &__options{
+                    flex-grow: 1;
+                    box-sizing: border-box;
+                }
+            }
+            .btn-container{
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                margin: 1.25rem 0 0.5rem 0;
+                box-sizing: border-box;
+                .add-template{
+                    display: flex;
+                    align-items: center;
+                    padding: 0.5rem 1rem;
+                    background-color: $gray-color;
+                    cursor: pointer;
+                    img{
+                        margin-right: 0.5rem;
+                    }
                 }
             }
         }
