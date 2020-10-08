@@ -84,5 +84,13 @@
                 border: none !important;
             }
         }
+
+        &--empty{
+            cursor: auto;
+            background-color: transparent !important;
+            &:hover{
+                border: none !important;
+            }
+        }
     }
 }
