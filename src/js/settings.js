@@ -65,7 +65,6 @@ function editCalendar() {
 // document.getElementById('autonomicCards').innerText = autonomicCardsNum.toString();
 
 // Pagination (only for national holidays)
-let currentPage = 1;
 
 function resetDisplayedHolidays(cards) {
     for ( let i = 0; i < cards.length; i++) {
@@ -81,28 +80,14 @@ function showSelectedHolidays(cards, max, currentPage){
     }
 }
 
-function printHolidays() {
+function printHolidays(currentPage = 1) {
     const nationalCards = document.getElementById('nationalSection').querySelectorAll('.holiday');
     const maxPerPage = 10;
     const numberPages = Math.ceil(nationalCards.length / maxPerPage);
-    generatePagination(numberPages, currentPage);
+    generatePagination(numberPages, currentPage, printHolidays);
     showSelectedHolidays(nationalCards, maxPerPage, currentPage);
 }
 
-function navigate(page) {
-    switch (page) {
-        case 'before':
-            currentPage--;
-            break;
-        case 'next':
-            currentPage++;
-            break;
-        default:
-            currentPage = Number(page);
-            break;
-    }
-    printHolidays();
-}
 printHolidays();
 
 window.toggleHoliday = toggleHoliday;
@@ -111,5 +96,4 @@ window.saveCalendar = saveCalendar;
 window.returnCalendar = returnCalendar;
 window.editCalendar = editCalendar;
 window.finishCalendarEdition = finishCalendarEdition;
-window.navigate = navigate;
 window.printHolidays = printHolidays;

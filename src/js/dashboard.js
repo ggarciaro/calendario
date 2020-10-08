@@ -56,37 +56,20 @@ function showSelectedRows(rows, max, currentPage){
 }
 
 // Pagination
-let currentPage = 1;
 
-function printTable(){
+function printTable(currentPage = 1){
     const totalCalendars = document.getElementById('tableData').querySelectorAll('.row');
     document.getElementById('totalCalendars').innerText = totalCalendars.length;
     document.getElementById('totalRegisters').innerText = totalCalendars.length;
     
-    const maxPerPage = 2;
+    const maxPerPage = 3;
     const numberPages = Math.ceil(totalCalendars.length / maxPerPage);
-    generatePagination(numberPages, currentPage);
+    generatePagination(numberPages, currentPage, printTable);
     showSelectedRows(totalCalendars, maxPerPage, currentPage);
-}
-
-function navigate(page){
-    switch (page) {
-        case 'before':
-            currentPage--;
-            break;
-        case 'next':
-            currentPage++;
-            break;
-        default:
-            currentPage = Number(page);
-            break;
-    }
-    printTable();
 }
 
 printTable();
 
 window.toggleCheckAll = toggleCheckAll;
 window.checkInput = checkInput;
-window.navigate = navigate;
 window.printTable = printTable;

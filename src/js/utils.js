@@ -8,35 +8,40 @@ function closeDialog(dialog) {
     return dialog.parentNode.removeChild(dialog);
 }
 
-function showNotification (message){
+function showNotification(message){
     const notifications = document.getElementById('notifications');
-    const newNotification = `
-        <div class="notification">
-            <img class="notification__ok-icon" src="./css/images/ok.svg" alt="Operacion correcta">
-            <p class="notification__text">${message}</p>
-            <img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
-        </div>
-    `;
+    let newNotification = '';
+    newNotification += '<div class="notification">';
+    newNotification += '<img class="notification__ok-icon" src="./css/images/ok.svg" alt="Operacion correcta">';
+    newNotification += '<p class="notification__text">'+ message +'</p>';
+    newNotification += '<img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)"></div>';
+
     notifications.insertAdjacentHTML('beforeend', newNotification);
     const createdNotification = document.getElementsByClassName('notification')[document.getElementsByClassName('notification').length - 1];
-    setTimeout( () => closeDialog(createdNotification), 5000); 
+    setTimeout( function() {
+        closeDialog(createdNotification)
+    }, 5000); 
 }
 
-function showError (message) {
+function showError(message) {
     const notifications = document.getElementById('notifications');
-    const newError = `
-        <div class="notification">
-            <img class="notification__error-icon" src="./css/images/error.svg" alt="Operacion correcta">
-            <p class="notification__text">${message}</p>
-            <img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)">
-        </div>
-    `;
+    let newError = '';
+    newError += '<div class="notification">';
+    newError += '<img class="notification__error-icon" src="./css/images/error.svg" alt="Error">';
+    newError += '<p class="notification__text">'+ message +'</p>';
+    newError += '<img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)"></div>';
+
     notifications.insertAdjacentHTML('beforeend', newError);
     const createdNotification = document.getElementsByClassName('notification')[document.getElementsByClassName('notification').length - 1];
-    setTimeout( () => closeDialog(createdNotification), 5000); 
+    setTimeout( function() {
+        closeDialog(createdNotification)
+    }, 5000);
 }
 
-function closeModal (modal, isCalendarCancel = false){
+export function closeModal(modal, isCalendarCancel = false){
+
+    if (isCalendarCancel === undefined) isCalendarCancel = false;
+
     const modalContainer = document.getElementById('popUp');
     modalContainer.style.display = 'none';
 
@@ -48,14 +53,15 @@ function closeModal (modal, isCalendarCancel = false){
     }
 }
 
-export function generatePagination(pages, currentPage){
+export function generatePagination(pages, currentPage, func){
+    const functionName = func.toString().match(/^function\s*([^\s(]+)/)[1];
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
     if (pages > 1) {
         // Disable before for the first page
         let beforeBtnFunctionality = '';
         if (currentPage !== 1) {
-            beforeBtnFunctionality = 'class="pagination__btn" onclick="navigate(`before`)"';
+            beforeBtnFunctionality = 'class="pagination__btn" onclick="'+ functionName +'('+ (currentPage - 1) +')"';
         } else {
             beforeBtnFunctionality = 'class="pagination__btn pagination__btn--disabled"';
         }
@@ -65,7 +71,7 @@ export function generatePagination(pages, currentPage){
         let pagesLinks = '';
         for (let k = 1; k < pages + 1; k++) {
             if (currentPage !== k) {
-                pagesLinks += '<p class="pagination__page" onclick="navigate('+ k.toString() +')">'+ k +'</p>'
+                pagesLinks += '<p class="pagination__page" onclick="'+ functionName +'('+ k.toString() +')">'+ k +'</p>'
             } else {
                 pagesLinks += '<p class="pagination__k pagination__page--selected">'+ k +'</p>'
             }
@@ -74,7 +80,7 @@ export function generatePagination(pages, currentPage){
         // Disable next for the last page
         let nextBtnFunctionality = '';
         if (currentPage !== pages) {
-            nextBtnFunctionality = 'class="pagination__btn" onclick="navigate(`next`)"';
+            nextBtnFunctionality = 'class="pagination__btn" onclick="'+ functionName +'('+ (currentPage + 1) +')"';
         } else {
             nextBtnFunctionality = 'class="pagination__btn pagination__btn--disabled"';
         }
