@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
@@ -98,18 +99,7 @@
                             <h3 class="aside-section__title">Jornada intensiva <span class="aside-section__subtitle">del
                                     01/07/2020 al 31/08/2020</span></h3>
                             <div class="block">
-                                <h4 class="block__title">Lunes a jueves</h4>
-                                <div class="block__regist">
-                                    <p class="regis-label">Entrada:</p>
-                                    <p class="regis-value">8:15 - 9:00</p>
-                                </div>
-                                <div class="block__regist">
-                                    <p class="regis-label">Salida:</p>
-                                    <p class="regis-value">17:30 - 19:00</p>
-                                </div>
-                            </div>
-                            <div class="block">
-                                <h4 class="block__title">Viernes</h4>
+                                <h4 class="block__title">Lunes a viernes</h4>
                                 <div class="block__regist">
                                     <p class="regis-label">Entrada:</p>
                                     <p class="regis-value">8:15 - 9:00</p>
@@ -170,7 +160,7 @@
                                     </div>
                                     <div class="field field--extend">
                                         <label>Denominación:</label>
-                                        <input id="" type="text">
+                                        <input type="text">
                                     </div>
                                     <div class="combo">
                                         <p class="combo__tag">CCAA:</p>
@@ -183,13 +173,13 @@
                                     <div class="combo">
                                         <p class="combo__tag">Localidad:</p>
                                         <div class="combo__options">
-                                            <select id="">
+                                            <select>
                                                 <option value="">TOLEDO</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="btn-container">
-                                        <div class="add-template" id="seleccionarObservacionPlantilla">
+                                        <div class="add-template" id="seleccionarObservacionPlantilla" onclick="showTemplateModal()">
                                             <img src="./assets/img/common/plus.svg" alt="plantilla">
                                             <p>Seleccionar plantilla</p>
                                         </div>
@@ -199,7 +189,7 @@
                                         <textarea id="calendariosVO_observaciones"></textarea>
                                     </div>
                                     <div class="field field--textarea">
-                                        <label>Observaciones del administrador:</label>
+                                        <label>Observaciones administrador:</label>
                                         <textarea id="calendariosVO_observacionesAdmin"></textarea>
                                     </div>
                                     <div class="field field--calculated">
@@ -216,15 +206,15 @@
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días de Libre Disposición:</label>
-                                        <input id="calendariosVO_horasAjustePresentacion" type="text" readonly>
+                                        <input id="calendariosVO_diasLibreDisp" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Horas de Libre Disposición:</label>
-                                        <input id="calendariosVO_horasAjustePresentacion" type="text" readonly>
+                                        <input id="calendariosVO_horasLibreDisp" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días de vacaciones:</label>
-                                        <input id="calendariosVO_horasAjustePresentacion" type="text" readonly>
+                                        <input id="calendariosVO_diasVacaciones" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -238,11 +228,11 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Inicio:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioInvierno_horaEntradaIni" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Final:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioInvierno_horaEntradaFin" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -251,11 +241,11 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Inicio:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioInvierno_horaSalidaIni" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Final:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioInvierno_horaSalidaFin" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -264,29 +254,29 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Min:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioInvierno_tiempoComidaMin" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Max:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioInvierno_tiempoComidaMax" type="text">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="field field--fulfill">
                                         <label>Días vacaciones:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioInvierno_diasVacaciones" type="text">
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días laborales:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioInvierno_diasLaborables" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días efectivos:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioInvierno_diasEfectivos" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Jornada diaria:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioInvierno_jornadaDiaria" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -300,11 +290,11 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Inicio:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioViernes_horaEntradaIni" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Final:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioViernes_horaEntradaFin" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -313,33 +303,33 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Inicio:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioViernes_horaSalidaIni" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Final:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioViernes_horaSalidaFin" type="text">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="field field--fulfill">
                                         <label>Tiempo de descanso:</label>
-                                        <input id="" type="text">
+                                        <input id="horarioViernes_descansoTiempo" type="text">
                                     </div>
                                     <div class="field field--fulfill">
                                         <label>Días vacaciones:</label>
-                                        <input id="" type="text">
+                                        <input id="horarioViernes_diasVacaciones" type="text">
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días laborales:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioViernes_diasLaborables" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días efectivos:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioViernes_diasEfectivos" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Jornada diaria:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioViernes_jornadaDiaria" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -353,11 +343,11 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Inicio:</label>
-                                                <input id="" type="text">
+                                                <input class="datepicker" id="horarioVerano_fechaDesde" autocomplete="off" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Final:</label>
-                                                <input id="" type="text">
+                                                <input class="datepicker" autocomplete="off" id="horarioVerano_fechaHasta" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -366,11 +356,11 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Días vacaciones:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioVerano_diasVacaciones" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Descanso:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioVerano_descansoTiempo" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -379,11 +369,11 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Inicio:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioVerano_horaEntradaIni" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Final:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioVerano_horaEntradaFin" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -392,25 +382,25 @@
                                         <div class="double-field__fields">
                                             <div class="field">
                                                 <label>Inicio:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioVerano_horaSalidaIni" type="text">
                                             </div>
                                             <div class="field">
                                                 <label>Final:</label>
-                                                <input id="" type="text">
+                                                <input id="horarioVerano_horaSalidaFin" type="text">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días laborales:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioVerano_diasLaborables" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Días efectivos:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioVerano_diasEfectivos" type="text" readonly>
                                     </div>
                                     <div class="field field--calculated">
                                         <label>Jornada diaria:</label>
-                                        <input id="" type="text" readonly>
+                                        <input id="horarioVerano_jornadaDiaria" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -421,7 +411,7 @@
                                 <div class="schedule-card__form">
                                     <div class="field">
                                         <label>Horas:</label>
-                                        <input id="" type="text">
+                                        <input type="text">
                                     </div>
                                 </div>
                             </div>
@@ -1215,14 +1205,43 @@
                 </div>
             </div>
             <!-- Termina el contenido de la pagina -->
-            <!-- Empieza area notificacion -->
-            <div class="notification-area" id="notifications">
-
-            </div>
-            <!-- Termina el area de notificacion -->
         </div>
-        <!-- Aqui se incluiria el modal -->
     </div>
+    <!-- Empieza area notificacion -->
+    <div class="notification-area" id="notifications"></div>
+    <!-- Termina area notificacion -->
+    <div class="modal-container"  id="popUp" style="display: none;">
+        <div class="modal-container__content">
+            <div class="modal template-modal" id="templateModal" style="display: none;">
+                <div class="modal__header">
+                    <h3>Seleccione una observación</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <div class="template-table">
+                        <div class="template-table__header">
+                            Observación
+                        </div>
+                        <div class="template-table__row" onclick="selectRow(this)" ondblclick="importTemplate(this.innerText)">
+                            x días y x horas de Libre disposición. Los días inhábiles señalados como tales en el calendario, podrán ser intercambiados por otros días de descanso equivalente, cuando por necesidades del negocio, así se justifiquen.
+                        </div>
+                        <div class="template-table__row" onclick="selectRow(this)" ondblclick="importTemplate(this.innerText)">x días y x horas de libre disposición que se tomarán de acuerdo con las necesidades del servicio</div>
+                        <div class="template-table__row" onclick="selectRow(this)" ondblclick="importTemplate(this.innerText)">x días y x horas de libre disposición que los cuales se disfrutararán preferentemente x días en Semana Santa y x días en Navidad</div>
+                    </div>
+                    <div class="pagination" id="paginationTemplates"></div>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn modal-btn--disabled" id="selectTemplateBtn">Selecccionar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </body>
 

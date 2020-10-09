@@ -1,0 +1,70 @@
+@import './theme.scss';
+
+.datepicker-days{
+    padding: 0.5rem 1rem;
+
+    .datepicker-switch{
+        font-family: $medium-font;
+        font-size: 1.4rem;
+        color: $main-color;
+        width: 100%;
+    }
+
+    tr{
+        display: flex;
+        justify-content: center;
+    }
+
+    th.dow{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        font-size: $regular-font;
+        font-size: 1.2rem;
+        width: 20px;
+        height: 20px;
+        margin: 0.2rem;
+        padding: 0.2rem;
+    }
+
+    td {
+        &.day{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            font-size: $regular-font;
+            font-size: 1.2rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            margin: 0.2rem;
+            padding: 0.2rem;
+            &:hover{
+                background-color: transparent !important;
+                border: 2px solid $gray-color;
+            }
+            &:nth-child(6), &:nth-child(7){
+                background-color: rgba(232, 232, 232, 0.658)!important;
+            }
+            &.new{
+                &:nth-child(6), &:nth-child(7){
+                    background-color: rgba(245, 245, 245, 0.658)!important;
+                }
+            }
+        }
+
+        &.active{
+            border-radius: 100%;
+            background-color: $selected-color !important;
+            background-image: none !important;
+            color: $main-color !important;
+            &:hover{
+                border: none;
+                background-color: $selected-color !important;
+                color: $main-color !important;
+            }
+        }
+    }
+}

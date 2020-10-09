@@ -6,6 +6,8 @@
 @import './components/notification.scss';
 @import './components/pagination.scss';
 @import 'navbar.scss';
+@import './shared/bootstrap-datepicker.min.css';
+@import './shared/datepicker-custom.scss';
 
 html {
     font-size: 62.5%;
