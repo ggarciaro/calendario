@@ -80,7 +80,10 @@ function showSelectedHolidays(cards, max, currentPage){
     }
 }
 
-function printHolidays(currentPage = 1) {
+function printHolidays(currentPage) {
+    if(currentPage === undefined) {
+        currentPage = 1;
+    }
     const nationalCards = document.getElementById('nationalSection').querySelectorAll('.holiday');
     const maxPerPage = 10;
     const numberPages = Math.ceil(nationalCards.length / maxPerPage);

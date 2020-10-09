@@ -57,7 +57,12 @@ function showSelectedRows(rows, max, currentPage){
 
 // Pagination
 
-function printTable(currentPage = 1){
+function printTable(currentPage){
+
+    if(currentPage === undefined) {
+        currentPage = 1;
+    }
+    
     const totalCalendars = document.getElementById('tableData').querySelectorAll('.row');
     document.getElementById('totalCalendars').innerText = totalCalendars.length;
     document.getElementById('totalRegisters').innerText = totalCalendars.length;
