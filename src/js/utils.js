@@ -3,7 +3,6 @@ import '../public/assets/img/common/error.svg';
 import '../public/assets/img/common/close-gray.svg';
 import '../public/assets/img/common/dropdown.svg';
 
-
 function closeDialog(dialog) {
     return dialog.parentNode.removeChild(dialog);
 }
@@ -55,7 +54,8 @@ export function closeModal(modal, isCalendarCancel = false){
 
 export function generatePagination(pages, currentPage, func){
     const functionName = func.toString().match(/^function\s*([^\s(]+)/)[1];
-    const pagination = document.getElementById('pagination');
+    const target = functionName.split('print')[1];
+    const pagination = document.getElementById('pagination' + target);
     pagination.innerHTML = '';
     if (pages > 1) {
         // Disable before for the first page
