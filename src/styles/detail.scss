@@ -144,6 +144,7 @@
         background-color: $white-color;
         border: 1px solid $gray-color;
         margin-bottom: 2rem;
+        max-width: 1000px;
         
         &__title{
             margin: 0 2rem;
@@ -174,7 +175,7 @@
                     color: $main-color;
                     box-sizing: border-box;
                 }
-                input{
+                input[type=text]{
                     width: 150px;
                     border: 2px solid $gray-color;
                     outline: none;
@@ -183,6 +184,23 @@
                     font-size: 1.2rem;
                     color: $main-color;
                     box-sizing: border-box;
+                }
+
+                &--checkbox{
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 1rem;
+                    .field__tag{
+                        text-align: right;
+                        margin-right: 1rem;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 1.2rem;
+                        color: $main-color;
+                        box-sizing: border-box;
+                    }
+                    .custom-checkbox{
+                        width: auto;
+                    }
                 }
 
                 &--calculated{
@@ -209,12 +227,13 @@
                         outline: none;
                         box-sizing: border-box;
                         resize: none;
-                        height: 6rem;
+                        height: 8rem;
                         padding: 0.6rem;
                         font-family: Arial, Helvetica, sans-serif;
                         font-size: 1.2rem;
                         color: $main-color;
                         margin: 0;
+                        overflow: auto;
                     }
                 }
 
@@ -261,7 +280,7 @@
                 display: flex;
                 align-items: center;
                 flex-grow: 0;
-                min-width: 350px;
+                min-width: 250px;
                 padding: 0;
                 margin: 0.5rem 0;
                 &__tag{
@@ -452,6 +471,45 @@
                         margin-left: 1rem;
                     }
                 }
+            }
+        }
+    }
+}
+
+.template-modal{
+    .template-table{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+        border: 1px solid $gray-color;
+        margin-top: 2rem;
+        &__header{
+            font-weight: bold;
+            color: $main-color;
+            border-bottom: 2px solid $selected-color;
+            padding: 2rem;
+            text-align: center;
+            background-color: $gray-color;
+        }
+        &__row{
+            display: none;
+            color: $dark-gray-color;
+            padding: 1rem;
+            border-bottom: 1px solid $gray-color;
+            cursor: pointer; 
+            line-height: 1.75;
+            &:last-child{
+                border-bottom: none;
+            }
+            &:hover{
+                background-color: rgb(245, 245, 245);
+            }
+            &--selected{
+                background-color: rgb(245, 245, 245);
+                color: $main-color;
+                font-weight: bold;
+            }
+            &--show{
+                display: block;
             }
         }
     }

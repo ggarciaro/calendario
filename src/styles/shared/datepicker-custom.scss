@@ -1,4 +1,6 @@
-@import './theme.scss';
+.datepicker{
+    border-radius: 0;
+}
 
 .datepicker-days{
     padding: 0.5rem 1rem;
@@ -22,8 +24,8 @@
         box-sizing: border-box;
         font-size: $regular-font;
         font-size: 1.2rem;
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         margin: 0.2rem;
         padding: 0.2rem;
     }
@@ -36,8 +38,8 @@
             box-sizing: border-box;
             font-size: $regular-font;
             font-size: 1.2rem;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 100%;
             margin: 0.2rem;
             padding: 0.2rem;
@@ -66,5 +68,82 @@
                 color: $main-color !important;
             }
         }
+    }
+}
+
+.ui-datepicker{
+    width: auto;
+    font-family: $regular-font;
+    color: $main-color;
+}
+
+.ui-datepicker-calendar{
+    span{
+        font-size: 1.2rem;
+    }
+}
+
+.ui-datepicker-header{
+    color: $main-color;
+    background-color: transparent;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: $selected-color;
+    font-family: $medium-font;
+    font-size: 1.4rem;
+    border-radius: 0;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.ui-datepicker-next, .ui-datepicker-prev{
+    border: none !important;
+    background: none !important;
+    cursor: pointer;
+    &:hover{
+        right: 2px;
+        top: 2px;
+    }
+}
+
+.ui-datepicker-next span{
+    background-image: url('./../public/assets/img/dashboard/right.svg') !important;
+    background-position: 0 -2px !important;
+}
+
+.ui-datepicker-prev span{
+    background-image: url('./../public/assets/img/dashboard/left.svg') !important;
+    background-position: 0 -2px !important;
+}
+
+a.ui-state-default{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: $regular-font;
+    font-size: 1.2rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    margin: 0.2rem;
+    padding: 0.2rem;
+    background-color: transparent !important;
+    border: none !important;
+    &:hover{
+        background-color: transparent !important;
+        border: 2px solid $gray-color !important;
+    }
+}
+
+a.ui-state-active{
+    border-radius: 100%;
+    background-color: $selected-color !important;
+    background-image: none !important;
+    color: $main-color !important;
+    &:hover{
+        border: none !important;
+        background-color: $selected-color !important;
+        color: $main-color !important;
     }
 }

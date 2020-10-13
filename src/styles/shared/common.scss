@@ -51,9 +51,14 @@
     padding: 1rem 2.5rem;
     border: 2px solid $selected-color;
     cursor: pointer;
+    border-radius: 0;
+    font-weight: normal;
+    line-height: normal;
+    transition: none;
 
     &:hover{
         background-color: $selected-color;
+        color: $main-color;
     }
 
     &--secondary{
@@ -69,11 +74,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 16px;
+    height: 16px;
     position: relative;
     cursor: pointer;
-    font-size: 2.2rem;
+    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -91,8 +96,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 1.6rem;
-        width: 1.6rem;
+        height: 16px;
+        width: 16px;
         border: 1px solid #a2acb3;
         box-sizing: border-box;
 

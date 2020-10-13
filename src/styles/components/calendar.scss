@@ -6,6 +6,18 @@
     flex-wrap: wrap;
     margin: 1rem 0;
     padding-top: 2rem;
+
+    &--no-interactive{
+        .month{
+            &__item{
+                cursor: auto;
+
+                &:hover{
+                    border: none;
+                }
+            }
+        }
+    }
 }
 
 .month{
