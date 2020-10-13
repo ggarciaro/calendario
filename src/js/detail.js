@@ -51,6 +51,21 @@ function selectRow(row) {
     row.classList.add('template-table__row--selected');
 }
 
+function toggleCCAA(country) {
+    let htmlString = '';
+    if (country === 'ESP') {
+        htmlString += '<div class="combo"><p class="combo__tag">CCAA:</p><div class="combo__options">';
+        htmlString += '<select name="calendariosVO_codCCAA" id="calendariosVO_codCCAA">';
+        htmlString += '<option value="">CASTILLA LA MANCHA</option>';
+        htmlString += '</select></div></div>';
+    } else {
+        htmlString += '<div class="field">';
+        htmlString += '<label>Referencia:</label>';
+        htmlString += '<input id="calendariosVO_codCCAA" type="text"></div>';
+    }
+    $('#refCombo').html(htmlString);
+}
+
 function resetDisplayedTemplates(templates) {
     for ( let i = 0; i < templates.length; i++) {
         if (templates[i].classList.contains('template-table__row--show')) templates[i].classList.remove('template-table__row--show');
@@ -80,15 +95,18 @@ function printTemplates(currentPage) {
 
 printTemplates();
 
-const date = new Date();
-
 $(".datepicker").datepicker({
-    minDate: new Date(date.getFullYear(), 0, 1),
-    maxDate: new Date(date.getFullYear(), 11, 31),
+    minDate: new Date(2020, 0, 1),
+    maxDate: new Date(2020, 11, 31),
 });
+
+
+
+mdtimepicker({is24hour: true});
 
 window.selectTab = selectTab;
 window.showTemplateModal = showTemplateModal;
 window.selectRow = selectRow;
 window.importTemplate = importTemplate;
 window.printTemplates = printTemplates;
+window.toggleCCAA = toggleCCAA;

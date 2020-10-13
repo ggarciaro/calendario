@@ -1,0 +1,50 @@
+@import './theme.scss';
+
+.mdtimepicker{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mdtp__wrapper{
+    transform: none !important;
+    position: static !important;
+}
+
+.mdtimepicker .mdtp__time_holder {
+    background-color: $main-color !important;
+}
+
+.mdtimepicker .mdtp__clock_holder .mdtp__clock .mdtp__digit.active span, .mdtimepicker .mdtp__clock_holder .mdtp__clock .mdtp__digit:not(.digit--disabled) span:hover {
+    background-color: $selected-color !important;
+    color: black;
+}
+
+.mdtp__clock .mdtp__digit.active:before{
+    background-color: $selected-color !important;
+}
+
+.mdtimepicker .mdtp__clock_holder .mdtp__clock .mdtp__clock_dot{
+    background-color: $selected-color !important;
+}
+
+.mdtp__button{
+    color: $main-color;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem 2.5rem;
+    border: 2px solid $selected-color;
+    cursor: pointer;
+    font-weight: normal;
+    line-height: normal;
+    transition: none !important;
+    border-radius: 0 !important;
+    color: $main-color !important;
+    margin-left: 1rem;
+
+    &:hover{
+        background-color: $selected-color !important;
+        color: $main-color !important;
+    }
+}
