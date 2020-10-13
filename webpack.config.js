@@ -19,9 +19,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
         filename: 'js/[name].js', // nombre del fichero empaquetado
     },
-    externals: {
-        jquery: 'jQuery'
-    },
     // configuracion modulos (loaders, parsers, etc.)
     // ================================================================================================
     module: {
