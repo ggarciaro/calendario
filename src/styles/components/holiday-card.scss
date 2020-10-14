@@ -3,6 +3,7 @@
 .holiday{
     display: flex;
     border: 1px solid $gray-color;
+    background-color: white;
 
     &__decorator{
         width: 100%;
@@ -91,15 +92,17 @@
             font-size: 1.1rem;
             font-family: $medium-font;
             margin: 0 0.8rem 0.8rem 0;
-            padding: 1rem 1.7rem 0.8rem 1.7rem;
+            padding: 0 1rem;
             background-color: $gray-color;
+            height: 35px;
 
             &__text{
-                color: $dark-gray-color;
+                color: $main-color;
             }
 
             &__close{
                 margin-left: 1rem;
+                cursor: pointer;
             }
         }
     }
@@ -131,6 +134,9 @@
         }
         &__dates{
             .date{
+                &__text{
+                    color: $dark-gray-color;
+                }
                 &__close{
                     display: none;
                 }
@@ -141,9 +147,15 @@
         &__decorator{
             border-left-color: $rose-color;
         }
-    }
-    &--national{
-        display: none;
+        
+        &__actions{
+            .action{
+                &--duplicate{
+                    display: none !important;
+                    display: none;
+                }
+            }
+        }
     }
     &--show{
         display: flex;
@@ -154,6 +166,9 @@
         }
         &__dates{
             .date{
+                &__text{
+                    color: $dark-gray-color;
+                }
                 &__close{
                     display: none;
                 }
@@ -163,6 +178,15 @@
     &--off &{
         &__decorator{
             border-left-color: $green-color;
+        }
+
+        &__actions{
+            .action{
+                &--duplicate{
+                    display: none !important;
+                    display: none;
+                }
+            }
         }
     }
     &--no-actions &{

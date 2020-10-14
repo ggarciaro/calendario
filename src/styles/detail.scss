@@ -108,11 +108,12 @@
         width: calc(100% - 4rem);
         background-color: #fafafa;
     }
-
+    
     &__tabs{
         display: flex;
         width: 100%;
         border-bottom: 1px solid $gray-color;
+        max-width: 1000px;
     
         .tab{
             font-size: 1.4rem;
@@ -131,6 +132,7 @@
     &__display{
         display: none;
         padding: 2rem 0;
+        max-width: 1000px;
 
         &--selected{
             display: block;
@@ -144,7 +146,6 @@
         background-color: $white-color;
         border: 1px solid $gray-color;
         margin-bottom: 2rem;
-        max-width: 1000px;
         
         &__title{
             margin: 0 2rem;
@@ -312,6 +313,28 @@
             }
         }
     } 
+}
+
+.holidays{
+    padding-top: 2rem;
+    &>*{
+        margin: 1.5rem 0;
+    }
+
+    .import-btn{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1rem 2rem;
+        margin: 0 0 2rem auto;
+        background-color: $gray-color;
+        max-width: 120px;
+        box-sizing: border-box;
+        cursor: pointer;
+        img{
+            margin-right: 1rem;
+        }
+    }
 }
 
 .preview{
