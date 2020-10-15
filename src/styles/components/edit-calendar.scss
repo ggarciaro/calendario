@@ -40,19 +40,19 @@
                         margin-right: 1rem;
                         
                         &--today{
-                            background-color: $selected-color;
+                            background-color: $selected-color !important;
                         }
                         &--national{
-                            background-color: $purple-color;
+                            background-color: $purple-color !important;
                         }
                         &--autonomic{
-                            background-color: $turquoise-color;
+                            background-color: $turquoise-color !important;
                         }
                         &--local{
-                            background-color: $rose-color;
+                            background-color: $rose-color !important;
                         }
                         &--off{
-                            background-color: $green-color;
+                            background-color: $green-color !important;
                         }
                     }
                     &__tag{

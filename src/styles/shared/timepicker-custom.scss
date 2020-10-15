@@ -16,9 +16,13 @@
     background-color: $main-color !important;
 }
 
+.mdtimepicker .mdtp__clock_holder .mdtp__clock .mdtp__digit span{
+    color: $main-color;
+}
+
 .mdtimepicker .mdtp__clock_holder .mdtp__clock .mdtp__digit.active span, .mdtimepicker .mdtp__clock_holder .mdtp__clock .mdtp__digit:not(.digit--disabled) span:hover {
     background-color: $selected-color !important;
-    color: black;
+    color: $main-color;
 }
 
 .mdtp__clock .mdtp__digit.active:before{
