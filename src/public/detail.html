@@ -140,8 +140,8 @@
                     <div class="detail__content">
                         <div class="detail__tabs">
                             <div class="tab" id="schedulesTab" onclick="selectTab(this.id)">Horarios</div>
-                            <div class="tab tab--selected" id="holidayTab" onclick="selectTab(this.id)">Fiestas y días hábiles</div>
-                            <div class="tab" id="previewTab" onclick="selectTab(this.id)">Vista previa</div>
+                            <div class="tab" id="holidayTab" onclick="selectTab(this.id)">Fiestas y días hábiles</div>
+                            <div class="tab tab--selected" id="previewTab" onclick="selectTab(this.id)">Vista previa</div>
                             <div class="tab" id="commentsTab" onclick="selectTab(this.id)">Comentarios</div>
                         </div>
                         <div class="detail__display schedule" id="schedulesDisplay">
@@ -448,7 +448,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="detail__display detail__display--selected holidays" id="holidayDisplay">
+                        <div class="detail__display holidays" id="holidayDisplay">
                             <div class="card holiday holiday--off">
                                 <div class="holiday__decorator">
                                     <div class="holiday__info">
@@ -596,6 +596,42 @@
                                                 <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
                                             </div>
                                         </div>
+                                        <div class="holiday__dates--review">
+                                            <div class="review-section">
+                                                <h3 class="review-section__title">Fiestas de la Comunidad Autónoma</h3>
+                                                <div class="review-section__dates">
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-section">
+                                                <h3 class="review-section__title">Fiestas consideradas en el calendario</h3>
+                                                <div class="review-section__dates">
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -610,6 +646,9 @@
                                                 <div class="title__copy-tag">
                                                     <p>COPIA</p>
                                                     <img src="./assets/img/common/copy.svg" alt="Copia">
+                                                </div>
+                                                <div class="title__review-tag">
+                                                    <p>NECESARIO RECALCULAR</p>
                                                 </div>
                                             </div>
                                             <div class="holiday__actions">
@@ -645,11 +684,47 @@
                                                 <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
                                             </div>
                                         </div>
+                                        <div class="holiday__dates--review">
+                                            <div class="review-section">
+                                                <h3 class="review-section__title">Fiestas estatales</h3>
+                                                <div class="review-section__dates">
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-section">
+                                                <h3 class="review-section__title">Fiestas provisionales del calendario</h3>
+                                                <div class="review-section__dates">
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                    <div class="date">
+                                                        <p class="date__text">03/01/2020</p>
+                                                        <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="detail__display preview" id="previewDisplay">
+                        <div class="detail__display detail__display--selected preview" id="previewDisplay">
                             <div class="title">
                                 <div class="title__text">
                                     <h2>Calendario laboral 2020</h2>
@@ -1402,6 +1477,66 @@
                                     </div>
                                 </div>
 
+                            </div>
+                            <div class="timetable">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="timetable__tittle"></th>
+                                            <th class="timetable__tittle" colspan="6">HORARIO</th>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th class="timetable__subtittle" colspan="4">INVIERNO</th>
+                                            <th class="timetable__subtittle" colspan="2">VERANO</th>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th class="timetable__section" colspan="2">Lunes - Jueves</th>
+                                            <th class="timetable__section" colspan="2">Viernes</th>
+                                            <th class="timetable__section" colspan="2">Lunes - Viernes</th>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th class="timetable__subsection">desde</th>
+                                            <th class="timetable__subsection">hasta</th>
+                                            <th class="timetable__subsection">desde</th>
+                                            <th class="timetable__subsection">hasta</th>
+                                            <th class="timetable__subsection">desde</th>
+                                            <th class="timetable__subsection">hasta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                           <td class="timetable__row-tittle">Entrada</td> 
+                                           <td>1:00</td> 
+                                           <td class="br-light">1:00</td> 
+                                           <td>1:00</td> 
+                                           <td class="br-light">1:00</td> 
+                                           <td>1:00</td> 
+                                           <td>1:00</td> 
+                                        </tr>
+                                        <tr>
+                                           <td class="timetable__row-tittle">Salida</td> 
+                                           <td>1:00</td> 
+                                           <td class="br-light">1:00</td> 
+                                           <td>1:00</td> 
+                                           <td class="br-light">1:00</td> 
+                                           <td>1:00</td> 
+                                           <td>1:00</td> 
+                                        </tr>
+                                        <tr>
+                                           <td class="timetable__row-tittle">Jornada</td> 
+                                           <td class="br-light" colspan="2">9 horas</td>  
+                                           <td class="br-light" colspan="2">7 horas</td>  
+                                           <td colspan="2">7 horas</td>  
+                                        </tr>
+                                        <tr>
+                                            <td class="br-light" colspan="3"><span class="inline-title">Jornada total:</span> 1800 horas</td>
+                                            <td colspan="4"><span class="inline-title">Tiempo de comida:</span> 1:00 - 2:00 horas</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class="informative-box">
                                 <div class="informative-box__icon">
@@ -2334,7 +2469,7 @@
                 <div class="modal__footer">
                     <div class="btn-container">
                         <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement, true)">Cancelar</div>
-                        <div class="modal-btn" id="confirmBtn">Continuar</div>
+                        <div class="modal-btn" id="confirmBtn" >Continuar</div>
                     </div>
                 </div>
             </div>

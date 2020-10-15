@@ -33,6 +33,7 @@
                 font-size: 1.8rem;
                 font-family: $medium-font;
                 color: $main-color;
+                min-width: 175px;
             }
 
             &__copy-tag{
@@ -53,6 +54,22 @@
                 img {
                     width: 2rem;
                     margin: 0.6rem 0 0.6rem 1rem;
+                }
+            }
+            &__review-tag{
+                display: none;
+                align-items: center;
+                width: auto;
+                background-color: $gray-color;
+                border: 1px solid $dark-gray-color;
+                border-radius: 4px;
+                padding: 1rem 2rem;
+                margin-left: 4rem;
+                
+                p{
+                    font-size: 1.1rem;
+                    font-family: $medium-font;
+                    color: $dark-gray-color;
                 }
             }
 
@@ -84,26 +101,28 @@
     &__dates{
         display: flex;
         flex-wrap: wrap;
-        padding: 1.5rem 1.5rem 1rem 1.5rem;
-        
-        .date{
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            font-family: $medium-font;
-            margin: 0 0.8rem 0.8rem 0;
-            padding: 0 1rem;
-            background-color: $gray-color;
-            height: 35px;
+        padding: 1.5rem 1.5rem 1rem 2rem;
 
-            &__text{
-                color: $main-color;
+        &--review{
+            display: none;
+            flex-direction: column;
+            padding: 0 1.5rem 1.5rem 2rem;
+            
+            .review-section{
+                margin-top: 1.5rem;
+                &__title{
+                    font-size: 1.4rem;
+                    color: $dark-gray-color;
+                    font-family: $medium-font;
+                    margin-bottom: 1rem;
+                }
+                &__dates{
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: 1rem;
+                }
             }
 
-            &__close{
-                margin-left: 1rem;
-                cursor: pointer;
-            }
         }
     }
 
@@ -124,6 +143,34 @@
         &__actions{
             .action:first-child{
                 display: none;
+            }
+        }
+    }
+
+    &--review &{
+
+        &__header{
+            .title{
+                &__review-tag{
+                    display: flex;
+                }
+            }
+        }
+
+        &__dates{
+            display: none;
+
+            &--review{
+                display: flex;
+
+                .date{
+                    &__text{
+                        color: $dark-gray-color;
+                    }
+                    &__close{
+                        display: none;
+                    }
+                }
             }
         }
     }
@@ -192,6 +239,26 @@
     &--no-actions &{
         &__actions{
             display: none;
+        }
+    }
+
+    .date{
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        font-family: $medium-font;
+        margin: 0 0.8rem 0.8rem 0;
+        padding: 0 1rem;
+        background-color: $gray-color;
+        height: 35px;
+
+        &__text{
+            color: $main-color;
+        }
+
+        &__close{
+            margin-left: 1rem;
+            cursor: pointer;
         }
     }
 }
