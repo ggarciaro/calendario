@@ -78,249 +78,334 @@
                     <div class="table">
                         <!-- Empieza la cabecera de la tabla -->
                         <div class="table__header">
-                            <div class="col">
+                            <div class="col col--xs">
                                 <label class="custom-checkbox">
                                     <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
                                     <span class="custom-checkbox__checkmark"></span>
                                 </label>
                             </div>
                             <div class="col">Código</div>
-                            <div class="col-xxl">Denomicación</div>
-                            <div class="col-l">Localidad</div>
-                            <div class="col-l">Jornada convenio</div>
-                            <div class="col-l">Jornada Teórica</div>
+                            <div class="col col--xxl">Denomicación</div>
+                            <div class="col col--l">Localidad</div>
+                            <div class="col col--l">Jornada convenio</div>
+                            <div class="col col--l">Jornada Teórica</div>
                             <div class="col">Dif. horas</div>
-                            <div class="col-l">Días Libre Disp.</div>
+                            <div class="col col--l">Días vacaciones</div>
+                            <div class="col col--l">Días Libre Disp.</div>
                             <div class="sub-table">
-                                <div class="sub-table__header">Horario de invierno</div>
+                                <div class="sub-table__header">Días laborables</div>
                                 <div class="sub-table__sections">
-                                    <div class="section">
-                                        <div class="section__header">Hora de entrada</div>
-                                        <div class="section__body">
-                                            <div>Inicio</div>
-                                            <div>Final</div>
-                                        </div>
-                                    </div>
-                                    <div class="section">
-                                        <div class="section__header">Hora de salida</div>
-                                        <div class="section__body">
-                                            <div>Inicio</div>
-                                            <div>Final</div>
-                                        </div>
-                                    </div>
-                                    <div class="section">
-                                        <div class="section__header">Comida</div>
-                                        <div class="section__body">
-                                            <div>Min.</div>
-                                            <div>Max.</div>
-                                        </div>
-                                    </div>
-                                    <div class="section">Días laborales</div>
+                                    <div class="section">Jornada invierno</div>
+                                    <div class="section">Viernes</div>
+                                    <div class="section">Jornada verano</div>
+                                    <div class="section">Totales</div>
                                 </div>
                             </div>
+                            <div class="col col--s"></div>
                         </div>
                         <!-- Fin de la cabecera de la tabla -->
                         <!-- Empieza el cuerpo de la tabla -->
                         <div class="table__body" id="tableData">
                             <!-- Empieza ejemplo de fila -->
-                            <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                            <div class="row  row--review" ondblclick="window.location.href = '/detail.html'">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="col">K1</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <!-- Fin ejemplo de fila -->
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K2</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K3</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K4</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K5</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K6</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K7</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K8</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                             <div class="row" ondblclick="window.location.href = '/detail.html'">
-                                <div class="col">
+                                <div class="col col--xs">
                                     <label class="custom-checkbox">
                                         <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col">K9</div>
-                                <div class="col-xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
-                                <div class="col-l">Barcelona</div>
-                                <div class="col-l">10.5</div>
-                                <div class="col-l">10.5</div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
                                 <div class="col">6</div>
-                                <div class="col-l">5.6</div>
-                                <div class="col border-l">8</div>
-                                <div class="col">9</div>
-                                <div class="col">8</div>
-                                <div class="col">9</div>
-                                <div class="col">1</div>
-                                <div class="col">2</div>
-                                <div class="col-xl border-r">165</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
+                            </div>
+                            <div class="row" ondblclick="window.location.href = '/detail.html'">
+                                <div class="col col--xs">
+                                    <label class="custom-checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
+                                        <span class="custom-checkbox__checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col">6</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
+                            </div>
+                            <div class="row" ondblclick="window.location.href = '/detail.html'">
+                                <div class="col col--xs">
+                                    <label class="custom-checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
+                                        <span class="custom-checkbox__checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col">6</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
+                            </div>
+                            <div class="row" ondblclick="window.location.href = '/detail.html'">
+                                <div class="col col--xs">
+                                    <label class="custom-checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
+                                        <span class="custom-checkbox__checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col">6</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
+                            </div>
+                            <div class="row" ondblclick="window.location.href = '/detail.html'">
+                                <div class="col col--xs">
+                                    <label class="custom-checkbox">
+                                        <input class="custom-checkbox__input" type="checkbox" onclick="checkInput(this.checked)">
+                                        <span class="custom-checkbox__checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="col">K1</div>
+                                <div class="col col--xxl">Barcelona (incorporaciones anteriores al 01/10/07)</div>
+                                <div class="col col--l">Barcelona</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col col--l">10.5</div>
+                                <div class="col">6</div>
+                                <div class="col col--l">22</div>
+                                <div class="col col--l">11</div>
+                                <div class="col col--subsection border-l">8</div>
+                                <div class="col col--subsection">9</div>
+                                <div class="col col--subsection">8</div>
+                                <div class="col col--subsection border-r">165</div>
+                                <div class="col col--s">
+                                    <img src="./assets/img/dashboard/arrow-right.svg" alt="Detalle">
+                                </div>
                             </div>
                         <!-- Termina el cuerpo de la tabla -->
                         <!-- Empieza el pie de la tabla -->

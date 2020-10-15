@@ -128,63 +128,43 @@
                 display: flex;
                 border-bottom: 1px solid $selected-color;
 
-                .col, .col-l, .col-xl, .col-xxl {
+                .col, .col--s, .col--l, .col--xl, .col--xxl {
                     align-items: flex-end !important; 
+                    justify-content: center;
                     text-align: center;
                 }
 
                 .sub-table{
                     display: flex;
                     flex-direction: column;
-                    width: 40%;
-                    min-width: 40%;
+                    width: 24%;
+                    min-width: 24%;
+                    box-sizing: border-box;
     
                     &__header{
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         min-height: 3rem;
+                        border-color: $gray-color;
+                        border-style: solid;
+                        border-width: 1px 1px 0 1px;
                     }
                     &__sections{
                         display: flex;
                         text-align: center;
                         align-items: center;
-                        border-width: 1px 1px 0 1px;
-                        border-style: solid;
-                        border-color: $gray-color;
                         box-sizing: border-box;
     
                         .section{
                             display: flex;
                             flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
                             width: 25%;
-                            &__header{
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                background-color: $gray-color;
-                                min-height: 3rem;
-                                &:last-child{
-                                    background-color: transparent;
-                                }
-                            }
-                            &__body{
-                                display: flex;
-    
-                                div{
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    width: 50%;
-                                    min-width: 50%;
-                                    min-height: 3rem;
-                                    font-weight: normal;
-                                    box-sizing: border-box;
-                                    &:nth-child(even){
-                                        border-right: 1px solid $gray-color;
-                                    }
-                                }
-                            }
+                            min-height: 3rem;
+                            padding: 0 0.5rem;
+                            background-color: $gray-color;
                         }
                     }
                 }
@@ -199,7 +179,7 @@
                     cursor: pointer;
 
                     &:hover{
-                        font-weight: bold;
+                        background-color: rgb(247, 247, 247);
                     }
 
                     &--show {
@@ -208,11 +188,18 @@
 
                     .col:first-child{
                         cursor: auto;
-                        background-color: $white-color;
                     }
 
                     .col:nth-child(2){
                         color: $main-color;
+                    }
+
+                    &--review{
+                        background-color: #fff3d5;
+                        
+                        &:hover{
+                            background-color: #ffe7a9;
+                        }
                     }
                 }
             }
@@ -239,35 +226,27 @@
                 min-height: 5rem;
                 width: 5%;
                 min-width: 5%;
-
-                &-l{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 1rem 0;
-                    box-sizing: border-box;
-                    min-height: 5rem;
-                    width: 6%;
-                    min-width: 6%;
+     
+                &--xs{
+                    width: 3%;
+                    min-width: 3%;
                 }
-                &-xl{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 1rem 0;
-                    box-sizing: border-box;
-                    min-height: 5rem;
-                    width: 10%;
-                    min-width: 10%;
+                &--s{
+                    width: 4%;
+                    min-width: 4%;
                 }
-                &-xxl{
-                    display: flex;
-                    align-items: center;
-                    padding: 1rem 0;
-                    box-sizing: border-box;
-                    min-height: 5rem;
-                    width: 21%;
-                    min-width: 21%;
+                &--subsection{
+                    width: calc(24% / 4);
+                    min-width: calc(24% / 4);
+                }
+                &--l{
+                    width: 7%;
+                    min-width: 7%;
+                }
+                &--xxl{
+                    width: 24%;
+                    min-width: 24%;
+                    padding-left: 0.5rem;
                 }
             }
             .border-r{
