@@ -3,6 +3,33 @@ import '../public/assets/img/common/error.svg';
 import '../public/assets/img/common/close-gray.svg';
 import '../public/assets/img/common/dropdown.svg';
 
+export const holidayTypeDic = {
+    diasInhabiles: {
+        code: 'off',
+        text: 'y días inhábiles'
+    },
+    fiestasLocales: {
+        code: 'local',
+        text: 'locales'
+    },
+    fiestasNacionalesCalendario: {
+        code: 'national',
+        text: 'nacionales'
+    },
+    fiestasNacionales: {
+        code: 'national',
+        text: 'nacionales'
+    },
+    fiestasAutonomicasCalendario: {
+        code: 'autonomic',
+        text: 'autonómicas'
+    },
+    fiestasAutonomicas: {
+        code: 'autonomic',
+        text: 'autonómicas'
+    },
+};
+
 function closeDialog(dialog) {
     return dialog.parentNode.removeChild(dialog);
 }
@@ -35,6 +62,43 @@ function showError(message) {
     setTimeout( function() {
         closeDialog(createdNotification)
     }, 5000);
+}
+
+function editCalendar(type) {
+    const styleCode = holidayTypeDic[type].code;
+    const calendarModal = document.getElementById('calendarModal');
+    const ccaaSelector = calendarModal.querySelector('#ccaaSelector');
+    const modalTitle = document.getElementById('titleHolidayType');
+
+    // Reset modal
+    const legendItems = calendarModal.querySelectorAll('.color');
+    for (let i = 0; i < legendItems.length; i++){
+        legendItems[i].style.display = 'none';
+    }
+    ccaaSelector.style.display = 'none';
+    
+
+    // Set modal data to show
+    calendarModal.querySelector('#todayLegend').style.display = 'flex';
+    calendarModal.querySelector('#' + styleCode + 'Legend').style.display = 'flex';
+    if (styleCode === 'autonomic') {
+        ccaaSelector.style.display = 'flex';
+    }
+    modalTitle.innerHTML = holidayTypeDic[type].text;
+
+    // Show modal
+    document.getElementById('popUp').style.display = 'flex';
+    calendarModal.style.display = 'block';
+}
+
+function toggleDaySelection(day, type){
+    const className = 'month__item--' + holidayTypeDic[type].code;
+    const isSelected = day.classList.contains(className);
+    if(isSelected){
+        day.classList.remove(className);
+    } else {
+        day.classList.add(className);
+    }
 }
 
 export function closeModal(modal, isCalendarCancel = false){
@@ -93,3 +157,5 @@ window.closeDialog = closeDialog;
 window.showNotification = showNotification;
 window.showError = showError;
 window.closeModal = closeModal;
+window.editCalendar = editCalendar;
+window.toggleDaySelection = toggleDaySelection;

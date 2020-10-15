@@ -55,11 +55,6 @@ function finishCalendarEdition() {
     showNotification('Card editada correctamente');
 }
 
-function editCalendar() {
-    document.getElementById('popUp').style.display = 'flex';
-    document.getElementById('calendarModal').style.display = 'block';
-}
-
 // Async code
 // const autonomicCardsNum = document.getElementById('autonomicSection').querySelectorAll('.holiday').length;
 // document.getElementById('autonomicCards').innerText = autonomicCardsNum.toString();
@@ -97,6 +92,5 @@ window.toggleHoliday = toggleHoliday;
 window.toggleFilter = toggleFilter;
 window.saveCalendar = saveCalendar;
 window.returnCalendar = returnCalendar;
-window.editCalendar = editCalendar;
 window.finishCalendarEdition = finishCalendarEdition;
 window.printHolidays = printHolidays;

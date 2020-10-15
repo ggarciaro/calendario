@@ -1,4 +1,4 @@
-import { closeModal, generatePagination } from './utils';
+import { closeModal, generatePagination, holidayTypeDic } from './utils';
 import '../styles/detail.scss';
 
 function selectTab (id){
@@ -100,6 +100,20 @@ $(".datepicker").datepicker({
     maxDate: new Date(2020, 11, 31),
 });
 
+function confirmAllHolidayDelete(type) {
+    const confirmModal = document.getElementById('deleteAllHoliday'); 
+    document.getElementById('deletSelectedHoliday').innerHTML = holidayTypeDic[type].text;
+    document.getElementById('popUp').style.display = 'flex';
+    confirmModal.style.display = 'block';
+}
+
+function confirmOneHolidayDelete(holiday) {
+    const date = holiday.querySelector('p').innerHTML;
+    document.getElementById('deletSelectedDate').innerHTML = date;
+    const confirmModal = document.getElementById('deleteOneHoliday'); 
+    document.getElementById('popUp').style.display = 'flex';
+    confirmModal.style.display = 'block';
+}
 
 
 mdtimepicker({is24hour: true});
@@ -110,3 +124,5 @@ window.selectRow = selectRow;
 window.importTemplate = importTemplate;
 window.printTemplates = printTemplates;
 window.toggleCCAA = toggleCCAA;
+window.confirmAllHolidayDelete = confirmAllHolidayDelete;
+window.confirmOneHolidayDelete = confirmOneHolidayDelete;

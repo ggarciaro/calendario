@@ -1,0 +1,76 @@
+@import '../shared/theme.scss';
+
+.date-picker .modal{
+    &__body{
+        border-bottom: 1px solid $gray-color;
+
+        .filters{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $gray-color;
+
+            .combo{
+                display: flex;
+                align-items: center;
+                flex-grow: 0;
+                font-size: 1.4rem;
+                &__tag{
+                    margin: 0 2rem 0 0;
+                }
+                &__options {
+                    min-width: 125px;
+                }
+            }
+            .legend{
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+
+                .color{
+                    display: flex;
+                    align-content: center;
+                    margin-right: 1rem;
+                    &__sample{
+                        content: ' ';
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        margin-right: 1rem;
+                        
+                        &--today{
+                            background-color: $selected-color;
+                        }
+                        &--national{
+                            background-color: $purple-color;
+                        }
+                        &--autonomic{
+                            background-color: $turquoise-color;
+                        }
+                        &--local{
+                            background-color: $rose-color;
+                        }
+                        &--off{
+                            background-color: $green-color;
+                        }
+                    }
+                    &__tag{
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: $main-color;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+
+    }
+    
+    &__footer{
+        .total{
+            span{
+                font-weight: bold;
+            }
+        }    
+    }
+}

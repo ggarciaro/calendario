@@ -43,7 +43,7 @@
                     <p class="holiday-selector__option holiday-selector__option--selected" id="autonomicTab" onclick="toggleHoliday(this.id)">Fiestas autonómicas</p>
                     <p class="holiday-selector__option" id="nationalTab" onclick="toggleHoliday(this.id)">Fiestas nacionales</p>
                 </header>
-                <div id="autonomicSection">
+                <div class="holiday-section" id="autonomicSection">
                     <div class="card filters">
                         <div class="filters__main">
                             <!-- El span indica el número de resultados -->
@@ -100,7 +100,7 @@
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
-                                        <div class="action" onclick="editCalendar()">
+                                        <div class="action" onclick="editCalendar(this, 'autonomic')">
                                             <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                             <p class="action__text">Editar</p>
                                         </div>
@@ -150,7 +150,7 @@
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
-                                    <div class="action" onclick="editCalendar()">
+                                    <div class="action" onclick="editCalendar(this, 'autonomic')">
                                             <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                             <p class="action__text">Editar</p>
                                         </div>
@@ -199,7 +199,7 @@
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
-                                    <div class="action" onclick="editCalendar()">
+                                    <div class="action" onclick="editCalendar(this, 'autonomic')">
                                             <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                             <p class="action__text">Editar</p>
                                         </div>
@@ -231,7 +231,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="nationalSection" style="display: none;">
+                <div class="holiday-section" id="nationalSection" style="display: none;">
                     <div class="card holiday holiday--national">
                         <div class="holiday__decorator">
                             <div class="holiday__info">
@@ -343,7 +343,7 @@
             <div class="modal-container__content">
                 <div class="modal date-picker" id="calendarModal" style="display: none;">
                     <div class="modal__header">
-                        <h3>Editar fiestas autonómicas</h3>
+                        <h3>Editar fiestas <span id="titleHolidayType"></span></h3>
                         <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
                     </div>
                     <div class="modal__body">
@@ -368,9 +368,25 @@
                                 </div>
                             </div>
                             <div class="legend">
-                                <div class="color">
-                                    <div class="color__sample"></div>
+                                <div class="color" id="todayLegend">
+                                    <div class="color__sample color__sample--today"></div>
                                     <div class="color__tag">Hoy</div>
+                                </div>
+                                <div class="color" id="offLegend">
+                                    <div class="color__sample color__sample--off"></div>
+                                    <div class="color__tag">Días inhábiles</div>
+                                </div>
+                                <div class="color" id="localLegend">
+                                    <div class="color__sample color__sample--local"></div>
+                                    <div class="color__tag">Fiestas locales</div>
+                                </div>
+                                <div class="color" id="autonomicLegend">
+                                    <div class="color__sample color__sample--autonomic"></div>
+                                    <div class="color__tag">Fiestas autonómicas</div>
+                                </div>
+                                <div class="color" id="nationalLegend">
+                                    <div class="color__sample color__sample--national"></div>
+                                    <div class="color__tag">Fiestas nacionales</div>
                                 </div>
                             </div>
                         </div>

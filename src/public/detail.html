@@ -185,13 +185,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="combo" id="localCombo">
-                                        <p class="combo__tag">Localidad:</p>
-                                        <div class="combo__options">
-                                            <select>
-                                                <option value="">TOLEDO</option>
-                                            </select>
-                                        </div>
+                                    <div class="field">
+                                        <label>Localidad:</label>
+                                        <input type="text"/>
                                     </div>
                                     <div class="btn-container">
                                         <div class="add-template" id="seleccionarObservacionPlantilla" onclick="showTemplateModal()">
@@ -453,10 +449,6 @@
                             </div>
                         </div>
                         <div class="detail__display detail__display--selected holidays" id="holidayDisplay">
-                            <div class="import-btn">
-                                <img src="./assets/img/detail/upload.svg" alt="importar">
-                                <p>Importar</p>
-                            </div>
                             <div class="card holiday holiday--off">
                                 <div class="holiday__decorator">
                                     <div class="holiday__info">
@@ -475,23 +467,23 @@
                                                     <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                                     <p class="action__text">Duplicar</p>
                                                 </div>
-                                            <div class="action action--edit" onclick="editCalendar()">
+                                            <div class="action action--edit" onclick="editCalendar('diasInhabiles')">
                                                     <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                                     <p class="action__text">Editar</p>
                                                 </div>
-                                                <div class="action action--delete">
+                                                <div class="action action--delete" onclick="confirmAllHolidayDelete('diasInhabiles')">
                                                     <img class="action__img" src="./assets/img/common/delete.svg" alt="Eliminar">
                                                     <p class="action__text">Eliminar</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="holiday__dates">
-                                            <div class="date">
+                                            <div class="date" onclick="confirmOneHolidayDelete(this)">
                                                 <p class="date__text">03/01/2020</p>
                                                 <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
                                             </div>
-                                            <div class="date">
-                                                <p class="date__text">03/01/2020</p>
+                                            <div class="date" onclick="confirmOneHolidayDelete(this)">
+                                                <p class="date__text">05/01/2020</p>
                                                 <img class="date__close" src="./assets/img/common/close-gray.svg" alt="close">
                                             </div>
                                             <div class="date">
@@ -524,7 +516,7 @@
                                                     <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                                     <p class="action__text">Duplicar</p>
                                                 </div>
-                                            <div class="action action--edit" onclick="editCalendar()">
+                                            <div class="action action--edit" onclick="editCalendar('fiestasLocales')">
                                                     <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                                     <p class="action__text">Editar</p>
                                                 </div>
@@ -555,7 +547,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card holiday holiday--autonom holiday--no-actions">
+                            <div class="card holiday holiday--review holiday--autonom holiday--no-actions">
                                 <div class="holiday__decorator">
                                     <div class="holiday__info">
                                         <div class="holiday__header">
@@ -567,13 +559,16 @@
                                                     <p>COPIA</p>
                                                     <img src="./assets/img/common/copy.svg" alt="Copia">
                                                 </div>
+                                                <div class="title__review-tag">
+                                                    <p>NECESARIO RECALCULAR</p>
+                                                </div>
                                             </div>
                                             <div class="holiday__actions">
                                                 <div class="action action--duplicate" onclick="showNotification('Card duplicada correctamente')">
                                                     <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                                     <p class="action__text">Duplicar</p>
                                                 </div>
-                                            <div class="action action--edit" onclick="editCalendar()">
+                                            <div class="action action--edit" onclick="editCalendar('fiestasAutonomicasCalendario')">
                                                     <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                                     <p class="action__text">Editar</p>
                                                 </div>
@@ -622,7 +617,7 @@
                                                     <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                                     <p class="action__text">Duplicar</p>
                                                 </div>
-                                            <div class="action" onclick="editCalendar()">
+                                            <div class="action" onclick="editCalendar('fiestasNacionalesCalendario')">
                                                     <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                                     <p class="action__text">Editar</p>
                                                 </div>
@@ -656,7 +651,10 @@
                         </div>
                         <div class="detail__display preview" id="previewDisplay">
                             <div class="title">
-                                <h2>Calendario laboral 2020</h2>
+                                <div class="title__text">
+                                    <h2>Calendario laboral 2020</h2>
+                                    <h3>Barcelona</h3>
+                                </div>
                                 <div class="legend">
                                     <div class="color">
                                         <div class="color__sample color__sample--today"></div>
@@ -1475,7 +1473,7 @@
             </div>
             <div class="modal date-picker" id="calendarModal" style="display: none;">
                 <div class="modal__header">
-                    <h3>Editar fiestas autonómicas</h3>
+                    <h3>Editar fiestas <span id="titleHolidayType"></span></h3>
                     <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
                 </div>
                 <div class="modal__body">
@@ -1500,9 +1498,25 @@
                             </div>
                         </div>
                         <div class="legend">
-                            <div class="color">
-                                <div class="color__sample"></div>
+                            <div class="color" id="todayLegend">
+                                <div class="color__sample color__sample--today"></div>
                                 <div class="color__tag">Hoy</div>
+                            </div>
+                            <div class="color" id="offLegend">
+                                <div class="color__sample color__sample--off"></div>
+                                <div class="color__tag">Días inhábiles</div>
+                            </div>
+                            <div class="color" id="localLegend">
+                                <div class="color__sample color__sample--local"></div>
+                                <div class="color__tag">Fiestas locales</div>
+                            </div>
+                            <div class="color" id="autonomicLegend">
+                                <div class="color__sample color__sample--autonomic"></div>
+                                <div class="color__tag">Fiestas autonómicas</div>
+                            </div>
+                            <div class="color" id="nationalLegend">
+                                <div class="color__sample color__sample--national"></div>
+                                <div class="color__tag">Fiestas nacionales</div>
                             </div>
                         </div>
                     </div>
@@ -1525,10 +1539,10 @@
                                 <div class="month__item month__item--light">29</div>
                                 <div class="month__item month__item--light">30</div>
                                 <div class="month__item month__item--light">31</div>
-                                <div class="month__item month__item--autonomic">1</div>
+                                <div class="month__item month__item--weekend" onclick="toggleDaySelection(this, 'diasInhabiles')">1</div>
                             </div>
                             <div class="month__row">
-                                <div class="month__item">2</div>
+                                <div class="month__item" onclick="toggleDaySelection(this, 'diasInhabiles')">2</div>
                                 <div class="month__item">3</div>
                                 <div class="month__item">4</div>
                                 <div class="month__item">5</div>
@@ -2306,6 +2320,36 @@
                     <div class="btn-container">
                         <div class="modal-btn modal-btn--secondary" onclick="closeModal(this.parentElement.parentElement, true)">Cancelar</div>
                         <div class="modal-btn" onclick="saveCalendar()">Guardar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal confirm-modal" id="deleteAllHoliday" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Eliminar festividades</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <p id="confirmText">¿Está seguro que desea eliminar todas las festividades de fiestas <span id="deletSelectedHoliday"></span>?</p>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement, true)">Cancelar</div>
+                        <div class="modal-btn" id="confirmBtn">Continuar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal confirm-modal" id="deleteOneHoliday" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Eliminar festividad</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <p id="confirmText">¿Está seguro que desea eliminar la festividad <span id="deletSelectedDate"></span>?</p>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement, true)">Cancelar</div>
+                        <div class="modal-btn" id="confirmBtn">Continuar</div>
                     </div>
                 </div>
             </div>

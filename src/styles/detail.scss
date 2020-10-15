@@ -351,11 +351,20 @@
         border-bottom: 1px solid $gray-color;
         padding: 1rem 0;
 
-        h2{
-            font-size: 1.8rem;
+        &__text{
             color: $main-color;
-            font-family: $medium-font;
             padding: 1rem 0;
+        }
+        
+        h2{
+            font-family: $medium-font;
+            font-size: 1.8rem;
+        }
+
+        h3{
+            font-family: $regular-font;
+            font-size: 1.6rem;
+            margin-top: 1.5rem;
         }
 
         .legend{

@@ -40,7 +40,6 @@
         padding: 1rem 0;
         margin: 0 2.5rem;
         box-sizing: border-box;
-
     }
 
     &__footer{
@@ -58,6 +57,7 @@
                 padding: 1rem 2.5rem;
                 border: 2px solid $selected-color;
                 cursor: pointer;
+                margin-left: 1rem;
 
                 &:hover{
                     background-color: $selected-color;
@@ -83,6 +83,18 @@
             }
         }
 
+    }
+}
+
+.confirm-modal .modal{
+    &__body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 3rem 2.5rem 3rem;
+        p{
+            font-size: 1.3rem;
+        }
     }
 }
 

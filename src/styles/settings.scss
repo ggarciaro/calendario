@@ -19,6 +19,10 @@
     }
 }
 
+.holiday-section {
+    background-color: #fafafa;
+}
+
 .pagination{
     justify-content: flex-end;
 }
@@ -73,63 +77,6 @@
         &--hide{
             display: none;
         }
-    }
-}
-
-.date-picker .modal{
-    &__body{
-        border-bottom: 1px solid $gray-color;
-
-        .filters{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid $gray-color;
-
-            .combo{
-                display: flex;
-                align-items: center;
-                flex-grow: 0;
-                font-size: 1.4rem;
-                &__tag{
-                    margin: 0 2rem 0 0;
-                }
-                &__options {
-                    min-width: 125px;
-                }
-            }
-            .legend{
-                margin-left: auto;
-
-                .color{
-                    display: flex;
-                    align-content: center;
-                    margin: 0 1rem;
-                    &__sample{
-                        content: ' ';
-                        width: 1.2rem;
-                        height: 1.2rem;
-                        background-color: $selected-color;
-                        margin-right: 1rem;
-                    }
-                    &__tag{
-                        font-family: Arial, Helvetica, sans-serif;
-                        color: $main-color;
-                    }
-                }
-            }
-        }
-
-    }
-    
-    &__footer{
-        .total{
-            span{
-                font-weight: bold;
-            }
-        }    
     }
 }
 
