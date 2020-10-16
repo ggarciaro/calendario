@@ -4,12 +4,21 @@ import '../styles/dashboard.scss';
 import '../public/assets/img/dashboard/left.svg';
 import '../public/assets/img/dashboard/right.svg';
 
+function updateControllers() {
+    const totalChecked = document.getElementsByClassName('table__body')[0].querySelectorAll('input:checked').length;
+    document.getElementById('totalChecked').innerHTML = totalChecked;
+
+    const copyForThisYearBtn = document.getElementById('copyForThisYearBtn');
+    copyForThisYearBtn.style.display = totalChecked > 1 ? 'none' : 'flex';
+}
+
 function toggleControllers(){
     const hasCheckedInputs = document.getElementsByClassName('table__body')[0].querySelectorAll('input:checked').length > 0;
     const controllers = document.getElementById('tableControllers');
     const dashboardContainer = document.getElementById('dashboardContainer');
 
     if (hasCheckedInputs) {
+        updateControllers();
         controllers.style.display = 'flex';
         dashboardContainer.style.padding = '1rem 2rem 7rem 2rem';
     } else {
@@ -31,6 +40,7 @@ function toggleCheckAll(isChecked){
 function checkInput(isChecked){
     const hasUnchecked = document.getElementsByClassName('table__body')[0].querySelectorAll('input:not(:checked)').length > 0;
     const globalCheckbox = document.getElementById('globalCheckbox');
+
     if (isChecked && !hasUnchecked) {
         globalCheckbox.checked = true;
     } else {
@@ -67,7 +77,7 @@ function printTable(currentPage){
     document.getElementById('totalCalendars').innerText = totalCalendars.length;
     document.getElementById('totalRegisters').innerText = totalCalendars.length;
     
-    const maxPerPage = 3;
+    const maxPerPage = 5;
     const numberPages = Math.ceil(totalCalendars.length / maxPerPage);
     generatePagination(numberPages, currentPage, printTable);
     showSelectedRows(totalCalendars, maxPerPage, currentPage);
