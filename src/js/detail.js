@@ -115,8 +115,19 @@ function confirmOneHolidayDelete(holiday) {
     confirmModal.style.display = 'block';
 }
 
+function isIE() {
+    const ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    const is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+    
+    return is_ie; 
+}
 
-mdtimepicker({is24hour: true});
+if (!isIE()){
+    mdtimepicker({is24hour: true});
+}
+
+
 
 window.selectTab = selectTab;
 window.showTemplateModal = showTemplateModal;
