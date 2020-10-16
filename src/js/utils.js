@@ -30,6 +30,17 @@ export const holidayTypeDic = {
     },
 };
 
+function toggleFilter(filter) {
+    const filtersOptions = filter.querySelector('.filters__options');
+    if (filtersOptions.classList.contains('filters__options--hide')) {
+        filtersOptions.classList.remove('filters__options--hide');
+        document.getElementById('filterToggleTxt').innerText = 'Ocultar';
+    } else {
+        filtersOptions.classList.add('filters__options--hide');
+        document.getElementById('filterToggleTxt').innerText = 'Mostrar';
+    }
+}
+
 function closeDialog(dialog) {
     return dialog.parentNode.removeChild(dialog);
 }
@@ -89,6 +100,11 @@ function editCalendar(type) {
     // Show modal
     document.getElementById('popUp').style.display = 'flex';
     calendarModal.style.display = 'block';
+}
+
+function saveFestivos() {
+    const modal = document.getElementById('calendarModal');
+    closeModal(modal);
 }
 
 function toggleDaySelection(day, type){
@@ -159,3 +175,5 @@ window.showError = showError;
 window.closeModal = closeModal;
 window.editCalendar = editCalendar;
 window.toggleDaySelection = toggleDaySelection;
+window.toggleFilter = toggleFilter;
+window.saveFestivos = saveFestivos;

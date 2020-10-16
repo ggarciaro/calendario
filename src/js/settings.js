@@ -25,17 +25,6 @@ function toggleHoliday(selected){
     }
 };
 
-function toggleFilter() {
-    const filtersOptions = document.getElementsByClassName('filters__options')[0];
-    if (filtersOptions.classList.contains('filters__options--hide')) {
-        filtersOptions.classList.remove('filters__options--hide');
-        document.getElementById('filterToggleTxt').innerText = 'Ocultar';
-    } else {
-        filtersOptions.classList.add('filters__options--hide');
-        document.getElementById('filterToggleTxt').innerText = 'Mostrar';
-    }
-}
-
 function saveCalendar() {
     const calendarModal = document.getElementsByClassName('modal')[0];
     const changeNameModal = document.getElementsByClassName('modal')[1];
@@ -89,7 +78,6 @@ function printHolidays(currentPage) {
 printHolidays();
 
 window.toggleHoliday = toggleHoliday;
-window.toggleFilter = toggleFilter;
 window.saveCalendar = saveCalendar;
 window.returnCalendar = returnCalendar;
 window.finishCalendarEdition = finishCalendarEdition;

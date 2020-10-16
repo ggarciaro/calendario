@@ -44,6 +44,15 @@
             <header class="filter">
                 <div class="filter__year">
                     <div class="combo">
+                        <p class="combo__tag">País</p>
+                        <div class="combo__options">
+                            <select>
+                                <option value="es">España</option>
+                                <option value="br">Brasil</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="combo">
                         <p class="combo__tag">Año</p>
                         <div class="combo__options">
                             <select>
@@ -56,12 +65,6 @@
                     <img class="increaser" src="./assets/img/dashboard/arrow-up.svg" alt="Incrementar">
                     <img class="increaser" src="./assets/img/dashboard/arrow-down.svg" alt="Reducir">
                 </div>
-                <div class="filter__searcher">
-                   <input class="field" type="text" placeholder="Código"> 
-                   <input class="field" type="text" placeholder="Denominación"> 
-                   <input class="field" type="text" placeholder="Localidad"> 
-                   <img class="search-btn" src="./assets/img/dashboard/search-blue.svg" alt="Buscar">
-                </div>
                 <div class="filter__actions">
                     <div class="btn">Duplicar año completo</div>
                     <div class="btn" onclick="window.location.href = './detail.html'">Nuevo calendario</div>
@@ -70,8 +73,24 @@
             <!-- Termina la cabecera con los filtros -->
             <!-- Empieza el dashboard -->
             <div class="dashboard" id="dashboardContainer">
-                <div class="dashboard__resume">
-                    <span id="totalRegisters"></span> registros
+                <div class="filters dashboard__resume">
+                    <div class="filters__main">
+                        <!-- El span indica el número de resultados -->
+                        <p class="filters__results"><span id="totalRegisters"></span>registros</p>
+                        <div class="filters__toggle" onclick="toggleFilter(this.parentElement.parentElement)">
+                            <img src="./assets/img/common/filters.svg" alt="Filtros">
+                            <p><span id="filterToggleTxt">Mostrar</span> filtros</p>
+                        </div>
+                    </div>
+                    <div class="filters__options filters__options--hide">
+                        <input class="field" type="text" placeholder="Código"> 
+                        <input class="field" type="text" placeholder="Denominación"> 
+                        <input class="field" type="text" placeholder="Comunidad Autónoma"> 
+                        <input class="field" type="text" placeholder="Localidad"> 
+                        <div class="btn-container">
+                            <div class="search-btn">Buscar</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="dashboard__data">
                     <!-- Empieza la tabla -->

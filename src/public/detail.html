@@ -139,12 +139,12 @@
                     <!-- Termina columna de info lateral -->
                     <div class="detail__content">
                         <div class="detail__tabs">
-                            <div class="tab" id="schedulesTab" onclick="selectTab(this.id)">Horarios</div>
+                            <div class="tab tab--selected" id="schedulesTab" onclick="selectTab(this.id)">Horarios</div>
                             <div class="tab" id="holidayTab" onclick="selectTab(this.id)">Fiestas y días hábiles</div>
-                            <div class="tab tab--selected" id="previewTab" onclick="selectTab(this.id)">Vista previa</div>
+                            <div class="tab" id="previewTab" onclick="selectTab(this.id)">Vista previa</div>
                             <div class="tab" id="commentsTab" onclick="selectTab(this.id)">Comentarios</div>
                         </div>
-                        <div class="detail__display schedule" id="schedulesDisplay">
+                        <div class="detail__display detail__display--selected schedule" id="schedulesDisplay">
                             <div class="schedule-card" id="contenedorDatosPrincipalesCalendario">
                                 <div class="schedule-card__title">
                                     <h3>Datos principales</h3>
@@ -724,7 +724,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="detail__display detail__display--selected preview" id="previewDisplay">
+                        <div class="detail__display preview" id="previewDisplay">
                             <div class="title">
                                 <div class="title__text">
                                     <h2>Calendario laboral 2020</h2>
@@ -1655,7 +1655,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="calendar">
+                    <div class="calendar" id="calendarEdition">
                         <div class="month">
                             <h3 class="month__name">Enero</h3>
                             <div class="month__row">
@@ -2454,7 +2454,7 @@
                     <p class="total">Días seleccionados <span>5</span></p>
                     <div class="btn-container">
                         <div class="modal-btn modal-btn--secondary" onclick="closeModal(this.parentElement.parentElement, true)">Cancelar</div>
-                        <div class="modal-btn" onclick="saveCalendar()">Guardar</div>
+                        <div class="modal-btn" onclick="saveFestivos()">Guardar</div>
                     </div>
                 </div>
             </div>

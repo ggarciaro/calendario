@@ -33,53 +33,6 @@
     box-sizing: border-box;
 }
 
-.filters{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &__main{
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 1.5rem;
-        background-color: $gray-color;
-    }
-
-    &__results{
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-        color: $main-color;
-        span{
-            margin-right: 0.5rem;
-        }
-    }
-
-    &__toggle{
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        img{
-            margin-right: 1rem;
-        }
-    }
-
-    &__options{
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        border: 1px solid $gray-color;
-        padding: 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-
-        &--hide{
-            display: none;
-        }
-    }
-}
-
 .name-form .modal{
     
     &__body{
