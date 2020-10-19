@@ -97,19 +97,32 @@
 
             &__options{
                 padding: 1.5rem 0 1.5rem 1.5rem;
-                .field{
+                .combo, .field{
                     min-width: 8rem;
                     max-width: 50%;
-                    flex-grow: 1;
                     box-sizing: border-box;
                     height: 3rem;
+                    flex-grow: 1;
+                }
+                .combo{
+                    margin: 0.5rem 1rem 0 0;
+                    padding: 0 0 0 1rem;
+                    &__options{
+                        padding: 0.75rem 0.5rem;
+
+                        &::after{
+                            top: 4px;
+                        }
+                    }
+                }
+                .field{
                     border-width: 0 0 1px 0;
                     border-color: $main-color;
                     border-style: solid;
                     font-size: 1.2rem;
                     padding: 0.6rem 0 1rem 0;
                     color: $main-color;
-                    margin: 0 1.5rem 0.5rem 0;
+                    margin: 0.5rem 1.5rem 0.5rem 1rem;
         
                     &::placeholder{
                         color: $main-color;
@@ -286,6 +299,38 @@
     &__text{
         font-size: 1.3rem;
         margin: 2rem 0;
+        font-family: $regular-font;
+    }
+
+    .combo{
+        padding: 0;
+        max-width: 300px;
+        flex-direction: row;
+
+        &__tag{
+            margin-bottom: 1rem;
+        }
+    }
+    .modal{
+        &__body{
+            .calendar-container{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 2rem;
+    
+                p{
+                    padding: 1rem 2rem;
+                }
+            }
+        }
+
+        &__footer{
+            justify-content: center;
+            .btn-container{
+                margin-left: 0;
+            }
+        }
     }
 }
 
@@ -338,7 +383,8 @@
     .filters{
         &__options{
             .field{
-                width: calc(50% - 2rem);
+                flex-grow: 0 !important;
+                width: calc(50% - 2.5rem);
                 max-width: 50% !important;
             }
         }
@@ -353,7 +399,7 @@
 @media only screen and (max-width: 500px) {
     .filters{
         &__options{
-            .field{
+            .field, .combo{
                 width: 100%;
                 max-width: 100% !important;
             }

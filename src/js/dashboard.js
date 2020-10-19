@@ -27,13 +27,16 @@ function toggleControllers(){
     }
 }
 
+let selectedCalendars = [];
+
 function getChecked() {
     const checkedBoxes = document.getElementById('dashboardContainer').querySelectorAll('input:checked');
     const selectedRows = [];
     for (let i = 0; i<checkedBoxes.length; i++){
         const currentCheckbox = checkedBoxes[i];
         if (currentCheckbox.id !== 'globalCheckbox'){
-            selectedRows.push(currentCheckbox.parentElement.parentElement.parentElement);
+            const code = currentCheckbox.parentElement.parentElement.nextElementSibling.innerHTML;
+            selectedRows.push(code);
         }
     }
     return selectedRows;
@@ -42,26 +45,85 @@ function getChecked() {
 function copyAllCalendars() {
     console.log('copiar todos los calendarios');
 
-    const confirmCopyModal = document.getElementById('copyCalendars');
+    const confirmCopyModal = document.getElementById('copyOtherYearCalendars');
     closeModal(confirmCopyModal);
 }
 
 function copySelectedCalendars() {
-    const selectedCalendars = getChecked();
     console.log(selectedCalendars);
 
-    const confirmCopyModal = document.getElementById('copyCalendars');
+    const confirmCopyModal = document.getElementById('copyOtherYearCalendars');
     closeModal(confirmCopyModal);
 }
 
-function confirmCopy(copyAll) {
+function copySameYearCopy() {
+    selectedCalendars = getChecked();
+    console.log(selectedCalendars);
+
+    const confirmCopyModal = document.getElementById('copySameYearCalendar');
+    closeModal(confirmCopyModal);
+}
+
+
+
+function confirmSameYearCopy() {
+    selectedCalendars = getChecked();
+    document.getElementById('selectedSameYearCalendar').innerText = selectedCalendars[0];
+    document.getElementById('popUp').style.display = 'flex';
+    document.getElementById('copySameYearCalendar').style.display = 'block';
+}
+
+function confirmOtherYearCopy(copyAll) {
+    selectedCalendars = getChecked();
+    const calendarCodesContainer = document.getElementById('otherYearCalendarContianer');
+    calendarCodesContainer.innerHTML = '';
+    let codesHtml = '';
+
     if (copyAll) {
+        const calendarNumber = document.getElementsByClassName('row').length;
+        codesHtml += '<p class="copy-modal__text">Se van a copiar un total de ' + calendarNumber + ' calendarios</p>'
         document.getElementById('confirmCopyBtn').onclick = copyAllCalendars;
     } else {
+
+        codesHtml += '<p class="copy-modal__text">Calendarios seleccionados:</p><div class="calendar-container">'
+        for ( let i = 0; i < selectedCalendars.length; i++) {
+            codesHtml += '<p>' + selectedCalendars[i] + '</p>';
+        }
+        codesHtml += '</div>'
+        
         document.getElementById('confirmCopyBtn').onclick = copySelectedCalendars;
     }
+    
+    calendarCodesContainer.insertAdjacentHTML("afterbegin", codesHtml);
     document.getElementById('popUp').style.display = 'flex';
-    document.getElementById('copyCalendars').style.display = 'block';
+    document.getElementById('copyOtherYearCalendars').style.display = 'block';
+}
+
+function confirmDelete() {
+    selectedCalendars = getChecked();
+    const deleteModalText = document.getElementById('deleteModalText');
+    deleteModalText.innerHTML = '';
+    let deleteHtml = '';
+
+    console.log(selectedCalendars.length)
+
+    if (selectedCalendars.length === 1) {
+        deleteHtml += '<p class="copy-modal__text">¿Desea eliminar el calendario ' + selectedCalendars[0] + '?</p>';
+    } else {
+        deleteHtml += '<p class="copy-modal__text">Se van a eliminar los siguientes calendarios:</p><div class="calendar-container">'
+        for ( let i = 0; i < selectedCalendars.length; i++) {
+            deleteHtml += '<p>' + selectedCalendars[i] + '</p>';
+        }
+        deleteHtml += '</div>'
+    }
+
+    deleteModalText.insertAdjacentHTML("afterbegin", deleteHtml);
+    document.getElementById('popUp').style.display = 'flex';
+    document.getElementById('deleteCalendar').style.display = 'block';
+}
+
+function deleteCalendar() {
+
 }
 
 function toggleCheckAll(isChecked){
@@ -131,5 +193,8 @@ printTable();
 
 window.toggleCheckAll = toggleCheckAll;
 window.checkInput = checkInput;
-window.confirmCopy = confirmCopy;
+window.confirmOtherYearCopy = confirmOtherYearCopy;
+window.copySameYearCopy = copySameYearCopy;
+window.confirmSameYearCopy = confirmSameYearCopy;
+window.confirmDelete = confirmDelete;
 window.printTable = printTable;

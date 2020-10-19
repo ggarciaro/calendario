@@ -34,6 +34,26 @@ export const holidayTypeDic = {
     },
 };
 
+let isMenuDisplay = false;
+
+function toggleMenu() {
+    const sideMenu = document.getElementById('responsiveContent');
+    const background = document.getElementById('responsiveBackground');
+    const bodyHtml = document.body;
+
+    isMenuDisplay = !isMenuDisplay;
+
+    if (isMenuDisplay){
+        bodyHtml.style.overflow = 'hidden';
+        sideMenu.style.display = 'flex';
+        background.onclick = toggleMenu;
+    } else {
+        bodyHtml.style.overflow = 'auto';
+        sideMenu.style.display = 'none';
+        background.removeAttribute('onclick');
+    }
+}
+
 function toggleFilter(filter) {
     const filtersOptions = filter.querySelector('.filters__options');
     if (filtersOptions.classList.contains('filters__options--hide')) {
@@ -121,19 +141,12 @@ function toggleDaySelection(day, type){
     }
 }
 
-export function closeModal(modal, isCalendarCancel = false){
-
-    if (isCalendarCancel === undefined) isCalendarCancel = false;
+export function closeModal(modal){
 
     const modalContainer = document.getElementById('popUp');
     modalContainer.style.display = 'none';
 
-    if (!isCalendarCancel) {
-        modal.style.display = 'none';
-    } else {
-        const canlendarModal = document.getElementById('calendarModal');
-        canlendarModal.style.display = 'none';
-    }
+    modal.style.display = 'none';
 }
 
 export function generatePagination(pages, currentPage, func){
@@ -173,6 +186,7 @@ export function generatePagination(pages, currentPage, func){
     }
 }
 
+window.toggleMenu = toggleMenu;
 window.closeDialog = closeDialog;
 window.showNotification = showNotification;
 window.showError = showError;

@@ -65,7 +65,7 @@
                     <img class="increaser" src="./assets/img/dashboard/arrow-down.svg" alt="Reducir">
                 </div>
                 <div class="filter__actions">
-                    <div class="btn" onclick="confirmCopy(true)">Duplicar año completo</div>
+                    <div class="btn" onclick="confirmOtherYearCopy(true)">Duplicar año completo</div>
                     <div class="btn" onclick="window.location.href = './detail.html'">Nuevo calendario</div>
                 </div>
             </header>
@@ -84,7 +84,14 @@
                     <div class="filters__options filters__options--hide">
                         <input class="field" type="text" placeholder="Código"> 
                         <input class="field" type="text" placeholder="Denominación"> 
-                        <input class="field" type="text" placeholder="Comunidad Autónoma"> 
+                        <div class="combo">
+                            <div class="combo__options">
+                                <select>
+                                    <option selected hidden>Comunidad Autónoma</option>
+                                    <option value="Mad">Comunidad de Madrid</option>
+                                </select>
+                            </div>
+                        </div> 
                         <input class="field" type="text" placeholder="Localidad"> 
                         <div class="btn-container">
                             <div class="search-btn">Buscar</div>
@@ -136,7 +143,7 @@
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col" ondblclick="window.location.href = '/detail.html'">K1</div>
+                                <div class="col" ondblclick="window.location.href = '/detail.html'" name="K1">K1</div>
                                 <div class="col col--xxl" ondblclick="window.location.href = '/detail.html'">Barcelona (incorporaciones anteriores al 01/10/07)</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">Barcelona</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">10.5</div>
@@ -160,7 +167,7 @@
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col" ondblclick="window.location.href = '/detail.html'">K1</div>
+                                <div class="col" ondblclick="window.location.href = '/detail.html'" name="K2">K2</div>
                                 <div class="col col--xxl" ondblclick="window.location.href = '/detail.html'">Barcelona (incorporaciones anteriores al 01/10/07)</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">Barcelona</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">10.5</div>
@@ -183,7 +190,7 @@
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col" ondblclick="window.location.href = '/detail.html'">K1</div>
+                                <div class="col" ondblclick="window.location.href = '/detail.html'" name="K3">K3</div>
                                 <div class="col col--xxl" ondblclick="window.location.href = '/detail.html'">Barcelona (incorporaciones anteriores al 01/10/07)</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">Barcelona</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">10.5</div>
@@ -206,7 +213,7 @@
                                         <span class="custom-checkbox__checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="col" ondblclick="window.location.href = '/detail.html'">K1</div>
+                                <div class="col" ondblclick="window.location.href = '/detail.html'" name="K4">K4</div>
                                 <div class="col col--xxl" ondblclick="window.location.href = '/detail.html'">Barcelona (incorporaciones anteriores al 01/10/07)</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">Barcelona</div>
                                 <div class="col col--l" ondblclick="window.location.href = '/detail.html'">10.5</div>
@@ -445,15 +452,15 @@
             <div class="table-controller" id="tableControllers">
                 <p class="table-controller__resume"><span id="totalChecked">5</span> elementos seleccionados</p>
                 <div class="table-controller__actions">
-                    <div class="action" id="copyForThisYearBtn">
+                    <div class="action" id="copyForThisYearBtn" onclick="confirmSameYearCopy()">
                         <img class="action__icon" src="./assets/img/dashboard/copy-blue.svg" alt="Copiar para el mismo año">
                         <p class="action__text">Copiar para el mismo año</p>
                     </div>
-                    <div class="action" onclick="confirmCopy(false)">
-                        <img class="action__icon" src="./assets/img/dashboard/calendar-change-blue.svg" alt="Copiar para el otro año">
-                        <p class="action__text">Copiar para el otro año</p>
+                    <div class="action" onclick="confirmOtherYearCopy(false)">
+                        <img class="action__icon" src="./assets/img/dashboard/calendar-change-blue.svg" alt="Copiar para otro año">
+                        <p class="action__text">Copiar para otro año</p>
                     </div>
-                    <div class="action">
+                    <div class="action" onclick="confirmDelete()">
                         <img class="action__icon" src="./assets/img/dashboard/delete-blue.svg" alt="Eliminar">
                         <p class="action__text">Eliminar</p>
                     </div>
@@ -469,14 +476,15 @@
     <!-- Aqui se incluiria el modal -->
     <div class="modal-container"  id="popUp" style="display: none;">
         <div class="modal-container__content">
-            <div class="modal copy-modal" id="copyCalendars" style="display: none;">
+            <div class="modal copy-modal" id="copyOtherYearCalendars" style="display: none;">
                 <div class="modal__header">
                     <h3 id="confirmTitle">Copiar calendarios</h3>
                     <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
                 </div>
                 <div class="modal__body">
-                    <p class="copy-modal__text">¿Para qué año desea realizar la copia?</p>
+                    <div id="otherYearCalendarContianer"></div>
                     <div class="combo">
+                        <p class="combo__tag copy-modal__text">Seleccione el año:</p>
                         <div class="combo__options">
                             <select>
                                 <option value="2021">2021</option>
@@ -490,8 +498,38 @@
                 </div>
                 <div class="modal__footer">
                     <div class="btn-container">
-                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement, true)">Cancelar</div>
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancelar</div>
                         <div class="modal-btn" id="confirmCopyBtn" >Continuar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal copy-modal" id="copySameYearCalendar" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Copiar calendario</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <p class="copy-modal__text">¿Desea crear una copia del calendario <span id="selectedSameYearCalendar"></span>?</p>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancelar</div>
+                        <div class="modal-btn" onclick="copySameYearCopy()">Continuar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal copy-modal" id="deleteCalendar" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Eliminar calendario</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <div id="deleteModalText"></div>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancelar</div>
+                        <div class="modal-btn" onclick="deleteCalendar()">Eliminar</div>
                     </div>
                 </div>
             </div>
