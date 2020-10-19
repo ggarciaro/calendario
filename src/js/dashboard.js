@@ -1,4 +1,4 @@
-import {generatePagination} from './utils';
+import {closeModal, generatePagination} from './utils';
 
 import '../styles/dashboard.scss';
 import '../public/assets/img/dashboard/left.svg';
@@ -25,6 +25,43 @@ function toggleControllers(){
         controllers.style.display = 'none';
         dashboardContainer.style.padding = '1rem 2rem';
     }
+}
+
+function getChecked() {
+    const checkedBoxes = document.getElementById('dashboardContainer').querySelectorAll('input:checked');
+    const selectedRows = [];
+    for (let i = 0; i<checkedBoxes.length; i++){
+        const currentCheckbox = checkedBoxes[i];
+        if (currentCheckbox.id !== 'globalCheckbox'){
+            selectedRows.push(currentCheckbox.parentElement.parentElement.parentElement);
+        }
+    }
+    return selectedRows;
+}
+
+function copyAllCalendars() {
+    console.log('copiar todos los calendarios');
+
+    const confirmCopyModal = document.getElementById('copyCalendars');
+    closeModal(confirmCopyModal);
+}
+
+function copySelectedCalendars() {
+    const selectedCalendars = getChecked();
+    console.log(selectedCalendars);
+
+    const confirmCopyModal = document.getElementById('copyCalendars');
+    closeModal(confirmCopyModal);
+}
+
+function confirmCopy(copyAll) {
+    if (copyAll) {
+        document.getElementById('confirmCopyBtn').onclick = copyAllCalendars;
+    } else {
+        document.getElementById('confirmCopyBtn').onclick = copySelectedCalendars;
+    }
+    document.getElementById('popUp').style.display = 'flex';
+    document.getElementById('copyCalendars').style.display = 'block';
 }
 
 function toggleCheckAll(isChecked){
@@ -57,10 +94,17 @@ function resetDisplayedRows(rows){
 
 function showSelectedRows(rows, max, currentPage){
     resetDisplayedRows(rows);
+
+    let hasReviewRows = false;
+
     for ( let j = (currentPage - 1) * max; j < currentPage * max; j++ ) {
         rows[j].classList.add('row--show');
+        if (rows[j].classList.contains('row--review')) hasReviewRows = true;
         if (!rows[j + 1]) break;
     }
+
+    if (hasReviewRows) document.getElementById('reviewIndicator').style.display = 'flex';
+
     const displayedCalendars = document.getElementById('tableData').querySelectorAll('.row--show');
     document.getElementById('displayedCalendars').innerText = displayedCalendars.length;
 }
@@ -87,4 +131,5 @@ printTable();
 
 window.toggleCheckAll = toggleCheckAll;
 window.checkInput = checkInput;
+window.confirmCopy = confirmCopy;
 window.printTable = printTable;

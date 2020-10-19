@@ -36,7 +36,6 @@
                 <img class="side-bar__icon" src="./assets/img/navbar/setting.svg"
                     alt="configuracion" id="settings">
             </a>
-            <img class="side-bar__carousel" src="./assets/img/navbar/carousel-arrow-right.svg" alt="carousel" id="carousel">
         </nav>
         <div class="wrapper">
             <!-- Empieza el contenido de la pagina -->
@@ -66,7 +65,7 @@
                     <img class="increaser" src="./assets/img/dashboard/arrow-down.svg" alt="Reducir">
                 </div>
                 <div class="filter__actions">
-                    <div class="btn">Duplicar año completo</div>
+                    <div class="btn" onclick="confirmCopy(true)">Duplicar año completo</div>
                     <div class="btn" onclick="window.location.href = './detail.html'">Nuevo calendario</div>
                 </div>
             </header>
@@ -91,6 +90,10 @@
                             <div class="search-btn">Buscar</div>
                         </div>
                     </div>
+                </div>
+                <div class="review-indicator" id="reviewIndicator">
+                    <img class="review-indicator__icon" src="./assets/img/common/error.svg" alt="Revisión">
+                    <p class="review-indicator__text">Existen calendarios pendientes de revisión</p>
                 </div>
                 <div class="dashboard__data">
                     <!-- Empieza la tabla -->
@@ -446,7 +449,7 @@
                         <img class="action__icon" src="./assets/img/dashboard/copy-blue.svg" alt="Copiar para el mismo año">
                         <p class="action__text">Copiar para el mismo año</p>
                     </div>
-                    <div class="action">
+                    <div class="action" onclick="confirmCopy(false)">
                         <img class="action__icon" src="./assets/img/dashboard/calendar-change-blue.svg" alt="Copiar para el otro año">
                         <p class="action__text">Copiar para el otro año</p>
                     </div>
@@ -462,7 +465,37 @@
         <!-- Empieza area notificacion -->
         <div class="notification-area" id="notifications"></div>
         <!-- Termina el area de notificacion -->
-        <!-- Aqui se incluiria el modal -->
+    </div>
+    <!-- Aqui se incluiria el modal -->
+    <div class="modal-container"  id="popUp" style="display: none;">
+        <div class="modal-container__content">
+            <div class="modal copy-modal" id="copyCalendars" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Copiar calendarios</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <p class="copy-modal__text">¿Para qué año desea realizar la copia?</p>
+                    <div class="combo">
+                        <div class="combo__options">
+                            <select>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement, true)">Cancelar</div>
+                        <div class="modal-btn" id="confirmCopyBtn" >Continuar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
