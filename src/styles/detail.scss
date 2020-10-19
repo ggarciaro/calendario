@@ -1,5 +1,10 @@
 @import './shared/theme.scss';
 
+.ui-timepicker-wrapper{
+    width: 100px;
+    box-sizing: border-box;
+}
+
 .detail{
     display: flex;
     flex-direction: column;

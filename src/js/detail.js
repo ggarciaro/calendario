@@ -125,6 +125,11 @@ function isIE() {
 
 if (!isIE()){
     mdtimepicker({is24hour: true});
+} else {
+    $('.mdtimepicker-input').timepicker({
+        'timeFormat': 'H:i',
+        'scrollDefault': '8:00',
+    });
 }
 
 
