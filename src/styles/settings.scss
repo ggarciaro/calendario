@@ -21,6 +21,11 @@
 
 .holiday-section {
     background-color: #fafafa;
+    padding-top: 2.2rem;
+    height: 100%;
+    .holiday{
+        display: none;
+    }
 }
 
 .pagination{
@@ -31,6 +36,9 @@
     margin: 2.2rem;
     max-width: 1032px;
     box-sizing: border-box;
+    &:first-of-type{
+        margin-top: 0;
+    }
 }
 
 .name-form .modal{

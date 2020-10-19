@@ -205,7 +205,7 @@
         }
     }
     &--show{
-        display: flex;
+        display: flex !important;
     }
     &--national &{
         &__decorator{

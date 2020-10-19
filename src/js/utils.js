@@ -6,27 +6,31 @@ import '../public/assets/img/common/dropdown.svg';
 export const holidayTypeDic = {
     diasInhabiles: {
         code: 'off',
-        text: 'y días inhábiles'
+        text: 'y días inhábiles',
     },
     fiestasLocales: {
         code: 'local',
-        text: 'locales'
+        text: 'locales',
     },
     fiestasNacionalesCalendario: {
         code: 'national',
-        text: 'nacionales'
+        text: 'nacionales',
+        pag: 'National',
     },
     fiestasNacionales: {
         code: 'national',
-        text: 'nacionales'
+        text: 'nacionales',
+        pag: 'National',
     },
     fiestasAutonomicasCalendario: {
         code: 'autonomic',
-        text: 'autonómicas'
+        text: 'autonómicas',
+        pag: 'Autonomic',
     },
     fiestasAutonomicas: {
         code: 'autonomic',
-        text: 'autonómicas'
+        text: 'autonómicas',
+        pag: 'Autonomic',
     },
 };
 

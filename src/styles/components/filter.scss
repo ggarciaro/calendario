@@ -1,3 +1,5 @@
+@import '../shared/theme.scss';
+
 .filters{
     display: flex;
     flex-direction: column;
@@ -37,12 +39,31 @@
         justify-content: space-between;
         flex-wrap: wrap;
         border: 1px solid $gray-color;
-        padding: 1.5rem;
+        padding: 1.5rem 0 1.5rem 1.5rem;
         width: 100%;
         box-sizing: border-box;
 
         &--hide{
             display: none;
+        }
+
+        .combo{
+            padding-right: 0;
+            margin-right: 1.5rem;
+        }
+
+        .btn-container{
+            width: 100%;
+            margin: 1.5rem 1.5rem 0 0;
+            .search-btn{
+                padding: 1rem 2rem;
+                background-color: $gray-color;
+                cursor: pointer;
+                float: right;
+                font-family: $regular-font;
+                color: $main-color;
+                font-size: 1.2rem;
+            }
         }
     }
 }

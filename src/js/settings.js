@@ -1,4 +1,4 @@
-import { generatePagination } from './utils';
+import { generatePagination, holidayTypeDic } from './utils';
 
 import '../styles/settings.scss';
  
@@ -24,6 +24,16 @@ function toggleHoliday(selected){
         ccaaSelector.style.display = 'flex';
     }
 };
+
+function duplicateCard(btn, type){
+    const card = btn.parentElement.parentElement.parentElement.parentElement.parentElement;
+    const newCard = card.cloneNode(true);
+    const functionName = 'print' + holidayTypeDic[type].pag + 'Holidays';
+    newCard.classList.add('holiday--copy');
+    card.parentNode.insertBefore(newCard, card.previousSibling);
+    window['func_', functionName]();
+    showNotification('Card duplicada correctamente');
+} 
 
 function saveCalendar() {
     const calendarModal = document.getElementsByClassName('modal')[0];
@@ -64,21 +74,35 @@ function showSelectedHolidays(cards, max, currentPage){
     }
 }
 
-function printHolidays(currentPage) {
+function printNationalHolidays(currentPage) {
     if(currentPage === undefined) {
         currentPage = 1;
     }
     const nationalCards = document.getElementById('nationalSection').querySelectorAll('.holiday');
     const maxPerPage = 10;
     const numberPages = Math.ceil(nationalCards.length / maxPerPage);
-    generatePagination(numberPages, currentPage, printHolidays);
+    generatePagination(numberPages, currentPage, printNationalHolidays);
     showSelectedHolidays(nationalCards, maxPerPage, currentPage);
 }
 
-printHolidays();
+function printAutonomicHolidays(currentPage) {
+    if(currentPage === undefined) {
+        currentPage = 1;
+    }
+    const autonomicCards = document.getElementById('autonomicSection').querySelectorAll('.holiday');
+    const maxPerPage = 10;
+    const numberPages = Math.ceil(autonomicCards.length / maxPerPage);
+    generatePagination(numberPages, currentPage, printAutonomicHolidays);
+    showSelectedHolidays(autonomicCards, maxPerPage, currentPage);
+}
+
+printNationalHolidays();
+printAutonomicHolidays();
 
 window.toggleHoliday = toggleHoliday;
 window.saveCalendar = saveCalendar;
 window.returnCalendar = returnCalendar;
 window.finishCalendarEdition = finishCalendarEdition;
-window.printHolidays = printHolidays;
+window.printNationalHolidays = printNationalHolidays;
+window.printAutonomicHolidays = printAutonomicHolidays;
+window.duplicateCard = duplicateCard;

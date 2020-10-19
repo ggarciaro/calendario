@@ -57,14 +57,19 @@
                             <div class="combo">
                                 <p class="combo__tag">Año</p>
                                 <div class="combo__options">
-                                    <select name="year" id="year">
-                                        <option value="all">Todos</option>
-                                        <option value="all">Todos</option>
-                                        <option value="all">Todos</option>
-                                        <option value="all">Todos</option>
-                                        <option value="all">Todos</option>
-                                        <option value="all">Todos</option>
-                                        <option value="all">Todos</option>
+                                    <select name="ccaa" id="year">
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="combo">
+                                <p class="combo__tag">País</p>
+                                <div class="combo__options">
+                                    <select name="ccaa">
+                                        <option value="es">España</option>
+                                        <option value="br">Brasil</option>
                                     </select>
                                 </div>
                             </div>
@@ -76,13 +81,16 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="btn-container">
+                                <div class="search-btn">Buscar</div>
+                            </div>
                         </div>
                     </div>
                     <div class="card new-holiday">
                         <div class="btn" onclick="editCalendar()">Añadir Comunidad Autónoma</div>
                     </div>
                     <!-- Comienza tarjeta de festividad -->
-                    <div class="card holiday holiday--copy holiday--autonom">
+                    <div class="card holiday holiday--autonom">
                         <div class="holiday__decorator">
                             <div class="holiday__info">
                                 <div class="holiday__header">
@@ -96,11 +104,11 @@
                                         </div>
                                     </div>
                                     <div class="holiday__actions">
-                                        <div class="action">
+                                        <div class="action"  onclick="duplicateCard(this, 'fiestasAutonomicas')">
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
-                                        <div class="action" onclick="editCalendar(this, 'autonomic')">
+                                        <div class="action" onclick="editCalendar('fiestasAutonomicas')">
                                             <img class="action__img" src="./assets/img/common/pencil.svg" alt="Editar">
                                             <p class="action__text">Editar</p>
                                         </div>
@@ -146,7 +154,7 @@
                                         </div>
                                     </div>
                                     <div class="holiday__actions">
-                                        <div class="action" onclick="showNotification('Card duplicada correctamente')">
+                                        <div class="action" onclick="duplicateCard(this, 'fiestasAutonomicas')">
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
@@ -195,7 +203,7 @@
                                         </div>
                                     </div>
                                     <div class="holiday__actions">
-                                        <div class="action" onclick="showNotification('Card duplicada correctamente')">
+                                        <div class="action" onclick="duplicateCard(this, 'fiestasAutonomicas')">
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
@@ -230,8 +238,43 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card pagination" id="paginationAutonomicHolidays"></div>
                 </div>
                 <div class="holiday-section" id="nationalSection" style="display: none;">
+                    <div class="card filters">
+                        <div class="filters__main">
+                            <!-- El span indica el número de resultados -->
+                            <p class="filters__results"><span id="autonomicCards"></span> registros</p>
+                            <div class="filters__toggle" onclick="toggleFilter(this.parentElement.parentElement)">
+                                <img src="./assets/img/common/filters.svg" alt="Filtros">
+                                <p><span id="filterToggleTxt">Mostrar</span> filtros</p>
+                            </div>
+                        </div>
+                        <div class="filters__options filters__options--hide">
+                            <div class="combo">
+                                <p class="combo__tag">Año</p>
+                                <div class="combo__options">
+                                    <select name="ccaa">
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="combo">
+                                <p class="combo__tag">País</p>
+                                <div class="combo__options">
+                                    <select name="ccaa">
+                                        <option value="es">España</option>
+                                        <option value="br">Brasil</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="btn-container">
+                                <div class="search-btn">Buscar</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card holiday holiday--national">
                         <div class="holiday__decorator">
                             <div class="holiday__info">
@@ -246,7 +289,7 @@
                                         </div>
                                     </div>
                                     <div class="holiday__actions">
-                                        <div class="action" onclick="showNotification('Card duplicada correctamente')">
+                                        <div class="action" onclick="duplicateCard(this, 'fiestasNacionales')">
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
@@ -295,7 +338,7 @@
                                         </div>
                                     </div>
                                     <div class="holiday__actions">
-                                        <div class="action" onclick="showNotification('Card duplicada correctamente')">
+                                        <div class="action" onclick="duplicateCard(this, 'fiestasNacionales')">
                                             <img class="action__img" src="./assets/img/common/plus.svg" alt="Duplicar">
                                             <p class="action__text">Duplicar</p>
                                         </div>
@@ -330,7 +373,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" card pagination" id="paginationHolidays"></div>
+                    <div class="card pagination" id="paginationNationalHolidays"></div>
                 </div>
                 <!-- Termina aquí el módulo de configuracion -->
             </div>
