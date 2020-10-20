@@ -9,14 +9,15 @@
     <nav class="navbar">
         <div class="navbar__main">
             <img class="app-icon" src="./assets/img/navbar/app.svg" alt="app">
+            <img src="./assets/img/common/hamburger-menu.svg" alt="Menu" class="hamburger-menu" onclick="toggleMenu()">
             <p class="section">Calendarios laborales</p>
             <p class="section section--aux">Consultas</p>
         </div>
         <div class="navbar__secondary">
-            <img src="./assets/img/navbar/buscar.svg" alt="buscar">
-            <img src="./assets/img/navbar/plus-white.svg" alt="mas">
-            <img src="./assets/img/navbar/help.svg" alt="ayuda">
-            <img src="./assets/img/navbar/notifications.svg" alt="notificacion">
+            <img class="search" src="./assets/img/navbar/buscar.svg" alt="buscar">
+            <img class="plus" src="./assets/img/navbar/plus-white.svg" alt="mas">
+            <img class="help" src="./assets/img/navbar/help.svg" alt="ayuda">
+            <img class="notification" src="./assets/img/navbar/notifications.svg" alt="notificacion">
             <div class="user">AG</div>
             <div class="logout">
                 <img src="./assets/img/navbar/logout.svg" alt="Salir">
@@ -27,6 +28,32 @@
             </div>
         </div>
     </nav>
+    <div class="responsive-content" id="responsiveContent">
+        <div class="responsive-content__menu">
+            <div class="header">
+                <h4>Calendarios Laborales</h4>
+                <img src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="toggleMenu()">
+            </div>
+            <div class="links">
+                <div class="links__item links__item--selected" onclick="window.location.href = './index.html'">
+                    <img src="./assets/img/navbar/dashboard.svg" alt="Icon">
+                    <p>Consultas</p>
+                </div>
+                <div class="links__item" onclick="window.location.href = './settings.html'">
+                    <img src="./assets/img/navbar/setting.svg" alt="Icon">
+                    <p>Configuración</p>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="user">AG</div>
+                <div class="logout">
+                    <img src="./assets/img/navbar/logout.svg" alt="Salir">
+                    <p class="logout__text">Salir</p>
+                </div>
+            </div>
+        </div>
+        <div class="responsive-content__background" id="responsiveBackground"></div>
+    </div>
     <div class="content">
         <nav class="side-bar">
             <a class="side-bar__link" href="./index.html">
