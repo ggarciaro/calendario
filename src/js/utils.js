@@ -122,7 +122,7 @@ function editCalendar(type) {
     modalTitle.innerHTML = holidayTypeDic[type].text;
 
     // Show modal
-    document.getElementById('popUp').style.display = 'flex';
+    locateModal();
     calendarModal.style.display = 'block';
 }
 
@@ -141,11 +141,23 @@ function toggleDaySelection(day, type){
     }
 }
 
-export function closeModal(modal){
-
+export function locateModal() {
     const modalContainer = document.getElementById('popUp');
-    modalContainer.style.display = 'none';
+    const pageBody = document.body;
 
+    modalContainer.style.top = window.pageYOffset + 'px';
+    modalContainer.style.display = 'flex';
+    pageBody.style.height = '100vh';
+    pageBody.style.overflow = 'hidden';
+}
+
+export function closeModal(modal){
+    const modalContainer = document.getElementById('popUp');
+    const pageBody = document.body;
+
+    modalContainer.style.display = 'none';
+    pageBody.style.height = 'auto';
+    pageBody.style.overflow = 'auto';
     modal.style.display = 'none';
 }
 

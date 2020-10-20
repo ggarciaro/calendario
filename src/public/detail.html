@@ -763,7 +763,14 @@
                                     <h2>Calendario laboral 2020</h2>
                                     <h3>Barcelona</h3>
                                 </div>
-                                <div class="legend">
+                                <div class="show-legend--tablet" onclick="toggleLegendTablet()">
+                                    Mostrar leyenda
+                                    <img src="./assets/img/detail/down.svg" alt="Mostrar leyenda" id="showLegendTabletImg">
+                                </div>
+                                <div class="show-legend--mobile" onclick="showLegendModal()">
+                                    Mostrar leyenda
+                                </div>
+                                <div class="legend" id="calendarLegend">
                                     <div class="color">
                                         <div class="color__sample color__sample--today"></div>
                                         <div class="color__tag">Hoy</div>
@@ -2518,6 +2525,38 @@
                     <div class="btn-container">
                         <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement)">Cancelar</div>
                         <div class="modal-btn" id="confirmBtn">Continuar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal legend-modal" id="legendModal" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Leyenda</h3>
+                </div>
+                <div class="modal__body legend-modal__body">
+                    <div class="color">
+                        <div class="color__sample color__sample--today"></div>
+                        <div class="color__tag">Hoy</div>
+                    </div>
+                    <div class="color">
+                        <div class="color__sample color__sample--off"></div>
+                        <div class="color__tag">Días inhábiles</div>
+                    </div>
+                    <div class="color">
+                        <div class="color__sample color__sample--local"></div>
+                        <div class="color__tag">Fiestas locales</div>
+                    </div>
+                    <div class="color">
+                        <div class="color__sample color__sample--autonomic"></div>
+                        <div class="color__tag">Fiestas autonómicas</div>
+                    </div>
+                    <div class="color">
+                        <div class="color__sample color__sample--national"></div>
+                        <div class="color__tag">Fiestas nacionales</div>
+                    </div>
+                </div>
+                <div class="modal__footer legend-modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cerrar</div>
                     </div>
                 </div>
             </div>

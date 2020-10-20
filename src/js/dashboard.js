@@ -1,4 +1,4 @@
-import {closeModal, generatePagination} from './utils';
+import { locateModal, closeModal, generatePagination} from './utils';
 
 import '../styles/dashboard.scss';
 import '../public/assets/img/dashboard/left.svg';
@@ -69,7 +69,8 @@ function copySameYearCopy() {
 function confirmSameYearCopy() {
     selectedCalendars = getChecked();
     document.getElementById('selectedSameYearCalendar').innerText = selectedCalendars[0];
-    document.getElementById('popUp').style.display = 'flex';
+
+    locateModal();
     document.getElementById('copySameYearCalendar').style.display = 'block';
 }
 
@@ -95,7 +96,7 @@ function confirmOtherYearCopy(copyAll) {
     }
     
     calendarCodesContainer.insertAdjacentHTML("afterbegin", codesHtml);
-    document.getElementById('popUp').style.display = 'flex';
+    locateModal();
     document.getElementById('copyOtherYearCalendars').style.display = 'block';
 }
 
@@ -118,12 +119,8 @@ function confirmDelete() {
     }
 
     deleteModalText.insertAdjacentHTML("afterbegin", deleteHtml);
-    document.getElementById('popUp').style.display = 'flex';
+    locateModal();
     document.getElementById('deleteCalendar').style.display = 'block';
-}
-
-function deleteCalendar() {
-
 }
 
 function toggleCheckAll(isChecked){

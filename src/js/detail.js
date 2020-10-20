@@ -1,6 +1,7 @@
-import { closeModal, generatePagination, holidayTypeDic } from './utils';
+import { locateModal, closeModal, generatePagination, holidayTypeDic } from './utils';
 import '../styles/detail.scss';
 import '../public/assets/img/detail/left-white.svg';
+import '../public/assets/img/detail/up.svg';
 
 function selectTab (id){
     const tab = id.split('Tab')[0];
@@ -13,7 +14,7 @@ function selectTab (id){
 }
 
 function showTemplateModal() {
-    document.getElementById('popUp').style.display = 'flex';
+    locateModal();
     document.getElementById('templateModal').style.display = 'block';
 
     const selectedRow = document.querySelector('.template-table__row--selected');
@@ -104,7 +105,7 @@ $(".datepicker").datepicker({
 function confirmAllHolidayDelete(type) {
     const confirmModal = document.getElementById('deleteAllHoliday'); 
     document.getElementById('deletSelectedHoliday').innerHTML = holidayTypeDic[type].text;
-    document.getElementById('popUp').style.display = 'flex';
+    locateModal();
     confirmModal.style.display = 'block';
 }
 
@@ -112,7 +113,7 @@ function confirmOneHolidayDelete(holiday) {
     const date = holiday.querySelector('p').innerHTML;
     document.getElementById('deletSelectedDate').innerHTML = date;
     const confirmModal = document.getElementById('deleteOneHoliday'); 
-    document.getElementById('popUp').style.display = 'flex';
+    locateModal();
     confirmModal.style.display = 'block';
 }
 
@@ -142,8 +143,30 @@ function toggleResponsiveResume() {
         resumeResponsiveBtn.src = './css/images/right-white.svg';
         responsiveBackground.removeAttribute('onclick');
         detailBody.style.height = 'auto';
-        
+
     }
+}
+
+let isTabletLegendDisplay = false;
+
+function toggleLegendTablet() {
+    const legend = document.getElementById('calendarLegend');
+    const showLegendTabletImg = document.getElementById('showLegendTabletImg');
+
+    isTabletLegendDisplay = !isTabletLegendDisplay;
+
+    if (isTabletLegendDisplay){
+        legend.style.display = 'flex';
+        showLegendTabletImg.src = './css/images/up.svg';
+    } else {
+        legend.style.display = 'none';
+        showLegendTabletImg.src = './css/images/down.svg';
+    }
+}
+
+function showLegendModal(){
+    locateModal();
+    document.getElementById('legendModal').style.display = 'block';
 }
 
 function isIE() {
@@ -174,3 +197,5 @@ window.toggleCCAA = toggleCCAA;
 window.confirmAllHolidayDelete = confirmAllHolidayDelete;
 window.confirmOneHolidayDelete = confirmOneHolidayDelete;
 window.toggleResponsiveResume = toggleResponsiveResume;
+window.toggleLegendTablet = toggleLegendTablet;
+window.showLegendModal = showLegendModal;
