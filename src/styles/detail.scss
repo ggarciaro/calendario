@@ -495,7 +495,6 @@
         font-family: Arial, Helvetica, sans-serif;
         padding-bottom: 1rem;
         box-sizing: border-box;
-        overflow: auto;
 
         table, th, td{
             text-align: center;
@@ -793,6 +792,10 @@
                 .legend{
                     display: none;
                 }
+            }
+
+            .timetable{
+                overflow-x: auto;
             }
         }
     }
