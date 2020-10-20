@@ -8,6 +8,26 @@
     padding: 0 2rem;
     border-bottom: 1px solid $gray-color;
 
+    .combo-container{
+        display: flex;
+        align-items: center;
+        .combo{
+            display: flex;
+            align-items: center;
+            min-width: 130px;
+    
+            &__tag{
+                font-family: $medium-font;
+                font-size: 1.6rem;
+                margin: 0 1rem 0 0;
+            }
+    
+            &__options{
+                width: 100%;
+            }
+        }
+    }
+
     &__year{
         display: flex;
         align-items: center;
@@ -15,22 +35,6 @@
 
         &>*{
             margin-right: 0.5rem;
-        }
-
-        .combo{
-            display: flex;
-            align-items: center;
-            min-width: 130px;
-
-            &__tag{
-                font-family: $medium-font;
-                font-size: 1.6rem;
-                margin: 0 1rem 0 0;
-            }
-
-            &__options{
-                width: 100%;
-            }
         }
         .increaser{
             padding: 0.5rem;
@@ -396,7 +400,13 @@
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 470px) {
+    .filter{
+        .combo-container{
+            flex-direction: column;
+        }
+    }
+
     .filters{
         &__options{
             .field, .combo{

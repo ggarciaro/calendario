@@ -68,28 +68,32 @@
             <!-- Empieza el contenido de la pagina -->
             <!-- Empiza la cabecera con los filtros -->
             <header class="filter">
-                <div class="filter__year">
-                    <div class="combo">
-                        <p class="combo__tag">País</p>
-                        <div class="combo__options">
-                            <select>
-                                <option value="es">España</option>
-                                <option value="br">Brasil</option>
-                            </select>
+                <div class="combo-container">
+                    <div>
+                        <div class="combo">
+                            <p class="combo__tag">País</p>
+                            <div class="combo__options">
+                                <select>
+                                    <option value="es">España</option>
+                                    <option value="br">Brasil</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="combo">
-                        <p class="combo__tag">Año</p>
-                        <div class="combo__options">
-                            <select>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                            </select>
+                    <div class="filter__year">
+                        <div class="combo">
+                            <p class="combo__tag">Año</p>
+                            <div class="combo__options">
+                                <select>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                </select>
+                            </div>
                         </div>
+                        <img class="increaser" src="./assets/img/dashboard/arrow-up.svg" alt="Incrementar">
+                        <img class="increaser" src="./assets/img/dashboard/arrow-down.svg" alt="Reducir">
                     </div>
-                    <img class="increaser" src="./assets/img/dashboard/arrow-up.svg" alt="Incrementar">
-                    <img class="increaser" src="./assets/img/dashboard/arrow-down.svg" alt="Reducir">
                 </div>
                 <div class="filter__actions">
                     <div class="btn" onclick="confirmOtherYearCopy(true)">Duplicar año completo</div>
