@@ -64,8 +64,6 @@ function copySameYearCopy() {
     closeModal(confirmCopyModal);
 }
 
-
-
 function confirmSameYearCopy() {
     selectedCalendars = getChecked();
     document.getElementById('selectedSameYearCalendar').innerText = selectedCalendars[0];
@@ -185,6 +183,18 @@ function printTable(currentPage){
     generatePagination(numberPages, currentPage, printTable);
     showSelectedRows(totalCalendars, maxPerPage, currentPage);
 }
+
+function unckeckRows() {
+    const checkedBoxes = document.getElementById('dashboardContainer').querySelectorAll('input[type=checkbox]:checked');
+    
+    for (let i = 0; i < checkedBoxes.length; i++) {
+        checkedBoxes[i].checked = false;
+    }
+
+    tableControllers.style.display = 'none';
+}
+
+
 
 printTable();
 
