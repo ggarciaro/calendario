@@ -86,82 +86,88 @@
                         <img class="header-controllers__close" src="./assets/img/detail/close-blue.svg" alt="Cerrar">
                     </div>
                 </header>
-                <div class="detail__body">
+                <div class="detail__body" id="detailBody">
                     <!-- Empieza columna de info lateral -->
-                    <aside class="detail__aside">
-                        <div class="aside-section aside-section--main">
-                            <h2>Resumen</h2>
-                            <h3 class="aside-section__title">Jornada resultante</h3>
-                            <h2>10,5 h</h2>
+                    <div class="responsive-btn" id="resumeResponsiveBtnContainer" onclick="toggleResponsiveResume()">
+                        <img src="./assets/img/detail/right-white.svg" alt="resumen" id="resumeResponsiveBtn">
+                    </div>
+                    <aside class="detail__aside" id="resumeAside">
+                        <div class="aside-container">
+                            <div class="aside-section aside-section--main">
+                                <h2>Resumen</h2>
+                                <h3 class="aside-section__title">Jornada resultante</h3>
+                                <h2>10,5 h</h2>
+                            </div>
+                            <div class="aside-section">
+                                <h3 class="aside-section__title">Horarios</h3>
+                                <div class="block">
+                                    <h4 class="block__title">Lunes a jueves</h4>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Entrada:</p>
+                                        <p class="regis-value">8:15 - 9:00</p>
+                                    </div>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Salida:</p>
+                                        <p class="regis-value">17:30 - 19:00</p>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <h4 class="block__title">Viernes</h4>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Entrada:</p>
+                                        <p class="regis-value">8:15 - 9:00</p>
+                                    </div>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Salida:</p>
+                                        <p class="regis-value">17:30 - 19:00</p>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <h4 class="block__title">Comida</h4>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Hasta:</p>
+                                        <p class="regis-value">13:00 h</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aside-section">
+                                <h3 class="aside-section__title">Jornada intensiva <span class="aside-section__subtitle">del
+                                        01/07/2020 al 31/08/2020</span></h3>
+                                <div class="block">
+                                    <h4 class="block__title">Lunes a viernes</h4>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Entrada:</p>
+                                        <p class="regis-value">8:15 - 9:00</p>
+                                    </div>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Salida:</p>
+                                        <p class="regis-value">17:30 - 19:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aside-section">
+                                <h3 class="aside-section__title">Fiestas</h3>
+                                <div class="block">
+                                    <div class="block__regist">
+                                        <p class="regis-label">Fiestas hábiles:</p>
+                                        <p class="regis-value">12 días</p>
+                                    </div>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Fiestas Locales:</p>
+                                        <p class="regis-value">3 días</p>
+                                    </div>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Fiestas autonómicas:</p>
+                                        <p class="regis-value">5 días</p>
+                                    </div>
+                                    <div class="block__regist">
+                                        <p class="regis-label">Fiestas nacionales:</p>
+                                        <p class="regis-value">10 días</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="aside-section">
-                            <h3 class="aside-section__title">Horarios</h3>
-                            <div class="block">
-                                <h4 class="block__title">Lunes a jueves</h4>
-                                <div class="block__regist">
-                                    <p class="regis-label">Entrada:</p>
-                                    <p class="regis-value">8:15 - 9:00</p>
-                                </div>
-                                <div class="block__regist">
-                                    <p class="regis-label">Salida:</p>
-                                    <p class="regis-value">17:30 - 19:00</p>
-                                </div>
-                            </div>
-                            <div class="block">
-                                <h4 class="block__title">Viernes</h4>
-                                <div class="block__regist">
-                                    <p class="regis-label">Entrada:</p>
-                                    <p class="regis-value">8:15 - 9:00</p>
-                                </div>
-                                <div class="block__regist">
-                                    <p class="regis-label">Salida:</p>
-                                    <p class="regis-value">17:30 - 19:00</p>
-                                </div>
-                            </div>
-                            <div class="block">
-                                <h4 class="block__title">Comida</h4>
-                                <div class="block__regist">
-                                    <p class="regis-label">Hasta:</p>
-                                    <p class="regis-value">13:00 h</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="aside-section">
-                            <h3 class="aside-section__title">Jornada intensiva <span class="aside-section__subtitle">del
-                                    01/07/2020 al 31/08/2020</span></h3>
-                            <div class="block">
-                                <h4 class="block__title">Lunes a viernes</h4>
-                                <div class="block__regist">
-                                    <p class="regis-label">Entrada:</p>
-                                    <p class="regis-value">8:15 - 9:00</p>
-                                </div>
-                                <div class="block__regist">
-                                    <p class="regis-label">Salida:</p>
-                                    <p class="regis-value">17:30 - 19:00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="aside-section">
-                            <h3 class="aside-section__title">Fiestas</h3>
-                            <div class="block">
-                                <div class="block__regist">
-                                    <p class="regis-label">Fiestas hábiles:</p>
-                                    <p class="regis-value">12 días</p>
-                                </div>
-                                <div class="block__regist">
-                                    <p class="regis-label">Fiestas Locales:</p>
-                                    <p class="regis-value">3 días</p>
-                                </div>
-                                <div class="block__regist">
-                                    <p class="regis-label">Fiestas autonómicas:</p>
-                                    <p class="regis-value">5 días</p>
-                                </div>
-                                <div class="block__regist">
-                                    <p class="regis-label">Fiestas nacionales:</p>
-                                    <p class="regis-value">10 días</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="aside-background" id="resumeResponsiveBackground"></div>
                     </aside>
                     <!-- Termina columna de info lateral -->
                     <div class="detail__content">

@@ -1,5 +1,6 @@
 import { closeModal, generatePagination, holidayTypeDic } from './utils';
 import '../styles/detail.scss';
+import '../public/assets/img/detail/left-white.svg';
 
 function selectTab (id){
     const tab = id.split('Tab')[0];
@@ -115,6 +116,36 @@ function confirmOneHolidayDelete(holiday) {
     confirmModal.style.display = 'block';
 }
 
+let isResumeDisplay = false;
+
+function toggleResponsiveResume() {
+    const resumeAside = document.getElementById('resumeAside');
+    const responsiveBackground = document.getElementById('resumeResponsiveBackground');
+    const resumeResponsiveBtnContainer = document.getElementById('resumeResponsiveBtnContainer');
+    const resumeResponsiveBtn = document.getElementById('resumeResponsiveBtn');
+    const detailBody = document.getElementById('detailBody');
+
+    isResumeDisplay = !isResumeDisplay;
+
+    if (isResumeDisplay) {
+
+        resumeAside.style.display = 'flex';
+        resumeResponsiveBtnContainer.style.left = '240px';
+        resumeResponsiveBtn.src = './css/images/left-white.svg';
+        responsiveBackground.onclick = toggleResponsiveResume;
+        detailBody.style.height = resumeAside.offsetHeight + 'px';
+
+    } else {
+
+        resumeAside.style.display = 'none';
+        resumeResponsiveBtnContainer.style.left = '0px';
+        resumeResponsiveBtn.src = './css/images/right-white.svg';
+        responsiveBackground.removeAttribute('onclick');
+        detailBody.style.height = 'auto';
+        
+    }
+}
+
 function isIE() {
     const ua = navigator.userAgent;
     /* MSIE used to detect old browsers and Trident used to newer ones*/
@@ -142,3 +173,4 @@ window.printTemplates = printTemplates;
 window.toggleCCAA = toggleCCAA;
 window.confirmAllHolidayDelete = confirmAllHolidayDelete;
 window.confirmOneHolidayDelete = confirmOneHolidayDelete;
+window.toggleResponsiveResume = toggleResponsiveResume;
