@@ -84,15 +84,15 @@
                         <div class="combo">
                             <p class="combo__tag">Año</p>
                             <div class="combo__options">
-                                <select>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
+                                <select id="anualidad">
                                     <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
                                 </select>
                             </div>
                         </div>
-                        <img class="increaser" src="./assets/img/dashboard/arrow-up.svg" alt="Incrementar">
-                        <img class="increaser" src="./assets/img/dashboard/arrow-down.svg" alt="Reducir">
+                        <img class="increaser" src="./assets/img/dashboard/arrow-up.svg" alt="Incrementar" onclick="modifyYear(true)">
+                        <img class="increaser" src="./assets/img/dashboard/arrow-down.svg" alt="Reducir" onclick="modifyYear(false)">
                     </div>
                 </div>
                 <div class="filter__actions">

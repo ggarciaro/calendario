@@ -40,6 +40,18 @@ function getChecked() {
         }
     }
     return selectedRows;
+} 
+
+function modifyYear(isIncrease) {
+    const yearSelect = document.getElementById('anualidad');
+    const optionsNumber = yearSelect.options.length;
+    const selectedIndex = yearSelect.selectedIndex;
+
+    if (isIncrease && selectedIndex + 1 !== optionsNumber) {
+        yearSelect.options[selectedIndex + 1].selected = true;
+    } else if (!isIncrease && selectedIndex !== 0) {
+        yearSelect.options[selectedIndex - 1].selected = true;
+    }
 }
 
 function copyAllCalendars() {
@@ -205,3 +217,4 @@ window.copySameYearCopy = copySameYearCopy;
 window.confirmSameYearCopy = confirmSameYearCopy;
 window.confirmDelete = confirmDelete;
 window.printTable = printTable;
+window.modifyYear = modifyYear;
