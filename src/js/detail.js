@@ -186,6 +186,33 @@ if (!isIE()){
     });
 }
 
+function createPDFfromHTML() {
+    const pdfDisplay = document.getElementById('pdfDisplay');
+
+    //Corrige el desajuste provocado por las media queries
+    let scrollXAdjust = 0;
+    if (window.innerWidth < 450){
+        scrollXAdjust = -307;
+    } else if (window.innerWidth < 800) {
+        scrollXAdjust = -300;
+    }
+
+    html2canvas(pdfDisplay,{
+        scrollX: scrollXAdjust, 
+        scrollY: -window.scrollY,
+        height: 1601,
+        width: 882,
+        windowWidth: 1260,
+    }).then(function (canvas) {
+        console.log(canvas)
+        const imgData = canvas.toDataURL("image/jpeg", 1.0);
+        const pdf = new jsPDF('p', 'pt', 'a4');
+        pdf.addImage(imgData, 'JPG', 75, 15, 460, 800);
+        pdf.save("Calendario.pdf");
+        pdfDisplay.style.width = 'auto';
+    });
+}
+
 
 
 window.selectTab = selectTab;
@@ -199,3 +226,4 @@ window.confirmOneHolidayDelete = confirmOneHolidayDelete;
 window.toggleResponsiveResume = toggleResponsiveResume;
 window.toggleLegendTablet = toggleLegendTablet;
 window.showLegendModal = showLegendModal;
+window.createPDFfromHTML = createPDFfromHTML;
