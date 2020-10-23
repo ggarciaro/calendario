@@ -6,8 +6,21 @@
  * Email: dionleeuy@gmail.com
  */
 
+(function () {
+  if ( typeof window.CustomEvent === "function" ) return false; //If not IE
+
+  function CustomEvent ( event, params ) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    var evt = document.createEvent( 'CustomEvent' );
+    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+    return evt;
+   }
+
+  CustomEvent.prototype = window.Event.prototype;
+  window.Event = CustomEvent;
+})();
+
 if ('NodeList' in window && !NodeList.prototype.forEach) {
-    console.info('polyfill for IE11');
     NodeList.prototype.forEach = function (callback, thisArg) {
       thisArg = thisArg || window;
       for (var i = 0; i < this.length; i++) {
@@ -362,7 +375,7 @@ if (!Array.from) {
   
         function CustomEvent(data) {
           var changeEvt = document.createEvent('CustomEvent');
-          changeEvt.initCustomEvent('timechanged', false, false);
+          changeEvt.initCustomEvent('timechanged', false, false, {});
           changeEvt.data = data;
           return changeEvt;
         }
