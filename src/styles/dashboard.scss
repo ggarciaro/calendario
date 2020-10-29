@@ -304,6 +304,11 @@
         font-size: 1.3rem;
         margin: 2rem 0;
         font-family: $regular-font;
+
+        &--action{
+            margin: 4rem 0 1rem 0;
+            text-align: center;
+        }
     }
 
     .combo{

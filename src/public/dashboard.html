@@ -125,12 +125,13 @@
                         </div> 
                         <input class="field" type="text" placeholder="Localidad"> 
                         <div class="btn-container">
-                            <div class="search-btn">Buscar</div>
+                            <div class="filter-btn">Buscar</div>
+                            <div class="filter-btn">Limpiar</div>
                         </div>
                     </div>
                 </div>
                 <div class="review-indicator" id="reviewIndicator">
-                    <img class="review-indicator__icon" src="./assets/img/common/error.svg" alt="Revisión">
+                    <img class="review-indicator__icon" src="./assets/img/common/warning.svg" alt="Revisión">
                     <p class="review-indicator__text">Existen calendarios pendientes de revisión</p>
                 </div>
                 <div class="dashboard__data">
@@ -561,6 +562,23 @@
                     <div class="btn-container">
                         <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancelar</div>
                         <div class="modal-btn" onclick="deleteCalendar()">Eliminar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal copy-modal" id="confirmOverwriteCopy" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Calendrios existentes</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <p class="copy-modal__text">Los siguientes calendarios ya existen en el año de destino:</p>
+                    <div class="calendar-container" id="overwrittenCalendars"></div>
+                    <p class="copy-modal__text copy-modal__text--action">¿Desea continuar y sobreescribir los calendarios?</p>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancelar</div>
+                        <div class="modal-btn">Aceptar</div>
                     </div>
                 </div>
             </div>

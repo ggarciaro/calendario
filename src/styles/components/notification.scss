@@ -37,6 +37,10 @@
             padding-left: 1rem;
             cursor: pointer;
         }
+
+        &--error{
+            border-bottom: 3px solid #f20000;
+        }
     }
 
 }

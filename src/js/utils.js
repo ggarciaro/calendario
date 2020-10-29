@@ -84,10 +84,25 @@ function showNotification(message){
     }, 5000); 
 }
 
+function showWarning(message) {
+    const notifications = document.getElementById('notifications');
+    let newWarning = '';
+    newWarning += '<div class="notification">';
+    newWarning += '<img class="notification__error-icon" src="./css/images/warning.svg" alt="Error">';
+    newWarning += '<p class="notification__text">'+ message +'</p>';
+    newWarning += '<img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)"></div>';
+
+    notifications.insertAdjacentHTML('beforeend', newWarning);
+    const createdNotification = document.getElementsByClassName('notification')[document.getElementsByClassName('notification').length - 1];
+    setTimeout( function() {
+        closeDialog(createdNotification)
+    }, 5000);
+}
+
 function showError(message) {
     const notifications = document.getElementById('notifications');
     let newError = '';
-    newError += '<div class="notification">';
+    newError += '<div class="notification notification--error">';
     newError += '<img class="notification__error-icon" src="./css/images/error.svg" alt="Error">';
     newError += '<p class="notification__text">'+ message +'</p>';
     newError += '<img class="notification__close" src="./css/images/close-gray.svg" alt="Cerrar" onclick="closeDialog(this.parentElement)"></div>';
@@ -139,6 +154,11 @@ function toggleDaySelection(day, type){
     } else {
         day.classList.add(className);
     }
+}
+
+function showSpinner() {
+    locateModal();
+    document.getElementById('spinner').style.display = 'block';
 }
 
 export function locateModal() {
@@ -201,9 +221,11 @@ export function generatePagination(pages, currentPage, func){
 window.toggleMenu = toggleMenu;
 window.closeDialog = closeDialog;
 window.showNotification = showNotification;
+window.showWarning = showWarning;
 window.showError = showError;
 window.closeModal = closeModal;
 window.editCalendar = editCalendar;
 window.toggleDaySelection = toggleDaySelection;
 window.toggleFilter = toggleFilter;
 window.saveFestivos = saveFestivos;
+window.showSpinner = showSpinner;

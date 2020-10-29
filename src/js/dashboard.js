@@ -110,6 +110,19 @@ function confirmOtherYearCopy(copyAll) {
     document.getElementById('copyOtherYearCalendars').style.display = 'block';
 }
 
+function confirmOverwrite(calendars) {
+    locateModal();
+    const calendarsContainer = document.getElementById('overwrittenCalendars');
+    let html = '';
+    
+    for (let i = 0; i < calendars.length; i++) {
+        html += '<p>' + calendars[i] + '</p>';
+    }
+    
+    calendarsContainer.innerHTML = html;
+    document.getElementById('confirmOverwriteCopy').style.display = 'block';
+}
+
 function confirmDelete() {
     selectedCalendars = getChecked();
     const deleteModalText = document.getElementById('deleteModalText');
@@ -206,6 +219,18 @@ function unckeckRows() {
     tableControllers.style.display = 'none';
 }
 
+function loadOptions(options , selectId){
+
+    const selectCombo = document.getElementById(selectId);
+
+    for ( let i = 0; i < options.length; i++) {
+        const opt = document.createElement('option');
+        opt.appendChild(document.createTextNode(options[i].text));
+        opt.value = options[i].val;
+        selectCombo.appendChild(opt);
+    }
+}
+
 
 
 printTable();
@@ -218,3 +243,4 @@ window.confirmSameYearCopy = confirmSameYearCopy;
 window.confirmDelete = confirmDelete;
 window.printTable = printTable;
 window.modifyYear = modifyYear;
+window.confirmOverwrite = confirmOverwrite;

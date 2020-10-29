@@ -102,9 +102,11 @@ $(".datepicker").datepicker({
     maxDate: new Date(2020, 11, 31),
 });
 
-function confirmAllHolidayDelete(type) {
+function confirmAllHolidayDelete(type, deleteBtn) {
+    const datesContainerId = deleteBtn.parentElement.parentElement.nextElementSibling.id;
     const confirmModal = document.getElementById('deleteAllHoliday'); 
     document.getElementById('deletSelectedHoliday').innerHTML = holidayTypeDic[type].text;
+    document.getElementById('confirmAllBtn').setAttribute("value", datesContainerId);
     locateModal();
     confirmModal.style.display = 'block';
 }
@@ -177,14 +179,18 @@ function isIE() {
     return is_ie; 
 }
 
-if (!isIE()){
-    mdtimepicker({is24hour: true});
-} else {
-    $('.mdtimepicker-input').timepicker({
-        'timeFormat': 'H:i',
-        'scrollDefault': '8:00',
-    });
-}
+const isIEBrowser = isIE();
+
+mdtimepicker({is24hour: true});
+// if (!isIE()){
+//     mdtimepicker({is24hour: true});
+// } else {
+//     $('.mdtimepicker-input').timepicker({
+//         'timeFormat': 'H:i',
+//         'scrollDefault': '8:00',
+//         'orientation': 'r'
+//     });
+// }
 
 function createPDFfromHTML() {
     const pdfDisplay = document.getElementById('pdfDisplay');
@@ -197,19 +203,23 @@ function createPDFfromHTML() {
         scrollXAdjust = -300;
     }
 
-    html2canvas(pdfDisplay,{
-        scrollX: scrollXAdjust, 
-        scrollY: -window.scrollY,
+    const opt = {
         height: 1601,
         width: 882,
         windowWidth: 1260,
-    }).then(function (canvas) {
-        console.log(canvas)
+    }
+    if (!isIEBrowser) {
+        opt['scrollX'] = scrollXAdjust;
+        opt['scrollY'] = -window.scrollY;
+    } else {
+        opt['width'] = 910
+    }
+
+    html2canvas(pdfDisplay,opt).then(function (canvas) {
         const imgData = canvas.toDataURL("image/jpeg", 1.0);
         const pdf = new jsPDF('p', 'pt', 'a4');
         pdf.addImage(imgData, 'JPG', 75, 15, 460, 800);
         pdf.save("Calendario.pdf");
-        pdfDisplay.style.width = 'auto';
     });
 }
 

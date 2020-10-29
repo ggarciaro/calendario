@@ -5,7 +5,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1000;
+    z-index: 2000;
     display: none;
     color: $white-color;
     &__menu{
@@ -48,7 +48,7 @@
         }
 
         .footer{
-            display: flex;
+            display: none;
             align-items: center;
             margin-top: auto;
             border-top: 1px solid $main-color;
@@ -59,9 +59,16 @@
                 padding: 0.8rem 0.7rem;
                 font-size: 1.2rem;
                 border-radius: 10rem;
-                color: $main-color;
                 background-color: $white-color;
                 margin-right: 1.5rem;
+                min-width: 30px;
+                min-height: 30px;
+                box-sizing: border-box;
+                text-align: center;
+                a {
+                    color: $main-color;
+                    text-decoration: none;
+                }
             }
             .logout{
                 display: flex;
@@ -132,8 +139,15 @@
             padding: 0.8rem 0.7rem;
             font-size: 1.2rem;
             border-radius: 10rem;
-            color: $main-color;
             background-color: $white-color;
+            min-width: 30px;
+            min-height: 30px;
+            box-sizing: border-box;
+            text-align: center;
+            a {
+                color: $main-color;
+                text-decoration: none;
+            }
         }
         .logout{
             display: flex;
@@ -243,6 +257,13 @@
         &__secondary{
             .logo, .logout, .user{
                 display: none;
+            }
+        }
+    }
+    .responsive-content{
+        &__menu{
+            .footer{
+                display: flex;
             }
         }
     }
