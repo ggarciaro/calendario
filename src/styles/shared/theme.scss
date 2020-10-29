@@ -13,17 +13,17 @@ $green-color: #9fbf2a;
 @font-face{
     font-family: 'NeoSansStd-Light';
     src: url('./../public/assets/fonts/AM261_.ttf'),
-         url('./../public/assets/fonts/NeoSans-Light.otf');
+         url('./../public/assets/fonts/NeoSansPro-Light.woff');
 }
 @font-face{
     font-family: 'NeoSansStd-Regular';
     src: url('./../public/assets/fonts/AM263_.ttf'),
-         url('./../public/assets/fonts/NeoSans-Light.otf');
+         url('./../public/assets/fonts/NeoSansPro-Regular.woff');
 }
 @font-face{
     font-family: 'NeoSansStd-Medium';
     src: url('./../public/assets/fonts/AM265_.ttf'),
-         url('./../public/assets/fonts/NeoSans-Medium.otf');
+         url('./../public/assets/fonts/NeoSansPro-Medium.woff');
 }
 
 $light-font: 'NeoSansStd-Light';
