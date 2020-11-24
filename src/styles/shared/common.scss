@@ -57,6 +57,12 @@
             }
         }
     }
+
+    &--error{
+        .combo__options{
+            border-color: red;
+        }
+    }
 }
 
 .btn {
@@ -103,14 +109,10 @@
 }
 
 .custom-checkbox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 16px;
     height: 16px;
     position: relative;
     cursor: pointer;
-    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -141,16 +143,16 @@
         }
     }
 
-    & &__input:checked ~ &__checkmark{
+    &__input:checked ~ &__checkmark{
         background-color: $secondary-color;
         border: none;
     }
 
-    & &__input:checked ~ &__checkmark:after{
+    &__input:checked ~ &__checkmark:after{
         display: block;
     }
 
-    & &__checkmark:after{
+    &__checkmark:after{
         left: 5px;
         top: 2px;
         width: 4px;

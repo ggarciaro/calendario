@@ -225,14 +225,18 @@
                         display: flex;
                     }
 
-                    .col:first-child{
-                        cursor: auto;
+                    .col{
+                        &--xxl{
+                            justify-content: flex-start;
+                        }
+                        &:first-child{
+                            cursor: auto;
+                        }
+                        &:nth-child(2){
+                            color: $main-color;
+                        }
                     }
-
-                    .col:nth-child(2){
-                        color: $main-color;
-                    }
-
+                    
                     &--review{
                         background-color: #fff3d5;
                         &:hover{

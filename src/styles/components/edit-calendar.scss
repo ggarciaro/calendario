@@ -1,5 +1,9 @@
 @import '../shared/theme.scss';
 
+.date-picker{
+    max-width: 1200px;
+}
+
 .date-picker .modal{
     &__body{
         border-bottom: 1px solid $gray-color;

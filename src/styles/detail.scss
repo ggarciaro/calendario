@@ -204,7 +204,7 @@
                     color: $main-color;
                     box-sizing: border-box;
                 }
-                input[type=text]{
+                input[type=text], input[type=number]{
                     width: 150px;
                     border: 2px solid $gray-color;
                     outline: none;
@@ -281,6 +281,12 @@
                 &--fulfill{
                     flex-basis: 50%;
                 }
+
+                &--error{
+                    input[type=text]{
+                        border-color: red;
+                    }
+                }
             }
             .double-field{
                 display: flex;
@@ -338,6 +344,10 @@
                         margin-right: 0.5rem;
                     }
                 }
+            }
+
+            &--center{
+                justify-content: space-around;
             }
         }
     } 
@@ -725,7 +735,7 @@
     }
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 800px){
     .detail{
         &__body{
             flex-direction: column;

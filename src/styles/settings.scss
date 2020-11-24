@@ -29,6 +29,28 @@
     .holiday{
         display: none;
     }
+
+    &--national{
+        .filters{
+            &__options{
+                .combo{
+                    max-width: 460px;
+                    width: 100%;
+                    flex-grow: 0;
+                }
+            }
+        }
+    }
+
+    &--autonom{
+        .filters{
+            &__options{
+                .combo{
+                    max-width: 33%;
+                }
+            }
+        }
+    }
 }
 
 .pagination{
