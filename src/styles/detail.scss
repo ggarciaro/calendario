@@ -3,6 +3,7 @@
 .detail{
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     &__header{
         display: flex;
@@ -25,13 +26,16 @@
 
             &__btns{
                 display: flex;
-                .btn:first-child{
+                align-items: center;
+                .btn{
                     margin-right: 1rem;
+                    min-width: 80px;
+                    text-align: center;
                 }
             }
 
             &__close{
-                margin-left: 2rem;
+                margin-left: 1rem;
                 cursor: pointer;
             }
         }
@@ -190,6 +194,40 @@
             justify-content: space-between;
             margin: 0 2rem;
             padding: 2rem 0;
+            .checkbox-group{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 100%;
+                
+                &__subgroup{
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                
+                .field{
+                    justify-content: flex-start;
+                    width: 180px;
+                    &__tag{
+                        width: 90px;
+                    }
+                }
+
+                &>.field{
+                    width: auto;
+                    .field{
+                        &__additional{
+                            max-width: 140px;
+                            padding-left: 25px;
+                            font-size: 1.1rem;
+                            font-style: italic;
+                            color: $main-color;
+                            line-height: 15px;
+                            text-align: left;
+                        }
+                    }
+                }
+            }
             .field{
                 display: flex;
                 align-items: center;
@@ -283,7 +321,7 @@
                 }
 
                 &--error{
-                    input[type=text]{
+                    input[type=text], input[type=number]{
                         border-color: red;
                     }
                 }
@@ -489,6 +527,10 @@
                 line-height: 1.6rem;
             }
         }
+    }
+
+    .note-noPDF{
+        margin-bottom: 20px;
     }
 
     .timetable{
@@ -749,6 +791,7 @@
             position: absolute;
             display: none;
             width: 100vw;
+            height: 100%;
 
             .aside-background{
                 display: flex;

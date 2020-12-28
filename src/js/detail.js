@@ -223,6 +223,15 @@ function createPDFfromHTML() {
     });
 }
 
+function exportCalendar() {
+    const confirmGepModal = document.getElementById('confirmGEPModal');
+
+
+    // Show modal
+    locateModal();
+    confirmGepModal.style.display = 'block';
+}
+
 
 
 window.selectTab = selectTab;
@@ -237,3 +246,4 @@ window.toggleResponsiveResume = toggleResponsiveResume;
 window.toggleLegendTablet = toggleLegendTablet;
 window.showLegendModal = showLegendModal;
 window.createPDFfromHTML = createPDFfromHTML;
+window.exportCalendar = exportCalendar;

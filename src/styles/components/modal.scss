@@ -75,6 +75,7 @@
                     border-color: $gray-color;
                     color: $gray-color;
                     cursor: not-allowed;
+                    pointer-events: none;
 
                     &:hover{
                         background-color: transparent;
@@ -86,20 +87,107 @@
     }
 }
 
-.confirm-modal .modal{
-    &__body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 3rem 3rem 2.5rem 3rem;
-        p{
-            font-size: 1.3rem;
+.confirm-modal{
+    .modal{
+        &__body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 3rem 2.5rem 3rem;
+            p{
+                font-size: 1.3rem;
+            }
+
+            .gep-table{
+                display: flex;
+                flex-direction: column;
+                font-size: 1.3rem;
+                min-width: 40vw;
+                width: 100%;
+                overflow-y: auto;
+                margin-bottom: 50px;
+                
+                &__header, &__row{
+                    display: flex;
+
+                    .col{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1rem;
+                        width: calc(100% / 3);
+                        word-break: break-all;
+                        text-align: center;
+
+                        &__item{
+                            color: #000000;
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+
+                &__header{
+                    font-family: $medium-font;
+                    color: $main-color;
+                    border-bottom: 1px solid $selected-color;
+                }
+
+                &__row{
+                    border-bottom: 1px solid $gray-color;
+                    .col:first-of-type{
+                        font-family: $medium-font;
+                    }
+
+                    &--no-border,
+                    &:last-of-type{
+                        border-bottom: none;
+                    }
+                }
+
+                &--show{
+                    width: auto;
+                    .col{
+                        width: 50%;
+                    }
+                }
+
+            }
+        }
+        &__footer{
+            justify-content: center;
+            .btn-container{
+                margin-left: 0;
+            }
         }
     }
-    &__footer{
-        justify-content: center;
-        .btn-container{
-            margin-left: 0;
+
+    &--gep{
+        max-width: 1200px;
+
+        .modal{
+            &__body{
+                display: flex;
+                flex-direction: column;
+
+                .gep-title{
+                    font-family: $medium-font;
+                    font-size: 1.8rem;
+                    color: $main-color;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        .gep-error-user{
+            text-align: center;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: red;
+
+            &--hide{
+                display: none;
+            }
         }
     }
 }

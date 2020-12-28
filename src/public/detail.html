@@ -85,6 +85,7 @@
                     <h2 class="header-text">K9 - Calendario laboral Barcelona 2020</h2>
                     <div class="header-controllers">
                         <div class="header-controllers__btns">
+                            <div class="btn" onclick="exportCalendar()">Exportar a GEP</div>
                             <div class="btn btn--disabled">Guardar</div>
                             <div class="btn">Calcular</div>
                         </div>
@@ -265,26 +266,38 @@
                                         <label>Días de vacaciones:</label>
                                         <input id="calendariosVO_diasVacaciones" type="text" readonly>
                                     </div>
-                                    <div class="field field--checkbox">
-                                        <p class="field__tag">Indicador RSS</p>
-                                        <label class="custom-checkbox">
-                                            <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
-                                            <span class="custom-checkbox__checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <div class="field field--checkbox">
-                                        <p class="field__tag">Indicador Navidad</p>
-                                        <label class="custom-checkbox">
-                                            <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
-                                            <span class="custom-checkbox__checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <div class="field field--checkbox">
-                                        <p class="field__tag">Indicador Intensiva</p>
-                                        <label class="custom-checkbox">
-                                            <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
-                                            <span class="custom-checkbox__checkmark"></span>
-                                        </label>
+                                    <div class="checkbox-group">
+                                        <div class="field field--checkbox">
+                                            <p class="field__tag">GEP solo horas</p>
+                                            <label class="custom-checkbox">
+                                                <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
+                                                <span class="custom-checkbox__checkmark"></span>
+                                            </label>
+                                            <p class="field__additional">Ult. modificación:<br>Juan 22/2/2020</p>
+                                        </div>
+                                        <div class="checkbox-group__subgroup">
+                                            <div class="field field--checkbox">
+                                                <p class="field__tag">Indicador RSS</p>
+                                                <label class="custom-checkbox">
+                                                    <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
+                                                    <span class="custom-checkbox__checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div class="field field--checkbox">
+                                                <p class="field__tag">Indicador Navidad</p>
+                                                <label class="custom-checkbox">
+                                                    <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
+                                                    <span class="custom-checkbox__checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div class="field field--checkbox">
+                                                <p class="field__tag">Indicador Intensiva</p>
+                                                <label class="custom-checkbox">
+                                                    <input class="custom-checkbox__input" type="checkbox" onclick="toggleCheckAll(this.checked)" id="globalCheckbox">
+                                                    <span class="custom-checkbox__checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1579,7 +1592,8 @@
                                             </tr>
                                             <tr>
                                                 <td class="br-light" colspan="3"><span class="inline-title">Jornada total:</span> 1800 horas</td>
-                                                <td colspan="4"><span class="inline-title">Tiempo de comida:</span> 1:00 - 2:00 horas</td>
+                                                <td class="br-light" colspan="2"><span class="inline-title">Tiempo de comida:</span> 1:00 - 2:00 horas</td>
+                                                <td colspan="2"><span class="inline-title">Periodo intensiva:</span> 01/07/20 - 31/08/20</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1593,6 +1607,7 @@
                                         <p class="informative-box__text--aux">A disfrutar dentro del año natural. Se recuerda que únicamente podrán extender el disfrute de las vacaciones, durante el primer trimestre del año siguiente, aquellas personas asignadas a proyeectos / actividades en los que no ha sido posible el disfrute de las vacaciones antes del 31 de diciembre por cicunstancias del proyecto / actividad y de mutuo acuerdo.</p>
                                     </div>
                                 </div>
+                                <p class="note-noPDF">Esto es un texto de prueba</p>
                             </div>
                             <div class="btn btn--right" onclick="createPDFfromHTML()">Descargar PDF</div>
                         </div>
@@ -2564,6 +2579,135 @@
                 <div class="modal__footer legend-modal__footer">
                     <div class="btn-container">
                         <div class="modal-btn" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cerrar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal confirm-modal confirm-modal--gep" id="confirmGEPModal" style="display: none;">
+                <div class="modal__header">
+                    <h3 id="confirmTitle">Confirmar exportación</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <h2 class="gep-title">Comparación con GEP</h2>
+                    <div class="gep-table">
+                        <div class="gep-table__header">
+                            <div class="col">Campo</div>
+                            <div class="col">Nueva información</div>
+                            <div class="col">GEP</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Año</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Código calendario</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Descripción calendario</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Comunidad Autónoma</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Jornada convenio</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Jor. diaria invierno</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Jor. diaria viernes</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Jor. diaria verano</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Fiestas y días inhabiles</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Fiestas locales</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Fiestas autonómicas</div>
+                            <div class="col">
+                                <p class="col__item">2/2/2020</p>
+                                <p class="col__item">2/2/2020</p>
+                                <p class="col__item">2/2/2020</p>
+                            </div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Fiestas nacionales</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Días de vacaciones</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row gep-table__row--no-border">
+                            <div class="col">Días de libre disposición</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Horas de libre disposición</div>
+                            <div class="col">2020</div>
+                            <div class="col">2021</div>
+                        </div>
+                    </div>
+                    <h2 class="gep-title">Datos a exportar</h2>
+                    <div class="gep-table gep-table--show">
+                        <div class="gep-table__header">
+                            <div class="col">Campo</div>
+                            <div class="col">Nueva información</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Fiestas autonómicas</div>
+                            <div class="col">
+                                <p class="col__item">2/2/2020</p>
+                                <p class="col__item">2/2/2020</p>
+                                <p class="col__item">2/2/2020</p>
+                            </div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Fiestas nacionales</div>
+                            <div class="col">2020</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Días de vacaciones</div>
+                            <div class="col">2020</div>
+                        </div>
+                        <div class="gep-table__row">
+                            <div class="col">Días de libre disposición</div>
+                            <div class="col">2020</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="gep-error-user">Usuario sin permisos de exportación</p>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn" id="cancelModalBtn">Cancelar</div>
+                        <div class="modal-btn" id="confirmModalBtn">Exportar</div>
                     </div>
                 </div>
             </div>

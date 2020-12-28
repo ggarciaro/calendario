@@ -167,6 +167,7 @@
 
 .content{
     display: flex;
+    width: 100%;
 }
 
 .side-bar{
@@ -207,6 +208,10 @@
     max-height: calc(100vh - 60px);
     overflow: auto;
     scroll-behavior: smooth;
+
+    &--preview{
+        width: 100vw;
+    }
 }
 
 
