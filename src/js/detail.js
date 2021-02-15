@@ -13,6 +13,13 @@ function selectTab (id){
     document.getElementById(tab + 'Display').classList.add('detail__display--selected');
 }
 
+function showCommentsModal() {
+    locateModal();
+    document.getElementById('commentsModal').style.display = 'block';
+
+    document.getElementById('nuevoComentarioText').value = '';
+}
+
 function showTemplateModal() {
     locateModal();
     document.getElementById('templateModal').style.display = 'block';
@@ -235,6 +242,7 @@ function exportCalendar() {
 
 
 window.selectTab = selectTab;
+window.showCommentsModal = showCommentsModal;
 window.showTemplateModal = showTemplateModal;
 window.selectRow = selectRow;
 window.importTemplate = importTemplate;
