@@ -14,6 +14,7 @@ module.exports = {
         settings: './src/js/settings.js',
         dashboard: './src/js/dashboard.js',
         detail: './src/js/detail.js',
+        profiles: './src/js/profiles.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'), // carpeta donde pondremos la build
@@ -77,6 +78,11 @@ module.exports = {
             filename: 'detail.html',
             template: 'src/public/detail.html',
             chunks: ['common', 'detail'],
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'profiles.html',
+            template: 'src/public/profiles.html',
+            chunks: ['common', 'profiles'],
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',

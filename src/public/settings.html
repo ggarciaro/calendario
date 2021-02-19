@@ -62,13 +62,16 @@
                 <a class="side-bar__link" href="./settings.html">
                     <img class="side-bar__icon side-bar__icon--selected" src="./assets/img/navbar/setting.svg" alt="configuracion" id="settings">
                 </a>
-                <img class="side-bar__carousel" src="./assets/img/navbar/carousel-arrow-right.svg" alt="carousel" id="carousel">
+                <a class="side-bar__link" href="./profiles.html">
+                    <img class="side-bar__icon" src="./assets/img/navbar/user.svg"
+                        alt="perfiles" id="profiles">
+                </a>
             </nav>
             <div class="wrapper">
             <!-- Empieza aqui el modulo de configuracion -->
-                <header class="holiday-selector">
-                    <p class="holiday-selector__option holiday-selector__option--selected" id="autonomicTab" onclick="toggleHoliday(this.id)">Fiestas autonómicas</p>
-                    <p class="holiday-selector__option" id="nationalTab" onclick="toggleHoliday(this.id)">Fiestas nacionales</p>
+                <header class="tab-selector">
+                    <p class="tab-selector__option tab-selector__option--selected" id="autonomicTab" onclick="toggleHoliday(this.id)">Fiestas autonómicas</p>
+                    <p class="tab-selector__option" id="nationalTab" onclick="toggleHoliday(this.id)">Fiestas nacionales</p>
                 </header>
                 <div class="holiday-section" id="autonomicSection">
                     <div class="card filters">

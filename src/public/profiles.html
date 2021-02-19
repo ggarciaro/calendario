@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__main">
+            <img class="app-icon" src="./assets/img/navbar/app.svg" alt="app">
+            <img src="./assets/img/common/hamburger-menu.svg" alt="Menu" class="hamburger-menu" onclick="toggleMenu()">
+            <p class="section">Calendarios laborales</p>
+            <p class="section section--aux">Consultas <span>></span> Calendario</p>
+        </div>
+        <div class="navbar__secondary">
+            <img class="search" src="./assets/img/navbar/buscar.svg" alt="buscar">
+            <img class="plus" src="./assets/img/navbar/plus-white.svg" alt="mas">
+            <img class="help" src="./assets/img/navbar/help.svg" alt="ayuda">
+            <img class="notification" src="./assets/img/navbar/notifications.svg" alt="notificacion">
+            <div class="user">AG</div>
+            <div class="logout">
+                <img src="./assets/img/navbar/logout.svg" alt="Salir">
+                <p class="logout__text">Salir</p>
+            </div>
+            <div class="logo">
+                <img src="./assets/img/navbar/logo.svg" alt="Logo Indra">
+            </div>
+        </div>
+    </nav>
+    <div class="responsive-content" id="responsiveContent">
+        <div class="responsive-content__menu">
+            <div class="header">
+                <h4>Calendarios Laborales</h4>
+                <img src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="toggleMenu()">
+            </div>
+            <div class="links">
+                <div class="links__item links__item--selected" onclick="window.location.href = './index.html'">
+                    <img src="./assets/img/navbar/dashboard.svg" alt="Icon">
+                    <p>Consultas</p>
+                </div>
+                <div class="links__item" onclick="window.location.href = './settings.html'">
+                    <img src="./assets/img/navbar/setting.svg" alt="Icon">
+                    <p>Configuración</p>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="user">AG</div>
+                <div class="logout">
+                    <img src="./assets/img/navbar/logout.svg" alt="Salir">
+                    <p class="logout__text">Salir</p>
+                </div>
+            </div>
+        </div>
+        <div class="responsive-content__background" id="responsiveBackground"></div>
+    </div>
+    <div class="content">
+        <nav class="side-bar" id="sideBar">
+            <a class="side-bar__link" href="./index.html">
+                <img class="side-bar__icon" src="./assets/img/navbar/dashboard.svg" alt="dashboard" id="dashboard">
+            </a>
+            <a class="side-bar__link" href="./settings.html">
+                <img class="side-bar__icon" src="./assets/img/navbar/setting.svg" alt="configuracion" id="settings">
+            </a>
+            <a class="side-bar__link" href="./profiles.html">
+                <img class="side-bar__icon side-bar__icon--selected" src="./assets/img/navbar/user.svg" alt="perfiles"
+                    id="profiles">
+            </a>
+        </nav>
+        <div class="wrapper">
+            <!-- Empieza el contenido de la pagina -->
+            <header class="tab-selector">
+                <p class="tab-selector__option tab-selector__option--selected" id="profilesAdminTab"
+                    onclick="toggleHoliday(this.id)">Administración de perfiles</p>
+                <p class="tab-selector__option" id="usersListTab" onclick="toggleHoliday(this.id)">Listado de usuarios
+                </p>
+            </header>
+            <div class="profile-section">
+                <div class="filters dashboard__resume">
+                    <div class="filters__main">
+                        <p class="filters__results"><span id="totalRegisters"></span>registros</p>
+                        <div class="filters__toggle" onclick="toggleFilter(this.parentElement.parentElement)">
+                            <img src="./assets/img/common/filters.svg" alt="Filtros">
+                            <p><span id="filterToggleTxt">Mostrar</span> filtros</p>
+                        </div>
+                    </div>
+                    <div class="filters__options filters__options--hide">
+
+                        <div class="btn-container">
+                            <div class="filter-btn">Buscar</div>
+                        </div>
+
+                    </div>
+                    <div class="btn new-profile">Nuevo perfil</div>
+                    <div class="table">
+                        <div class="table__header">
+                            <div>Nombre</div>
+                            <div>Rol</div>
+                            <div>Exportar GEP</div>
+                            <div>Estado</div>
+                            <div>Paises</div>
+                            <div></div>
+                        </div>
+                        <div class="table__body">
+                            <div class="row">
+                                <div>Perfil_1</div>
+                                <div>Consulta</div>
+                                <div>
+                                    <img src="./assets/img/common/checkmark.svg" alt="ok">
+                                </div>
+                                <div>
+                                    <span class="state-tag state-tag--green">Activo</span>
+                                </span></div>
+                                <div class="country-container">
+                                    <p>España</p>
+                                    <p>Portugal</p>
+                                </div>
+                                <div class="btn-container">
+                                    <img src="./assets/img/common/pencil.svg" alt="edit">
+                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>Perfil_2</div>
+                                <div>Consulta - Edición</div>
+                                <div></div>
+                                <div>
+                                    <span class="state-tag state-tag--red">No activo</span>
+                                </span></div>
+                                <div class="country-container">
+                                    <p>España</p>
+                                </div>
+                                <div class="btn-container">
+                                    <img src="./assets/img/common/pencil.svg" alt="edit">
+                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>Perfil_3</div>
+                                <div>Consulta - Edición</div>
+                                <div>
+                                    <img src="./assets/img/common/checkmark.svg" alt="ok">
+                                </div>
+                                <div>
+                                    <span class="state-tag state-tag--green">Activo</span>
+                                </span></div>
+                                <div class="country-container">
+                                    <p>España</p>
+                                    <p>Portugal</p>
+                                    <p>Brasil</p>
+                                </div>
+                                <div class="btn-container">
+                                    <img src="./assets/img/common/pencil.svg" alt="edit">
+                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>Perfil_4</div>
+                                <div>Consulta</div>
+                                <div></div>
+                                <div>
+                                    <span class="state-tag state-tag--red">No activo</span>
+                                </span></div>
+                                <div class="country-container">
+                                    <p>Multipais</p>
+                                </div>
+                                <div class="btn-container">
+                                    <img src="./assets/img/common/pencil.svg" alt="edit">
+                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
