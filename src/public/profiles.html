@@ -79,7 +79,7 @@
                 </p>
             </header>
             <div class="profile-section">
-                <div class="filters dashboard__resume">
+                <div class="filters">
                     <div class="filters__main">
                         <p class="filters__results"><span id="totalRegisters"></span>registros</p>
                         <div class="filters__toggle" onclick="toggleFilter(this.parentElement.parentElement)">
@@ -88,13 +88,44 @@
                         </div>
                     </div>
                     <div class="filters__options filters__options--hide">
-
+                        <input class="field" type="text" placeholder="Nombre">
+                        <div class="combo">
+                            <div class="combo__options">
+                                <select>
+                                    <option selected hidden>Todos los roles</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div class="combo__options">
+                                <select>
+                                    <option selected hidden>Exportar GEP</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div class="combo__options">
+                                <select>
+                                    <option selected hidden>Todos los estados</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div class="combo__options">
+                                <select>
+                                    <option selected hidden>Todos los países</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="btn-container">
                             <div class="filter-btn">Buscar</div>
+                            <div class="filter-btn">Limpiar</div>
                         </div>
 
                     </div>
-                    <div class="btn new-profile">Nuevo perfil</div>
+                </div>
+                <div class="btn new-profile" onclick="crearNuevoPerfil()">Nuevo perfil</div>
+                <div class="profiles-list">
                     <div class="table">
                         <div class="table__header">
                             <div>Nombre</div>
@@ -104,7 +135,7 @@
                             <div>Paises</div>
                             <div></div>
                         </div>
-                        <div class="table__body">
+                        <div class="table__body" id="contenidoTablaPerfiles">
                             <div class="row">
                                 <div>Perfil_1</div>
                                 <div>Consulta</div>
@@ -113,14 +144,16 @@
                                 </div>
                                 <div>
                                     <span class="state-tag state-tag--green">Activo</span>
-                                </span></div>
+                                    </span></div>
                                 <div class="country-container">
                                     <p>España</p>
                                     <p>Portugal</p>
                                 </div>
                                 <div class="btn-container">
-                                    <img src="./assets/img/common/pencil.svg" alt="edit">
-                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                    <img src="./assets/img/common/pencil.svg" alt="editar" title="editar">
+                                    <img src="./assets/img/common/delete.svg" alt="eliminar" title="eliminar">
+                                    <img class="copy" src="./assets/img/dashboard/copy-blue.svg" alt="crear copia"
+                                        title="crear copia">
                                 </div>
                             </div>
                             <div class="row">
@@ -129,13 +162,15 @@
                                 <div></div>
                                 <div>
                                     <span class="state-tag state-tag--red">No activo</span>
-                                </span></div>
+                                    </span></div>
                                 <div class="country-container">
                                     <p>España</p>
                                 </div>
                                 <div class="btn-container">
-                                    <img src="./assets/img/common/pencil.svg" alt="edit">
-                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                    <img src="./assets/img/common/pencil.svg" alt="editar" title="editar">
+                                    <img src="./assets/img/common/delete.svg" alt="eliminar" title="eliminar">
+                                    <img class="copy" src="./assets/img/dashboard/copy-blue.svg" alt="crear copia"
+                                        title="crear copia">
                                 </div>
                             </div>
                             <div class="row">
@@ -146,15 +181,17 @@
                                 </div>
                                 <div>
                                     <span class="state-tag state-tag--green">Activo</span>
-                                </span></div>
+                                    </span></div>
                                 <div class="country-container">
                                     <p>España</p>
                                     <p>Portugal</p>
                                     <p>Brasil</p>
                                 </div>
                                 <div class="btn-container">
-                                    <img src="./assets/img/common/pencil.svg" alt="edit">
-                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                    <img src="./assets/img/common/pencil.svg" alt="editar" title="editar">
+                                    <img src="./assets/img/common/delete.svg" alt="eliminar" title="eliminar">
+                                    <img class="copy" src="./assets/img/dashboard/copy-blue.svg" alt="crear copia"
+                                        title="crear copia">
                                 </div>
                             </div>
                             <div class="row">
@@ -163,21 +200,73 @@
                                 <div></div>
                                 <div>
                                     <span class="state-tag state-tag--red">No activo</span>
-                                </span></div>
+                                    </span></div>
                                 <div class="country-container">
-                                    <p>Multipais</p>
+                                    <p title="España&#10;Marruecos&#10;">. . .</p>
                                 </div>
                                 <div class="btn-container">
-                                    <img src="./assets/img/common/pencil.svg" alt="edit">
-                                    <img src="./assets/img/common/delete.svg" alt="delete">
+                                    <img src="./assets/img/common/pencil.svg" alt="editar" title="editar">
+                                    <img src="./assets/img/common/delete.svg" alt="eliminar" title="eliminar">
+                                    <img class="copy" src="./assets/img/dashboard/copy-blue.svg" alt="crear copia"
+                                        title="crear copia">
                                 </div>
                             </div>
                         </div>
+                        <div class="table__footer">
+                            <p>Mostrando <span id="displayedProfiles"></span> de <span id="totalProfiles"></span> resultados</p>
+                            <div class="pagination" id="paginationProfilesTable"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-container"  id="popUp" style="display: none;">
+        <div class="modal-container__content">
+            <div class="modal perfil-modal" id="perfilModal" style="display: none;">
+                <div class="modal__header">
+                    <h3>Nuevo perfil</h3>
+                    <img class="close-icon" src="./assets/img/common/close-white.svg" alt="Cerrar" onclick="closeModal(this.parentElement.parentElement)">
+                </div>
+                <div class="modal__body">
+                    <div class="field">
+                        <label>Nombre:</label>
+                        <input id="" type="text">
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="field field--checkbox">
+                            <p class="field__tag">Permiso edición</p>
+                            <label class="custom-checkbox">
+                                <input class="custom-checkbox__input" type="checkbox" onclick="toggleGEPcheckbox(this.checked)" id="checkboxEdicionPerfil">
+                                <span class="custom-checkbox__checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="field field--checkbox field--disabled" id="gepPerfilField">
+                            <p class="field__tag">Permiso exportar GEP</p>
+                            <label class="custom-checkbox">
+                                <input class="custom-checkbox__input" type="checkbox" id="checkboxGEPPerfil">
+                                <span class="custom-checkbox__checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="field field--checkbox">
+                            <p class="field__tag">Crear como inactivo</p>
+                            <label class="custom-checkbox">
+                                <input class="custom-checkbox__input" type="checkbox" id="checkboxActivoPerfil">
+                                <span class="custom-checkbox__checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <div class="btn-container">
+                        <div class="modal-btn modal-btn--secondary" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancelar</div>
+                        <div class="modal-btn" onclick="finishCalendarEdition()">Aceptar</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
 </body>
 
 </html>

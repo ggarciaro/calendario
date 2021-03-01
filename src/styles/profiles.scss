@@ -3,16 +3,41 @@
 .profile-section{
     padding: 1rem 2rem;
     max-width: 1200px;
+    box-sizing: border-box;
 
+    .profiles-list{
+        box-sizing: border-box;
+        width: 100%;
+        overflow: auto;
+    }
+    
+    .filters{
+        width: 100%;
+        &__options{
+            $filter-options-num: 5;
+            .field, .combo{
+                max-width: calc((100% / #{$filter-options-num}) - 2.5rem);
+                min-width: 0;
+            }
+            
+            .btn-container{
+                width: 100%;
+            }
+        }
+    }
+    
     .new-profile{
         margin: 2rem 0 1rem auto;
         text-align: center;
+        width: 100px;
     }
     
     .table{
         $column-num: 5;
         font-size: 1.2rem;
-        margin-top: 1rem;
+        margin-top: 2rem;
+        min-width: 1030px;
+        width: 100%;
 
         &__header, &__body .row{
             display: flex;
@@ -31,37 +56,163 @@
             font-weight: bold;
         }
         
-        &__body .row{
-            min-height: 40px;
-            border-bottom: 1px solid $gray-color;
-
-            >div:first-of-type{
-                font-weight: bold;
-            }
-
-            .btn-container{
-                display: flex;
-                justify-content: center;
-
-                img{
-                    margin-right: 3rem;
-                    width: 1.7rem;
-                    padding: 0.5rem;
-                    border-radius: 50%;
-                    cursor: pointer;
-
-                    &:hover{
-                        background-color: $selected-color;
+        &__body {
+            margin-bottom: 1rem;
+            
+            .row{
+                display: none;
+                min-height: 40px;
+                border-bottom: 1px solid $gray-color;
+    
+                &--show{
+                    display: flex;
+                }
+    
+                >div:first-of-type{
+                    font-weight: bold;
+                }
+    
+                .btn-container{
+                    display: flex;
+                    justify-content: center;
+    
+                    img{
+                        margin-right: 3rem;
+                        width: 1.7rem;
+                        padding: 0.5rem;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        
+                        &.copy{
+                            width: 1.5rem;
+                            padding: 0.25rem 0.6rem;
+                        }
+                        
+                        &:hover{
+                            background-color: $selected-color;
+                        }
                     }
                 }
+    
+                .country-container p {
+                    margin: 0.5rem 0;
+                    cursor: default;
+                }
+    
+                &:hover{
+                    background-color: $light-gray-color;
+                }
             }
+        }
 
-            .country-container p {
-                margin: 0.5rem 0;
+        &__footer{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.4rem;
+            padding: 2rem 0 2rem 1rem;
+            p{
+                color: $secondary-color;
             }
+        }
+    }
 
-            &:hover{
-                background-color: $light-gray-color;
+}
+
+.perfil-modal{
+    width: 100%;
+    .modal{
+        &__body{
+            padding: 2rem;
+        }
+    }
+    .field{
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0;
+        min-width: 200px;
+        label{
+            text-align: right;
+            width: calc(100px - 1rem);
+            margin-right: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+            color: $main-color;
+            box-sizing: border-box;
+        }
+        input[type=text]{
+            flex-grow: 1;
+            border: 2px solid $gray-color;
+            outline: none;
+            padding: 0.6rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+            color: $main-color;
+            box-sizing: border-box;
+        }
+        &--checkbox{
+            .field__tag{
+                margin-right: 1rem;
+            }
+            .custom-checkbox{
+                width: 20px;
+            }
+        }
+        &--error{
+            input[type=text]{
+                border-color: red;
+            }
+        }
+
+        &--disabled{
+            opacity: 0.5;
+            .custom-checkbox{
+                cursor: auto;
+                pointer-events: none;
+            }
+        }
+    }
+    .checkbox-group{
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .filter{
+        justify-content: space-around;
+    }
+
+    .filters{
+        &__options{
+            .field, .combo{
+                flex-grow: 0 !important;
+                width: calc(50% - 2.5rem);
+                max-width: 50% !important;
+            }
+        }
+    }
+
+    .table-controller{
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .filter{
+        .combo-container{
+            flex-direction: column;
+        }
+    }
+
+    .filters{
+        &__options{
+            .field, .combo{
+                width: 100%;
+                max-width: 100% !important;
             }
         }
     }
